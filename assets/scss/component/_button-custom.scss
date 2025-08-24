@@ -23,6 +23,7 @@
   padding-bottom: 13px;
 }
 
+/*btn-outline-primary按鈕*/
 .btn.btn-outline-primary {
   @include button-variant(
   white,      
@@ -68,6 +69,7 @@
   padding: 8px 22px;
 }
 
+/*footer的nav*/
 .btn-nav-bottom {
   color: $neutral-400;
   font-size: 12px;
