@@ -1,0 +1,83 @@
+/*btn-primary按鈕*/
+.btn.btn-primary {
+  @include button-variant(
+  $primary-500,      
+  $primary-500,          
+  $color: white,      
+  $hover-background: $primary-600,
+  $hover-border: $primary-600,
+  $hover-color: white,
+  $active-background: $primary-600,
+  $active-border: $primary-600,
+  $active-color: white,
+  $disabled-background: rgba($primary, 0.6),
+  $disabled-border: rgba($primary, 0.6),
+  $disabled-color: white
+  );
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  border-radius: 100px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.btn.btn-outline-primary {
+  @include button-variant(
+  white,      
+  $primary-600,          
+  $color: $primary-600,      
+  $hover-background: $primary-100,
+  $hover-border: $primary-600,
+  $hover-color: $primary-600,
+  $active-background: $primary-100,
+  $active-border: $primary-600,
+  $active-color: $primary-600,
+  $disabled-background: rgba($primary-100, 0.6),
+  $disabled-border: rgba($primary-600, 0.6),
+  $disabled-color: $primary-600
+  );
+  color: $primary-600;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  border-radius: 100px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+/*btn-login按鈕*/
+.btn.btn-login {
+  @include button-variant(
+  $neutral-0,      
+  $neutral-100,          
+  $color: $primary-700,      
+  $hover-background: $primary-100,
+  $hover-border: $neutral-100,
+  $hover-color: $primary-700,
+  $active-background: $primary-100,
+  $active-border: $neutral-100,
+  $active-color: $primary-700,
+  );
+  color: $primary-700;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2; 
+  border-radius: 100px;
+  padding: 8px 22px;
+}
+
+.btn-nav-bottom {
+  color: $neutral-400;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2; 
+  &.active {
+    color: $primary-600; // 保持「選中」時的顏色
+  }
+  &:hover {
+    color: $primary-600; // 碰到 svg 或文字都會變色
+  }
+}
+

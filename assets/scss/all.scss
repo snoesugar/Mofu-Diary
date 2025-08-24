@@ -1,5 +1,22 @@
-@import './layout/header.scss';
-@import './layout/footer.scss';
+/* 字體 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
 
+/* Bootstrap 基礎必須先引入 */
+@import "../../node_modules/bootstrap/scss/functions";
 
-@import './pages/index.scss';
+/*修改變數*/
+@import "./helpers/variables";  
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "./helpers/utilities";   
+
+/*component*/
+@import "./component/button-custom"; 
+
+/* Bootstrap 主體 (會根據上面修改的 $utilities 來生成 .fw-xxx 類別) */
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+/* 其他自訂樣式 */
+@import "./layout/header.scss";
+@import "./layout/footer.scss";
+@import "./pages/index.scss";
