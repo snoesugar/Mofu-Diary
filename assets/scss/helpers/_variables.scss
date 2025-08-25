@@ -447,7 +447,7 @@ $enable-cssgrid:              false !default;
 $enable-button-pointers:      true !default;
 $enable-rfs:                  false !default;//true !default; custom
 $enable-validation-icons:     true !default;
-$enable-negative-margins:     false !default;
+$enable-negative-margins:     true;//false !default; custom
 $enable-deprecation-messages: true !default;
 $enable-important-utilities:  true !default;
 
