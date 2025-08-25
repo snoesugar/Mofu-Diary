@@ -1,0 +1,44 @@
+.roof {
+  background: url(/assets/images/總覽/roof.png) no-repeat center center;
+  background-color: #e8f6ff;
+  background-position: contain;
+  padding-top: 44.75px;
+  padding-bottom: 44.75px;
+}
+
+.o-cat {
+  width: 93px; 
+  height: 127px;
+}
+
+.o-text {
+  padding: 7.5px 6.5px;
+  margin-left: 2px;
+  margin-top: 40px;
+}
+
+//日期
+.table-layout-fixed {
+  table-layout: fixed;
+}
+
+.table-layout-fixed th,
+.table-layout-fixed td {
+  width: calc(100% / 7); /* 7 欄平均分 */
+  text-align: center;
+}
+
+.date-circle {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  margin: 6px;
+}
+
+.cat-mood {
+  padding: 2px 4px;
+}
+
+.cat-search {
+  padding: 19px 47px 20px 47px;
+}
