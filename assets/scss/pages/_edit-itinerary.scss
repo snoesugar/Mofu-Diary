@@ -1,0 +1,31 @@
+.container {
+    background: url(../assets/images/bg/bg1.png) no-repeat center center;
+    background-color: #e8f6ff;
+    background-repeat: no-repeat;  // repeat | repeat-x | repeat-y | no-repeat
+    background-position: center center; // top/left/right/bottom/px/%
+    background-size: cover;        // auto | contain | cover | 100px 200px
+    background-attachment: fixed;  // scroll | fixed | local
+    background-clip: border-box;   // border-box | padding-box | content-box
+    background-origin: padding-box; // 定義 background-position 的基準
+    height: 885px;
+}
+
+.label {
+    background-color: $primary-50;
+    border-top: 5px solid red;
+    border-right: 10px solid green;
+    border-bottom: 15px solid blue;
+    border-left: 20px solid orange;
+}
+
+/* 進度卡配色與尺寸 */
+.task-card {
+    background: radial-gradient(120% 120% at 0% 0%, #fff8ea 0%, #ffffff 60%);
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.progress-thin { height: 10px; --bs-progress-bg:#fef6e6; }
+.progress-thin .progress-bar { --bs-progress-bar-bg:#c9923c; }
+.icon-badge { width:44px; height:44px; border-radius:50%; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+
+/* 貓固定在墊子中央；需要微調就改 transform 位移 */
+.cat-zone .cat-img { width: 85%; max-width: 220px; } /* 視素材比例可調 */
