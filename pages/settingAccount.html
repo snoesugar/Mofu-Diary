@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>帳戶管理</title>
+    <%- include('./layout/links'); -%>
+  </head>
+  <body class="bg-primary-50">
+    <%- include('./layout/header'); -%>
+
+    <main class="main main-settingAccount">
+        <div class="container d-flex flex-column gap-6">
+            <div class="row">
+                <h1 class="fs-9 text-primary-600 fw-bold text-center mb-0">帳戶管理</h1>
+            </div>
+            <div class="content row d-flex flex-column gap-5">
+                <div class="avatar"></div>
+                <div class="loginAccount d-flex flex-column gap-2">
+                    <label for="login-account" class="form-label fs-11 text-primary-600 mb-0">登入帳戶</label>
+                    <div class="input-group d-flex align-items-center gap-6 bg-neutral-0 border rounded-xs pe-2 ps-6">
+                        <div class="input-group-text fs-11 fw-bold text-primary-700 bg-neutral-0 border-0 p-0">帳號</div>
+                        <input type="text" class="form-control fs-11 text-wrap text-primary-700 border-0 p-0" id="login-account" placeholder="xxxxxx@gmail.com" value="sarahwang@gmail.com ( 已綁定 Google )">
+                    </div>
+                </div>
+                <div class="personalData d-flex flex-column gap-2">
+                    <p class="fs-11 text-primary-600 mb-0">個人資料</p>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>
+
+                    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body small">
+                            ...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <%- include('./layout/footer'); -%>
+
+    <script type="module" src="../main.js"></script>
+    <!--保持footer維持primary-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 找到底部的「總覽」按鈕 (第一個)
+        const navBtns = document.querySelectorAll(".btn-nav-bottom");
+        if (navBtns.length > 0) {
+          navBtns[3].classList.add("active");  // 讓第一個變 active
+        }
+      });
+    </script>
+    <!-- Offcanvas -->
+     <script>
+        const offcanvasElementList = document.querySelectorAll('.offcanvas')
+        const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap.Offcanvas(offcanvasEl))
+     </script>
+  </body>
+</html>
