@@ -1,0 +1,14 @@
+.main-setting{
+    padding: 3.625rem 1rem 0 1rem;
+    .content{
+        .settingAccount, .settingTemplate, .settingNotification, .settingOnboarding{
+            gap: .125rem;
+            .setting-item{
+                height: 4rem;
+                .setting-item-content{
+                    gap: .125rem;
+                }
+            }
+        }
+    }
+}
