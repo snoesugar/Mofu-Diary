@@ -4,7 +4,33 @@
   background-position: contain;
   padding-top: 44.75px;
   padding-bottom: 44.75px;
+
+  ::after {
+  content: "";
+  position: absolute; /* 相對 roof */
+  top: -15px;
+  left: 97px;
+  width: 32px;
+  height: 38px;
+  background: $primary-300;
+  border-right: 32px solid transparent; /* 左邊透明 */
+  border-bottom: 15px solid $primary-100;       /* 底邊顏色就是三角形顏色 */
 }
+}
+
+.cat-paw-1 {
+  position: absolute;
+  top: -45px;
+  left: 115px;
+}
+
+.cat-paw-2 {
+  position: absolute;
+  top: -34px;
+  left: 103px;
+}
+
+/*貓咪打招呼*/
 
 .o-cat {
   width: 93px; 
