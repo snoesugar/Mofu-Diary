@@ -8,8 +8,17 @@
   </head>
   <body>
     <%- include('./layout/header'); -%>
-    <div class="roof">
-      <h1 class="fs-9 text-primary-600 fw-bold text-center mb-0">總覽</h1>
+    <!--屋頂-->
+    <div class="d-flex justify-content-center roof">
+      <h1 class="fs-9 text-primary-600 fw-bold text-center mb-0 position-relative">總覽
+        <svg width="24" height="19" viewBox="0 0 24 19" class="cat-paw-1" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.39794 3.42334C6.93873 3.12998 6.65109 2.7199 6.535 2.1931C6.41892 1.6663 6.50756 1.1733 6.80092 0.714101C7.09429 0.254899 7.50437 -0.0327446 8.03117 -0.14883C8.55797 -0.264916 9.05097 -0.176276 9.51017 0.117089C9.96937 0.410455 10.257 0.820536 10.3731 1.34733C10.4892 1.87413 10.4005 2.36713 10.1072 2.82633C9.81381 3.28553 9.40373 3.57318 8.87694 3.68926C8.35014 3.80535 7.85714 3.71671 7.39794 3.42334ZM12.1731 2.66701C11.7139 2.37364 11.4262 1.96356 11.3101 1.43676C11.1941 0.909964 11.2827 0.416964 11.5761 -0.0422377C11.8694 -0.50144 12.2795 -0.789084 12.8063 -0.905169C13.3331 -1.02125 13.8261 -0.932615 14.2853 -0.63925C14.7445 -0.345884 15.0322 0.0641969 15.1482 0.590994C15.2643 1.11779 15.1757 1.61079 14.8823 2.06999C14.589 2.5292 14.1789 2.81684 13.6521 2.93292C13.1253 3.04901 12.6323 2.96037 12.1731 2.66701ZM16.2542 5.27429C15.795 4.98092 15.5074 4.57084 15.3913 4.04405C15.2752 3.51725 15.3639 3.02425 15.6572 2.56505C15.9506 2.10585 16.3607 1.8182 16.8875 1.70212C17.4143 1.58603 17.9073 1.67467 18.3665 1.96804C18.8257 2.2614 19.1133 2.67148 19.2294 3.19828C19.3455 3.72508 19.2568 4.21808 18.9635 4.67728C18.6701 5.13648 18.26 5.42412 17.7332 5.54021C17.2064 5.6563 16.7134 5.56766 16.2542 5.27429ZM17.575 9.92506C17.1158 9.63169 16.8282 9.22161 16.7121 8.69481C16.596 8.16801 16.6846 7.67501 16.978 7.21581C17.2714 6.75661 17.6814 6.46897 18.2082 6.35288C18.735 6.2368 19.228 6.32544 19.6872 6.6188C20.1464 6.91217 20.4341 7.32225 20.5502 7.84904C20.6663 8.37584 20.5776 8.86884 20.2842 9.32804C19.9909 9.78725 19.5808 10.0749 19.054 10.191C18.5272 10.3071 18.0342 10.2184 17.575 9.92506ZM4.52013 11.1629C4.01237 10.8385 3.7113 10.3769 3.61694 9.77819C3.52258 9.17943 3.64181 8.61957 3.97463 8.0986C4.35234 7.50738 4.87949 7.11873 5.55609 6.93264C6.23268 6.74656 6.90829 6.56834 7.58292 6.39797C8.13836 6.26236 8.66765 6.06647 9.17078 5.8103C9.6739 5.55414 10.2035 5.34505 10.7597 5.18305C11.1862 5.05947 11.6201 5.0033 12.0616 5.01453C12.503 5.02576 12.9135 5.15261 13.293 5.39507C13.6724 5.63747 13.9653 5.95391 14.1717 6.34442C14.378 6.73485 14.5128 7.15241 14.5763 7.59709C14.6667 8.16407 14.7019 8.73212 14.6818 9.30126C14.6617 9.87039 14.6999 10.4407 14.7964 11.0122C14.9171 11.6949 15.0376 12.3818 15.1578 13.0729C15.2781 13.764 15.1493 14.4051 14.7716 14.9964C14.4388 15.5173 13.9809 15.8608 13.3979 16.0269C12.815 16.1929 12.2702 16.1141 11.7636 15.7905C11.1556 15.402 10.5862 14.9656 10.0555 14.481C9.52491 13.9965 8.95561 13.5601 8.34763 13.1717C7.73344 12.7793 7.09429 12.4437 6.43018 12.1649C5.76617 11.8862 5.12949 11.5522 4.52013 11.1629Z" fill="#D2A14E"/>
+        </svg>
+        <svg width="11" height="11" viewBox="0 0 11 11" class="cat-paw-2" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.26174 4.30087C0.933754 4.2243 0.681759 4.04443 0.505761 3.76124C0.329762 3.47805 0.280045 3.17246 0.356609 2.84447C0.433173 2.51648 0.613048 2.26449 0.896236 2.08849C1.17942 1.91249 1.48501 1.86277 1.813 1.93934C2.14099 2.0159 2.39299 2.19578 2.56899 2.47897C2.74498 2.76215 2.7947 3.06774 2.71814 3.39573C2.64157 3.72372 2.4617 3.97572 2.17851 4.15172C1.89532 4.32771 1.58973 4.37743 1.26174 4.30087ZM3.88955 2.87802C3.56156 2.80145 3.30956 2.62158 3.13357 2.33839C2.95757 2.0552 2.90785 1.74961 2.98441 1.42162C3.06098 1.09363 3.24085 0.841638 3.52404 0.66564C3.80723 0.489641 4.11282 0.439924 4.44081 0.516488C4.7688 0.593052 5.02079 0.772927 5.19679 1.05612C5.37279 1.3393 5.42251 1.64489 5.34594 1.97288C5.26938 2.30087 5.0895 2.55287 4.80632 2.72887C4.52313 2.90486 4.21754 2.95458 3.88955 2.87802ZM6.80456 3.55848C6.47657 3.48191 6.22458 3.30204 6.04858 3.01885C5.87258 2.73566 5.82286 2.43007 5.89943 2.10208C5.97599 1.77409 6.15587 1.5221 6.43905 1.3461C6.72224 1.1701 7.02783 1.12038 7.35582 1.19695C7.68381 1.27351 7.93581 1.45339 8.1118 1.73658C8.2878 2.01976 8.33752 2.32535 8.26096 2.65334C8.18439 2.98133 8.00452 3.23333 7.72133 3.40933C7.43814 3.58532 7.13255 3.63504 6.80456 3.55848ZM8.53083 5.99771C8.20284 5.92115 7.95084 5.74127 7.77484 5.45809C7.59885 5.1749 7.54913 4.86931 7.62569 4.54132C7.70226 4.21333 7.88213 3.96133 8.16532 3.78534C8.44851 3.60934 8.7541 3.55962 9.08209 3.63618C9.41008 3.71275 9.66207 3.89262 9.83807 4.17581C10.0141 4.459 10.0638 4.76459 9.98722 5.09258C9.91066 5.42057 9.73078 5.67256 9.4476 5.84856C9.16441 6.02456 8.85882 6.07428 8.53083 5.99771ZM1.17594 9.40393C0.813265 9.31927 0.542861 9.11214 0.364726 8.78254C0.186592 8.45294 0.140956 8.10209 0.227817 7.72998C0.326393 7.3077 0.553734 6.97275 0.90984 6.72515C1.26595 6.47754 1.6231 6.23472 1.98129 5.99668C2.27716 5.80341 2.54538 5.58039 2.78597 5.3276C3.02656 5.07482 3.29227 4.84403 3.58311 4.63524C3.8063 4.47549 4.0477 4.35351 4.30731 4.26928C4.56691 4.18505 4.83225 4.17457 5.10334 4.23785C5.37434 4.30112 5.61015 4.42533 5.81075 4.61051C6.01128 4.79566 6.17576 5.01131 6.3042 5.25746C6.4735 5.56934 6.61082 5.89322 6.71616 6.22909C6.8215 6.56495 6.96103 6.88952 7.13476 7.20279C7.34554 7.57589 7.55704 7.9515 7.76924 8.3296C7.98145 8.70771 8.03826 9.1079 7.93969 9.53019C7.85283 9.9023 7.65657 10.1967 7.35092 10.4133C7.04527 10.63 6.71151 10.6961 6.34966 10.6116C5.9154 10.5103 5.49377 10.3729 5.08478 10.1997C4.67586 10.0264 4.25427 9.88906 3.82001 9.78769C3.38133 9.68528 2.93977 9.62112 2.49533 9.59519C2.05098 9.56928 1.61118 9.50553 1.17594 9.40393Z" fill="#D2A14E"/>
+        </svg>
+      </h1>
+
     </div>
     <div class="container bg-primary-100">
       <div class="row overflow-hidden">
@@ -62,12 +71,12 @@
               <thead>
                 <tr class="fs-12">
                   <th scope="col" class="text-primary-700">日</th>
-                  <th scope="col">一</th>
-                  <th scope="col">二</th>
-                  <th scope="col">三</th>
-                  <th scope="col">四</th>
-                  <th scope="col">五</th>
-                  <th scope="col">六</th>
+                  <th scope="col" class="text-primary-700">一</th>
+                  <th scope="col" class="text-primary-700">二</th>
+                  <th scope="col" class="text-primary-700">三</th>
+                  <th scope="col" class="text-primary-700">四</th>
+                  <th scope="col" class="text-primary-700">五</th>
+                  <th scope="col" class="text-primary-700">六</th>
                 </tr>
               </thead>
               <tbody>
@@ -125,7 +134,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row" class="text-center">
+                  <td scope="row" class="text-center">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <div class="bg-neutral-100 rounded-circle date-circle d-flex align-items-center justify-content-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#888888" class="bi bi-plus" viewBox="0 0 16 16">
@@ -134,7 +143,7 @@
                       </div>
                       <p class="fs-12 text-neutral-400 mb-0">6</p>
                     </div>
-                  </th>
+                  </td>
                   <td class="text-center">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <div class="bg-neutral-100 rounded-circle date-circle d-flex align-items-center justify-content-center">
@@ -189,7 +198,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row" class="text-center">
+                  <td scope="row" class="text-center">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <div class="bg-neutral-100 rounded-circle date-circle d-flex align-items-center justify-content-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#888888" class="bi bi-plus" viewBox="0 0 16 16">
@@ -198,7 +207,7 @@
                       </div>
                       <p class="fs-12 text-neutral-400 mb-0">13</p>
                     </div>
-                  </th>
+                  </td>
                   <td class="text-center">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <div class="bg-neutral-100 rounded-circle date-circle d-flex align-items-center justify-content-center">
@@ -250,7 +259,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row" class="text-center">
+                  <td scope="row" class="text-center">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <div class="bg-neutral-100 rounded-circle date-circle d-flex align-items-center justify-content-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#888888" class="bi bi-plus" viewBox="0 0 16 16">
@@ -259,7 +268,7 @@
                       </div>
                       <p class="fs-12 text-neutral-400 mb-0">20</p>
                     </div>
-                  </th>
+                  </td>
                   <td class="text-center">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <div class="bg-neutral-100 rounded-circle date-circle d-flex align-items-center justify-content-center">
@@ -322,7 +331,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row" class="text-center">
+                  <td scope="row" class="text-center">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <div class="bg-neutral-100 rounded-circle date-circle d-flex align-items-center justify-content-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#888888" class="bi bi-plus" viewBox="0 0 16 16">
@@ -331,7 +340,7 @@
                       </div>
                       <p class="fs-12 text-neutral-400 mb-0">27</p>
                     </div>
-                  </th>
+                  </td>
                   <td class="text-center">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <div class="bg-neutral-100 rounded-circle date-circle d-flex align-items-center justify-content-center">
