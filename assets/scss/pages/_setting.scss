@@ -1,0 +1,37 @@
+.main-setting{
+    padding: 3.625rem 1rem 0 1rem;
+    .content{
+        .settingAccount, .settingTemplate, .settingNotification, .settingOnboarding{
+            gap: .125rem;
+            .setting-item{
+                height: 4rem;
+                .setting-item-content{
+                    gap: .125rem;
+                }
+            }
+            .offcanvas{
+                z-index: 0;
+                &.offcanvas-end{
+                    width: 100%;
+                    border-left: none;
+                }
+                .offcanvas-header{
+                    padding-top: 3.625rem;
+                }
+                .offcanvas-body{
+                    padding-top: 0;
+                    padding-bottom: 106.39px;
+                    .loginAccount{
+                        .input-group{
+                            height: 4rem;
+                        }
+                    }
+                }
+            }
+            .offcanvas-backdrop{
+                display: none;
+                opacity: 0;
+            }
+        }
+    }
+}
