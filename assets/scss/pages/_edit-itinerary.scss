@@ -1,31 +1,95 @@
-.container {
-    background: url(../assets/images/bg/bg1.png) no-repeat center center;
-    background-color: #e8f6ff;
-    background-repeat: no-repeat;  // repeat | repeat-x | repeat-y | no-repeat
-    background-position: center center; // top/left/right/bottom/px/%
-    background-size: cover;        // auto | contain | cover | 100px 200px
-    background-attachment: fixed;  // scroll | fixed | local
-    background-clip: border-box;   // border-box | padding-box | content-box
-    background-origin: padding-box; // 定義 background-position 的基準
-    height: 885px;
+/*全頁框架容器*/
+.page-wrapper {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
-.label {
-    background-color: $primary-50;
-    border-top: 5px solid red;
-    border-right: 10px solid green;
-    border-bottom: 15px solid blue;
-    border-left: 20px solid orange;
+/* 用你提供的四邊距形成「209×158」的槽位 */
+.cat-slot {
+  position: absolute;
+  top: 59.3%;
+  left: 15%;
+  width: 53.2%;
+  height: 23.1%;
+
 }
 
-/* 進度卡配色與尺寸 */
-.task-card {
-    background: radial-gradient(120% 120% at 0% 0%, #fff8ea 0%, #ffffff 60%);
-    box-shadow: 0 1px 2px rgba(0,0,0,.04);
-}
-.progress-thin { height: 10px; --bs-progress-bg:#fef6e6; }
-.progress-thin .progress-bar { --bs-progress-bar-bg:#c9923c; }
-.icon-badge { width:44px; height:44px; border-radius:50%; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+//
 
-/* 貓固定在墊子中央；需要微調就改 transform 位移 */
-.cat-zone .cat-img { width: 85%; max-width: 220px; } /* 視素材比例可調 */
+/* 讓內容不被固定底列遮住 */
+.has-bottom-pad { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+
+/* 背景容器：等比縮放，基準為 393×685 */
+.bg-scene {
+  width: 100%;
+  max-width: 393px;
+  aspect-ratio: 393 / 685;
+  position: relative;
+  margin: 0 auto;
+  background: url("../assets/images/bg/bg1.png") no-repeat center / cover; //
+}
+
+/* ZZZ 位置：依你給的 inset（391/262/178/115） */
+.speech {
+  position: absolute;
+  inset: 391px 115px 262px 178px; /* top right bottom left */
+  padding: 7.5px 6.5px;
+}
+
+/* 貓的槽位：把 px 轉百分比，RWD 不跑位 */
+.cat-slot {
+  position: absolute;
+  /* 由 393×685 換算 */
+  top: 59.27%;    /* 406 / 685 */
+  left: 15.01%;   /* 59 / 393 */
+  width: 53.19%;  /* 209 / 393 */
+  height: 23.07%; /* 158 / 685 */
+}
+.cat-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 進度卡樣式 */
+.task-card { 
+    background-color: rgba($primary-50, 0.33);
+    box-shadow: 0 1px 2px rgba(0,0,0,.04); 
+}
+.progress-thin { 
+    height: 6px; --bs-progress-bg: #{$primary-50}; 
+}
+.progress-thin .progress-bar { 
+    --bs-progress-bar-bg:  #{$primary-500}; 
+}
+.icon-badge { 
+    width:24px; 
+    height:24px; 
+    border-radius:50%; 
+    background:$neutral-50; 
+    box-shadow:0 2px 8px rgba(0,0,0,.08); }
+
+/* 底部固定列 */
+.bottom-bar {
+//   background:#fff;
+//   border-top: 1px solid rgba(0,0,0,.06);
+//   box-shadow: 0 -4px 20px rgba(0,0,0,.06);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 場景底部貼齊：高 52px */
+.scene-footer{
+  position: absolute;
+  left: 0px; right: 0; bottom: 0;
+  height: 52px;
+  padding-right: 1rem;
+  
+}
+
+/* 梯形標籤按鈕：可調斜邊 */
+.tag-btn{
+  --h: 52px;          /* 內部高度 */
+  --skew: 10px;       /* 斜邊高度，可調 */
+  --pad-x: 12px;      /* 文字右側內距 */
+  --bd: 1.5px;        /* 外框粗細 */
+}
