@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>首頁</title>
-    <script type="module" crossorigin src="/Mofu-Diary/assets/main-DswCuimU.js"></script>
-    <link rel="stylesheet" crossorigin href="/Mofu-Diary/assets/main-bw7FgGYx.css">
-  </head>
-  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帳戶管理</title>
+  <script type="module" crossorigin src="/Mofu-Diary/assets/main-DswCuimU.js"></script>
+  <link rel="stylesheet" crossorigin href="/Mofu-Diary/assets/main-bw7FgGYx.css">
+</head>
+<body class="bg-primary-50">
     
+    <main class="main main-settingAccount">
+        <div class="container d-flex flex-column gap-6">
+            <nav>
+                <h1 class="fs-10 fw-bold text-primary-600 text-center mb-0">帳戶管理</h1>
+            </nav>
+            <div class="content d-flex flex-column gap-5">
+                
+                <div class="avatar"></div>
+                
+                <div class="loginAccount d-flex flex-column gap-2">
+                    <label for="loginAccount" class="form-label fs-11 text-primary-600 mb-0">登入帳戶</label>
+                    <input type="text" class="form-control fs-11 text-primary-700 rounded-xs" id="loginAccount" placeholder="xxxxxx@gmail.com" value="sarahwang@gmail.com ( 已綁定 Google )">
+                    <span class="fs-11 fw-bold text-primary-700 mb-0">帳號</span>
+                </div>
+
+                <div class="personalData d-flex flex-column gap-2">
+                    <p class="fs-11 text-primary-600 mb-0">個人資料</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
 
     <div class="bottom-nav px-7 pt-3 pb-7 rounded-top-m shadow-lg w-100">
   <ul class="list-unstyled d-flex justify-content-between mb-0">
@@ -60,9 +82,9 @@
         // 找到底部的「總覽」按鈕 (第一個)
         const navBtns = document.querySelectorAll(".btn-nav-bottom");
         if (navBtns.length > 0) {
-          navBtns[1].classList.add("active");  // 讓第二個變 active
+          navBtns[3].classList.add("active");  // 讓第一個變 active
         }
       });
     </script>
-  </body>
+</body>
 </html>

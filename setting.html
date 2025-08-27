@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>設定</title>
-    <script type="module" crossorigin src="/Mofu-Diary/assets/main-Bwh0ObsC.js"></script>
-    <link rel="stylesheet" crossorigin href="/Mofu-Diary/assets/main-qKvSwSZ6.css">
+    <script type="module" crossorigin src="/Mofu-Diary/assets/main-DswCuimU.js"></script>
+    <link rel="stylesheet" crossorigin href="/Mofu-Diary/assets/main-bw7FgGYx.css">
   </head>
   <body class="bg-primary-50">
     
@@ -19,57 +19,13 @@
 
                 <div class="settingAccount d-flex flex-column gap-2">
                     <h2 class="fs-11 text-primary-600 mb-0">帳戶管理</h2>
-                    <button class="setting-item d-flex justify-content-between align-items-center fs-11 text-primary-700 bg-neutral-0 border rounded-xs pe-2 ps-6" type="button" data-bs-toggle="offcanvas" data-bs-target="#settingAccount" aria-controls="settingAccount">
+                    <a class="setting-item d-flex justify-content-between align-items-center bg-neutral-0 text-decoration-none border rounded-xs pe-2 ps-6" href="./settingAccount.html" role="button">
                         <div class="setting-item-content d-flex align-items-center ">
-                            <p class="mb-0">Sarah Wang</p>
+                            <p class="fs-11 text-primary-700 mb-0">Sarah Wang</p>
                         </div>
-                    </button>
-
-                    <div class="offcanvas offcanvas-end bg-primary-50" tabindex="-1" id="settingAccount" aria-labelledby="settingAccountLabel">
-                        <div class="offcanvas-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body d-flex flex-column gap-5">
-                            <div class="avatar"></div>
-
-                            <div class="loginAccount d-flex flex-column gap-2">
-                                <label for="loginAccount" class="form-label fs-11 text-primary-600 mb-0">登入帳戶</label>
-                                <div class="input-group align-items-center gap-6 flex-nowrap  bg-neutral-0 border rounded-xs ps-6 pe-2">
-                                    <span class="input-group-text fs-11 fw-bold text-primary-700 bg-neutral-0 border-0 p-0" id="loginAccountDesc">帳號</span>
-                                    <input type="text" class="form-control fs-11 text-primary-700 text-wrap bg-neutral-0 border-0 p-0" id="loginAccount" placeholder="xxxxxx@gmail.com" value="sarahwang@gmail.com ( 已綁定 Google )" aria-label="login account" aria-describedby="loginAccountDesc">
-                                </div>
-                            </div>
-
-                            <div class="personalData">
-                                <p class="fs-11 text-primary-600 mb-0">個人資料</p>
-                                
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Launch demo modal
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                ...
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
                 </div>
+
                 <div class="settingTemplate d-flex flex-column gap-2">
                     <h2 class="fs-11 text-primary-600 mb-0">功能設定</h2>
                     <a class="setting-item d-flex justify-content-between align-items-center bg-neutral-0 text-decoration-none border rounded-xs pe-2 ps-6" href="#" role="button">
@@ -78,6 +34,7 @@
                         </div>
                     </a>
                 </div>
+
                 <div class="settingNotification d-flex flex-column gap-2">
                     <h2 class="fs-11 text-primary-600 mb-0">通知設定</h2>
                     <a class="setting-item d-flex justify-content-between align-items-center bg-neutral-0 text-decoration-none border rounded-xs pe-2 ps-6" href="#" role="button">
@@ -86,6 +43,7 @@
                         </div>
                     </a>
                 </div>
+                
                 <div class="settingOnboarding d-flex flex-column gap-2">
                     <h2 class="fs-11 text-primary-600 mb-0">其他</h2>
                     <a class="setting-item d-flex justify-content-between align-items-center bg-neutral-0 text-decoration-none border rounded-xs pe-2 ps-6" href="#" role="button">
