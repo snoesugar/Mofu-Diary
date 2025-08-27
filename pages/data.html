@@ -9,7 +9,7 @@
   </head>
   <body>
     <%- include('./layout/header'); -%>
-    <div class="bg-primary-50 text-center">
+    <div class="bg-primary-50 text-center pb-9 mb-n3">
       <!--貓咪主題-->
       <div class="d-flex justify-content-between align-items-center mb-3">
         <a href="overview.html">
@@ -21,12 +21,13 @@
         <div class="bg-primary-50 px-6"></div>
       </div>
       <img src="/assets/images/cat/action_cat_sleep2.png" class="w96" alt="貓咪睡覺">
+      
       <!--nav-->
       <div class="container">
         <div class="bg-primary-100 rounded-s p-2 mb-4">
           <ul class="nav nav-pills" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-data" id="pills-week-tab" data-bs-toggle="pill" data-bs-target="#pills-week" type="button" role="tab" aria-controls="pills-week" aria-selected="true">週</button>
+              <button class="nav-data active" id="pills-week-tab" data-bs-toggle="pill" data-bs-target="#pills-week" type="button" role="tab" aria-controls="pills-week" aria-selected="true">週</button>
             </li>
             <div class="mx-1 border-start border-neutral-300"></div>
             <li class="nav-item" role="presentation">
@@ -149,7 +150,7 @@
                     <p class="fs-12 mb-0">次</p>
                   </div>
                 </div>
-                <div class="mx-3 border-end"></div>
+                <div class="mx-3 border-end border-neutral-200"></div>
                 <div class="w-100">
                   <h3 class="fs-12 text-start fw-bold mb-0 me-1">累積時間</h3>
                   <div class="d-flex justify-content-center align-items-end">
@@ -159,9 +160,24 @@
                 </div>
               </div>
               </div>
+          
+            <!--貓咪訊息-->
+            <div class="d-flex bg-neutral-0 border py-3 px-4 rounded-s">
+              <img src="/assets/images/cat/action_cat_wool.png" class="wh102" alt="貓咪毛線">
+              <div class="d-flex flex-column justify-content-between my-2 mx-4">
+                <svg width="18" height="15" viewBox="0 0 18 15" class="d-block" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.968 2.544C5.088 3.888 3.6 6.576 3.6 8.064C3.792 7.968 4.176 7.824 4.608 7.824C6.624 7.824 7.968 9.36 7.968 11.328C7.968 13.248 6.576 14.88 4.224 14.88C1.824 14.88 0 12.624 0 9.744C0 4.992 3.12 1.632 6.624 0L7.968 2.544ZM17.76 2.544C14.832 3.888 13.344 6.576 13.344 8.064C13.536 7.968 13.92 7.824 14.4 7.824C16.368 7.824 17.712 9.36 17.712 11.328C17.712 13.248 16.368 14.88 13.968 14.88C11.568 14.88 9.744 12.624 9.744 9.744C9.744 4.992 12.864 1.632 16.368 0L17.76 2.544Z" fill="#BC8035"/>
+                </svg>
+                <p class="fs-12 text-primary-700 text-start mb-0">mofu一直都在，下一次心情來了，也會記得接住你．</p>
+                <svg width="18" height="15" viewBox="0 0 18 16" class="d-block ms-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.792 12.7199C12.672 11.3279 14.16 8.68794 14.16 7.15194C13.968 7.29594 13.584 7.39194 13.152 7.39194C11.136 7.39194 9.792 5.85594 9.792 3.88794C9.792 2.01594 11.184 0.335938 13.536 0.335938C15.936 0.335938 17.76 2.59194 17.76 5.51994C17.76 10.2719 14.64 13.6319 11.136 15.2159L9.792 12.7199ZM0 12.7199C2.928 11.3279 4.416 8.68794 4.416 7.15194C4.224 7.29594 3.84 7.39194 3.36 7.39194C1.392 7.39194 0.048 5.85594 0.048 3.88794C0.048 2.01594 1.392 0.335938 3.792 0.335938C6.192 0.335938 8.016 2.59194 8.016 5.51994C8.016 10.2719 4.896 13.6319 1.392 15.2159L0 12.7199Z" fill="#BC8035"/>
+                </svg>
+              </div>
             </div>
           </div>
+          <!--月內容-->
           <div class="tab-pane bg-primary-50 fade" id="pills-month" role="tabpanel" aria-labelledby="pills-month-tab">...</div>
+          <!--年內容-->
           <div class="tab-pane bg-primary-50 fade" id="pills-year" role="tabpanel" aria-labelledby="pills-year-tab">...</div>
         </div>
       </div>
@@ -263,18 +279,33 @@
                 drawBorder: false, 
                 drawOnChartArea: false,
               },
-              ticks: { color: '#816E4D' } // X軸文字藍色
+              ticks: { 
+                drawTicks:false,
+                color: '#816E4D', // X軸文字顏色
+              }, 
             },
             y: { // 背景橫線 → 虛線
               beginAtZero: true,
               max: 5,
-              ticks: { stepSize: 1, color: '#816E4D'},
+              ticks: { 
+                drawTicks:false,
+                tickWidth:0,
+                tickLength:0,
+                stepSize: 1, 
+                color: '#816E4D',
+              },
               grid: {
               drawBorder: false,
               drawOnChartArea: true,  // 必須開啟才會畫線
               borderDash: [6, 6],     // 虛線
               color: '#D1D1D1'        // 線顏色
-            }
+              },
+              border: {
+                display: false,
+                width:5,
+                dash:[2,2],
+                dashOffset:5,
+              }
             }
           }
         },
@@ -290,11 +321,11 @@
 
     // 自訂 X 軸刻度為圖片
     const xLabelsImages = [
-      '/assets/images/mood/貓咪＿表情包.png',
-      '/assets/images/mood/貓咪＿表情包 (4).png',
-      '/assets/images/mood/貓咪＿表情包 (3).png',
-      '/assets/images/mood/貓咪＿表情包 (2).png',
-      '/assets/images/mood/貓咪＿表情包 (1).png'
+      '/assets/images/mood/cat_happy.png',
+      '/assets/images/mood/cat_calm.png',
+      '/assets/images/mood/cat_dizziness.png',
+      '/assets/images/mood/cat_cry.png',
+      '/assets/images/mood/cat_angry.png'
     ];
 
     // 建立 Image 陣列並監聽 onload
@@ -339,17 +370,37 @@
             max: 100,
             ticks: { 
               stepSize: 20,
-              color: '#816E4D'   // Y 軸文字顏色
-            },
-          },
-          x: {
-            ticks: {
-              callback: () => '',  // 不顯示文字
-              color: '#816E4D'
+              color: '#816E4D',   // Y 軸文字顏色
+              drawTicks:false,
+              tickWidth:0,
+              tickLength:0,
+              color: '#816E4D',
             },
             grid: {
-              color: '#D1D1D1'   // X 軸網格線
-            }
+              drawBorder: false,
+              drawOnChartArea: true,  // 必須開啟才會畫線
+              borderDash: [6, 6],     // 虛線
+              color: '#D1D1D1'        // 線顏色
+              },
+              border: {
+                display: false,
+                width:5,
+                dash:[2,2],
+                dashOffset:5,
+              }
+          },
+          x: {
+            grid: { 
+                display: false, 
+                drawTicks: true, 
+                drawBorder: false, 
+                drawOnChartArea: false,
+              },
+              ticks: { 
+                display: false, // 隱藏文字，只顯示圖片
+                drawTicks:false,
+                color: '#816E4D', // X軸文字顏色
+              }, 
           }
         },
         plugins: { 
@@ -363,6 +414,7 @@
           }
         }
       },
+        
       });
     </script>
   </body>
