@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  
+    <title>設定密碼</title>
+  </head>
+  <body class="bg-primary-50  d-flex flex-column align-items-center justify-content-center">
+    <main class="ttt ">
+        <%- include('./layout/phone'); -%> 
+        <section class="px-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <a href="../pages/register.html" class="text-primary-700 fs-11 fw-medium text-decoration-none">返回</a>
+                <div class="progress flex-grow-1 mx-8 progress-style">
+                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <a href="../pages/register-s3.html" class="text-primary-700 fs-11 fw-medium text-decoration-none">跳過</a>
+            </div>
+            <p class="mt-88 text-center text-primary-600 fw-bold mb-7">設定密碼</p>
+            <form>
+                <div class="mb-7 py-17">
+                    <label for="inputPassword" class="form-label fw-medium text-primary-700 fs-11 mb-2">密碼</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control rounded-lg text-neutral-400 fs-11 px-6 py-13-5" id="password" >
+                        <button class="btn bg-neutral-0 icon-border"  type="button" id="togglePassword">
+                            <i class="bi bi-eye-slash " id="toggleIcon"></i>
+                        </button>
+                    </div>
+                    
+                    <p class="d-inline-block text-neutral-400 fs-11 mt-2">密碼需包含數字、英文大小寫</p>
+                </div>
+                <a type="submit" class="btn btn-primary d-block w-100  py-13-5 text-neutral-0 fs-11 text-decoration-none" href="../pages/register-s3.html">下一步</a>
+                    
+            </form>
+
+        </section>
+    </main>
+
+    
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  
+    <title>設定記錄事情</title>
+  </head>
+  <body class="bg-primary-50  d-flex flex-column align-items-center justify-content-center">
+    <main class="ttt ">
+        <%- include('./layout/phone'); -%> 
+        <section class="container">
+            <div class="row px-1">
+                <div class="col-12">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <a href="../pages/register-s3.html" class="text-primary-700 fs-11 fw-medium text-decoration-none">返回</a>
+                        <div class="progress flex-grow-1 mx-8 progress-style">
+                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <a href="../pages/register-s5.html" class="text-primary-700 fs-11 fw-medium text-decoration-none">跳過</a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-88 text-center text-primary-600 fw-bold mb-7">你想記錄哪些事情</p>
+        </section>
+        <section class="container px-4">
+            <form class="row g-4">
+                <div class="col-6">
+                    <input type="radio" class="btn-check" name="things" id="energy-record" value="energy-record" autocomplete="off">
+                    <label class="btn border-neutral-100 py-6 px-3 bg-neutral-0 w-100" for="energy-record">
+                        <img src="../assets/images/register/heart-4.png" alt="" >
+                        <p class="text-primary-600 fw-bold fs-10 mt-2 mb-0">能量紀錄</p>
+                    </label>
+                </div>
+
+                <div class="col-6">
+                    <input type="radio" class="btn-check" name="things" id="breathing" value="breathing" autocomplete="off">
+                    <label class="btn border-neutral-100 py-6 px-3 bg-neutral-0 w-100" for="breathing">
+                        <img src="../assets/images/register/cat-close.svg" alt="">
+                        <p class="text-primary-600 fw-bold fs-10 mt-2 mb-0">呼吸運動</p>
+                    </label>
+                </div>
+
+                <div class="col-6">
+                    <input type="radio" class="btn-check" name="things" id="feeling" value="feeling" autocomplete="off">
+                    <label class="btn border-neutral-100 py-6 px-3 bg-neutral-0 w-100" for="feeling">
+                        <img src="../assets/images/register/cat-happy.svg" alt="">
+                        <p class="text-primary-600 fw-bold fs-10 mt-2 mb-0">心情記錄</p>
+                    </label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="btn-check" name="things" id="diary" value="diary" autocomplete="off">
+                    <label class="btn border-neutral-100 py-6 px-3 bg-neutral-0 w-100" for="diary">
+                        <img src="../assets/images/register/book.svg" alt="">
+                        <p class="text-primary-600 fw-bold fs-10 mt-2 mb-0">心情日記</p>
+                    </label>
+                </div>
+            </form>
+            <div class="mt-7">
+                <a type="submit" class="btn btn-primary d-block w-100  py-13-5 text-neutral-0 fs-11 text-decoration-none" href="../pages/register.html">完成註冊</a>             
+            </div>
+        </section>
+        
+    </main>
+
+    
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>

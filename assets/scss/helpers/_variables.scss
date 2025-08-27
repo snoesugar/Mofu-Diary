@@ -445,9 +445,9 @@ $enable-grid-classes:         true !default;
 $enable-container-classes:    true !default;
 $enable-cssgrid:              false !default;
 $enable-button-pointers:      true !default;
-$enable-rfs:                  false !default;//true !default; custom
+$enable-rfs:                  true !default;
 $enable-validation-icons:     true !default;
-$enable-negative-margins:     true;//false !default; custom
+$enable-negative-margins:     false !default;
 $enable-deprecation-messages: true !default;
 $enable-important-utilities:  true !default;
 
@@ -593,7 +593,7 @@ $container-max-widths: (
 // Set the number of columns and specify the width of the gutters.
 
 $grid-columns:                12 !default;
-$grid-gutter-width:           2rem;//1.5rem !default; //custom
+$grid-gutter-width:           1.5rem !default;
 $grid-row-columns:            6 !default;
 
 // Container padding
@@ -725,8 +725,8 @@ $h6-font-size:                $font-size-base !default;                //16px cu
 $font-sizes: (
   1: $h1-font-size,           //48px
   2: $font-size-base * 2.5,   //40px
-  3: $h2-font-size,           //36px
-  4: $font-size-base * 2,     //32px
+  3: $font-size-base * 2,     //32px
+  4: $h2-font-size,           //36px
   5: $font-size-base * 1.75,  //28px
   6: $h3-font-size,           //24px
   7: $h4-font-size,           //21px
