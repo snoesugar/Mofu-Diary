@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  
+    <title>設定記錄事情</title>
+    <script type="module" crossorigin src="/Mofu-Diary/assets/main-CWm9Vw1l.js"></script>
+    <link rel="stylesheet" crossorigin href="/Mofu-Diary/assets/main-BB4AHepq.css">
+  </head>
+  <body class="bg-primary-50  d-flex flex-column align-items-center justify-content-center">
+    <main class="ttt ">
+        <section  class="container">
+    <div class="row">
+        <div class="col-12">
+            
+            <img src="/Mofu-Diary/assets/phone-lHoqWH-e.svg" alt="" class="w-100">
+        </div>
+    </div>
+</section> 
+        <section class="container">
+            <div class="row px-1">
+                <div class="col-12">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <a href="../pages/register-s3.html" class="text-primary-700 fs-11 fw-medium text-decoration-none">返回</a>
+                        <div class="progress flex-grow-1 mx-8 progress-style">
+                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <a href="../pages/register-s5.html" class="text-primary-700 fs-11 fw-medium text-decoration-none">跳過</a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-88 text-center text-primary-600 fw-bold mb-7">你想記錄哪些事情</p>
+        </section>
+        <section class="container px-4">
+            <form class="row g-4">
+                <div class="col-6">
+                    <input type="radio" class="btn-check" name="things" id="energy-record" value="energy-record" autocomplete="off">
+                    <label class="btn border-neutral-100 py-6 px-3 bg-neutral-0 w-100" for="energy-record">
+                        <img src="data:image/png;base64,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" alt="" >
+                        <p class="text-primary-600 fw-bold fs-10 mt-2 mb-0">能量紀錄</p>
+                    </label>
+                </div>
+
+                <div class="col-6">
+                    <input type="radio" class="btn-check" name="things" id="breathing" value="breathing" autocomplete="off">
+                    <label class="btn border-neutral-100 py-6 px-3 bg-neutral-0 w-100" for="breathing">
+                        <img src="/Mofu-Diary/assets/cat-close-BdeHEcXU.svg" alt="">
+                        <p class="text-primary-600 fw-bold fs-10 mt-2 mb-0">呼吸運動</p>
+                    </label>
+                </div>
+
+                <div class="col-6">
+                    <input type="radio" class="btn-check" name="things" id="feeling" value="feeling" autocomplete="off">
+                    <label class="btn border-neutral-100 py-6 px-3 bg-neutral-0 w-100" for="feeling">
+                        <img src="/Mofu-Diary/assets/cat-happy-SrwjLrsE.svg" alt="">
+                        <p class="text-primary-600 fw-bold fs-10 mt-2 mb-0">心情記錄</p>
+                    </label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="btn-check" name="things" id="diary" value="diary" autocomplete="off">
+                    <label class="btn border-neutral-100 py-6 px-3 bg-neutral-0 w-100" for="diary">
+                        <img src="data:image/svg+xml,%3csvg%20width='49'%20height='54'%20viewBox='0%200%2049%2054'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M38.3321%209.85693C39.6876%209.85696%2040.75%2010.9434%2040.75%2012.3296V41.67C40.75%2043.0564%2039.6881%2044.1426%2038.3321%2044.1426H14.3122C12.9565%2044.1426%2011.894%2043.0564%2011.894%2041.67V39.6926H9.95911C9.29132%2039.6926%208.75002%2039.1391%208.75%2038.4564C8.75%2037.7734%209.29131%2037.2199%209.95911%2037.2199H11.894V33.9646H9.95911C9.29131%2033.9646%208.75%2033.411%208.75%2032.7282C8.75004%2032.0454%209.29134%2031.492%209.95911%2031.492H11.894V28.2365H9.95911C9.29131%2028.2365%208.75%2027.6829%208.75%2027.0001C8.75007%2026.3173%209.29135%2025.7639%209.95911%2025.7639H11.894V22.5084H9.95911C9.29132%2022.5084%208.75001%2021.9551%208.75%2021.2722C8.75%2020.5894%209.29131%2020.0358%209.95911%2020.0358H11.894V16.7806H9.95911C9.29131%2016.7806%208.75%2016.2269%208.75%2015.5441C8.75005%2014.8613%209.29134%2014.3079%209.95911%2014.3079H11.894V12.3296C11.894%2010.9433%2012.9565%209.85693%2014.3122%209.85693H38.3321ZM14.2935%2012.3312L14.2953%2015.3429C14.3058%2015.4084%2014.3117%2015.4756%2014.3117%2015.5441C14.3117%2015.6121%2014.3059%2015.6787%2014.2956%2015.7437L14.299%2021.095C14.3071%2021.1529%2014.3117%2021.212%2014.3117%2021.2722C14.3117%2021.3316%2014.3071%2021.3899%2014.2992%2021.4471L14.3026%2026.8523C14.3083%2026.9008%2014.3117%2026.95%2014.3117%2027.0001C14.3117%2027.0495%2014.3084%2027.0983%2014.3029%2027.1462L14.3062%2032.6149C14.3096%2032.6523%2014.3117%2032.69%2014.3117%2032.7282C14.3117%2032.7657%2014.3097%2032.8028%2014.3065%2032.8395L14.3099%2038.3922C14.311%2038.4134%2014.3117%2038.4349%2014.3117%2038.4564C14.3117%2038.4765%2014.3111%2038.4967%2014.3102%2038.5168L14.3122%2041.67H17.9792V12.3296H14.3122C14.2993%2012.3296%2014.2935%2012.3312%2014.2935%2012.3312ZM25.9859%2021.5935C25.0715%2021.5407%2024.1542%2021.8729%2023.4792%2022.6059C22.1281%2024.0759%2022.2695%2026.5429%2023.7151%2028.1145L24.1768%2028.616L28.3732%2033.1764C28.4575%2033.2677%2028.5718%2033.3189%2028.6909%2033.3189C28.8099%2033.3189%2028.9243%2033.2677%2029.0086%2033.1764L33.2031%2028.616L33.6651%2028.1145C35.1107%2026.5429%2035.2509%2024.076%2033.899%2022.607C32.5479%2021.138%2030.2806%2021.2944%2028.8359%2022.865L28.6901%2023.0234L28.5443%2022.865C27.8215%2022.0782%2026.9014%2021.6463%2025.9859%2021.5935Z'%20fill='%23BC8035'/%3e%3c/svg%3e" alt="">
+                        <p class="text-primary-600 fw-bold fs-10 mt-2 mb-0">心情日記</p>
+                    </label>
+                </div>
+            </form>
+            <div class="mt-7">
+                <a type="submit" class="btn btn-primary d-block w-100  py-13-5 text-neutral-0 fs-11 text-decoration-none" href="../pages/register.html">完成註冊</a>             
+            </div>
+        </section>
+        
+    </main>
+
+    
+  </body>
+</html>
