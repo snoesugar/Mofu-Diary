@@ -1,0 +1,52 @@
+@function hex-nohash($c){ @return str-slice(#{ $c }, 2); }
+@function strip-unit($n){ @return $n / ($n * 0 + 1); }
+
+/* 固定尺寸 + 左對齊：上圓角、下直角；右側為斜邊 */
+@mixin trapezoid-fixed-left(
+  $bottom,  // 外框寬 = 底邊寬，如 198px
+  $h,       // 高，如 52px
+  $top,     // 上邊寬，如 168px
+  $r: 10px, $bd: 1.5px, $fill:#FFF7E9, $stroke:#E7C795,
+  $content-inset:10px, $gap:8px
+){
+  $H: strip-unit($h); $BOT: strip-unit($bottom); $TOP: strip-unit($top);
+  $R: strip-unit($r); $BD: strip-unit($bd);
+
+  // 右側外擴量（全部差異放右邊）
+  $DX: $BOT - $TOP;
+
+  // 上邊座標（左圓角 → 右圓角）
+  $x_start: $R;                 // top 起點
+  $x_end:   $TOP - $R;          // top 終點
+  $x_arcR:  $TOP;               // 右上圓角投影 x
+
+  $svg: unquote(
+    "data:image/svg+xml;utf8,"+
+    "<svg xmlns='http://www.w3.org/2000/svg' width='#{$BOT}' height='#{$H}' viewBox='0 0 #{$BOT} #{$H}'>"+
+    // M R,0 → H TOP-R → A → L BOT,H → H 0 → L 0,R → A → Z
+    "<path fill='%23#{hex-nohash($fill)}' stroke='%23#{hex-nohash($stroke)}' stroke-width='#{$BD}' vector-effect='non-scaling-stroke' d='M #{$x_start},0 H #{$x_end} A #{$R} #{$R} 0 0 1 #{$x_arcR} #{$R} L #{$BOT} #{$H} H 0 L 0 #{$R} A #{$R} #{$R} 0 0 1 #{$x_start} 0 Z'/>"+
+    "</svg>"
+  );
+
+  width:$bottom; height:$h;
+  background:url("#{$svg}") no-repeat center/100% 100%;
+  border:0;
+  -webkit-mask:url("#{$svg}") no-repeat center/100% 100%;
+          mask:url("#{$svg}") no-repeat center/100% 100%;
+
+  // 內容避開左圓角與右斜邊
+  $padL: $r + $content-inset;
+  $padR: $DX + $r + $content-inset;
+  display:inline-flex; align-items:center; justify-content:flex-start;
+  padding-left:$padL; padding-right:$padR; gap:$gap;
+
+  > img{ width:32px; height:33px; }
+  > span{ font-weight:700; }
+}
+
+/* 使用：外框 198×52，右側斜邊；左邊貼齊 */
+.tag-btn{
+  @include trapezoid-fixed-left(198px, 52px, 183px, 8px, 0px, #FFF7E9, #E7C795, 10px, 6px);
+  > span{ color:#{$primary-50}; }
+  white-space: nowrap;
+}
