@@ -7,6 +7,20 @@
                 height: 4rem;
                 .setting-item-content{
                     gap: .125rem;
+                    .avatar{
+                        width: 2.5rem;
+                        aspect-ratio: 1 / 1;
+                        overflow: hidden;
+                        img{
+                            width: 100%;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                    }
+                    .icons{
+                        width: 2.5rem;
+                        height: 2.5rem;
+                    }
                 }
             }
         }
@@ -15,6 +29,24 @@
 
 .main-settingAccount{
     padding-top: 3.625rem;
+    .avatar{
+        position: relative;
+        .imgs{
+            width: 90px;
+            height: 90px;
+            overflow: hidden;
+            img{
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+        .icons{
+            position: absolute;
+            bottom: -3px;
+            right: -9px;
+        }
+    }
     .loginAccount{
         position: relative;
         .form-control{
@@ -27,6 +59,21 @@
             bottom: 21px;
             left: 1.5rem;
             z-index: 1;
+        }
+    }
+    .personalData{
+        .personalData-1, .personalData-2{
+            height: 4rem;
+        }
+        .modal{
+            .modal-dialog{
+                top: 50%;
+                transform: translateY(-50%);
+                .modal-content{
+                    max-width: 361px;
+                    border-radius: .75rem;
+                }
+            }
         }
     }
 }
