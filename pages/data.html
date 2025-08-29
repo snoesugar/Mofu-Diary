@@ -192,7 +192,6 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Chart.js datalabels 插件 -->
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
     
     <!--保持footer維持primary-->
@@ -243,7 +242,7 @@
             { // 外層大圓
               data: [null, 4, 2, 1, null, null, null, null],
               borderColor: '#D1D1D1',
-              tension: 0.4,
+              tension: 0,
               pointStyle: outerImg,
               pointRadius: 12,
               showLine: false // 不要額外畫線
@@ -251,7 +250,7 @@
             { // 內層小圓
               data: [null, 4, 2, 1, null, null, null, null],
               borderColor: '#d2a14e',
-              tension: 0.4,
+              tension: 0,
               pointStyle: innerImg,
               pointRadius: 8,
               backgroundColor: '#d2a14e',
@@ -262,7 +261,7 @@
         options: {
           plugins: {
             legend: { display: false },
-            tooltip: { enabled: true },
+            tooltip: { enabled: false },
             datalabels: {
               display: (context) => context.datasetIndex === 1, // 只顯示在內圈 dataset
               align: 'top',
@@ -283,21 +282,24 @@
                 drawTicks:false,
                 color: '#816E4D', // X軸文字顏色
               }, 
+              border: {
+                display: true,
+                width:1,
+                color: '#D1D1D1',
+              }
             },
             y: { // 背景橫線 → 虛線
               beginAtZero: true,
               max: 5,
               ticks: { 
                 drawTicks:false,
-                tickWidth:0,
-                tickLength:0,
                 stepSize: 1, 
                 color: '#816E4D',
               },
               grid: {
-              drawBorder: false,
+              drawBorder: true,
               drawOnChartArea: true,  // 必須開啟才會畫線
-              borderDash: [6, 6],     // 虛線
+              borderDash: [6, 6],     
               color: '#D1D1D1'        // 線顏色
               },
               border: {
@@ -363,6 +365,7 @@
           ]
         },
         options: {
+        layout: { padding: { bottom: 40 } },
         responsive: true,
         scales: {
           y: {
@@ -400,7 +403,12 @@
                 display: false, // 隱藏文字，只顯示圖片
                 drawTicks:false,
                 color: '#816E4D', // X軸文字顏色
-              }, 
+              },  
+              border: {
+                display: true,
+                width:1,
+                color: '#D1D1D1',
+              }
           }
         },
         plugins: { 
@@ -408,13 +416,13 @@
           datalabels: {
             anchor: 'end',
             align: 'end',
-            color: '#816E4D',
-            font: { weight: 'bold' },
+            color: '#888888',
+            font: { size: '12' },
             formatter: (value) => value + '%' // 顯示百分比
           }
         }
       },
-        
+      plugins: [ChartDataLabels,]  // ✅ 這裡一定要註冊插件
       });
     </script>
   </body>
