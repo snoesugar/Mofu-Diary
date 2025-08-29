@@ -4,7 +4,7 @@
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* 用你提供的四邊距形成「209×158」的槽位 */
+/* 四邊距形成「209×158」的槽位 */
 .cat-slot {
   position: absolute;
   top: 59.3%;
@@ -29,10 +29,10 @@
   background: url("../assets/images/bg/bg1.png") no-repeat center / cover; //
 }
 
-/* ZZZ 位置：依你給的 inset（391/262/178/115） */
+/* ZZZ 位置： inset（391/262/178/115） */
 .speech {
   position: absolute;
-  inset: 391px 115px 262px 178px; /* top right bottom left */
+  inset: 57.08% 29.26% 38.24% 45.29%; /* top(391/685) right(115/393)  bottom(262/685) left(178/393) */
   padding: 7.5px 6.5px;
 }
 
@@ -86,10 +86,11 @@
   
 }
 
-/* 梯形標籤按鈕：可調斜邊 */
-.tag-btn{
-  --h: 52px;          /* 內部高度 */
-  --skew: 10px;       /* 斜邊高度，可調 */
-  --pad-x: 12px;      /* 文字右側內距 */
-  --bd: 1.5px;        /* 外框粗細 */
+.body {
+  height: 750px;
+  background:#{$primary-50};
+}
+
+.icon_cat_can {
+  color: #{$neutral-500};  /* 因為 fill="currentColor" stroke="currentColor" */
 }
