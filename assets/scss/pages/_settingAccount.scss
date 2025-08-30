@@ -1,0 +1,115 @@
+.main-settingAccount{
+    padding-top: 3.625rem;
+    .avatar{
+        position: relative;
+        .imgs{
+            width: 90px;
+            height: 90px;
+            overflow: hidden;
+            img{
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+        .icons{
+            position: absolute;
+            bottom: -3px;
+            right: -9px;
+        }
+    }
+    .loginAccount{
+        position: relative;
+        .form-control{
+            height: 4rem;
+            padding-right: .5rem;
+            padding-left: 4.75rem;
+        }
+        span{
+            position: absolute;
+            bottom: 21px;
+            left: 1.5rem;
+            z-index: 1;
+        }
+    }
+    .personalData{
+        .personalData-1, .personalData-2, .personalData-3{
+            height: 4rem;
+        }
+        .modal{
+            .modal-dialog{
+                top: 50%;
+                transform: translateY(-50%);
+                .modal-content{
+                    max-width: 361px;
+                    border-radius: .75rem;
+                }
+            }
+        }
+        .personalData-2-offcanvas{
+            height: auto;
+            border-top-left-radius: .75rem;
+            border-top-right-radius: .75rem;
+            .offcanvas-close{
+                background: none;
+                border: none;
+            }
+            .offcanvas-title{
+                font-size: 1.125rem;
+            }
+        }
+        .personalData-3-offcanvas{
+            height: auto;
+            border-top-left-radius: .75rem;
+            border-top-right-radius: .75rem;
+            .offcanvas-header{
+                padding: .375rem 0;
+                .month{
+                    gap: 3px;
+                    font-size: 17px;
+                    font-weight: 600;
+                    line-height: 24px;
+                }
+            }
+            .offcanvas-body{
+                .air-datepicker{
+                    width: 100%;
+                    border: none;
+                    .air-datepicker--navigation{
+                        .air-datepicker-nav{
+                            position: relative;
+                            border-bottom: none;
+                            margin-bottom: .5rem;
+                            .air-datepicker-nav--action{
+                                position: absolute;
+                                &:first-child{
+                                    right: 40px;
+                                }
+                                &:last-child{
+                                    right: 0;
+                                }
+                            }
+                        }
+                    }
+                    .air-datepicker--content{
+                        padding: 0;
+                        .air-datepicker-body--day-names{
+                            margin-bottom: .5rem;
+                            .air-datepicker-body--day-name{
+                                color: rgba($color: #3C3C43, $alpha: .3);
+                                font-size: 13px;
+                                font-weight: 600;
+                                line-height: 18px;
+                            }
+                        }
+                        .air-datepicker-body--cells{
+                            color: #000000;
+                            font-size: 20px;
+                            line-height: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

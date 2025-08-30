@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寫作範本</title>
+</head>
+<body class="bg-primary-50">
+    <%- include('./layout/header'); -%>
+    
+    <main class="main main-settingTemplate">
+        <div class="container d-flex flex-column gap-6">
+            <nav class="d-flex justify-content-between align-items-center">
+                <a href="./setting.html" class="icons" style="width: 48px; aspect-ratio: 1 / 1;"><svg width="48" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27.5 18L21.5 23.9994L27.5 30" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <h1 class="fs-10 fw-bold text-primary-600 text-center mb-0">寫作範本</h1>
+                <div class="icons" style="width: 48px; aspect-ratio: 1 / 1;"></div>
+            </nav>
+
+            <div class="content d-flex flex-column gap-2 px-4">
+                <p class="fs-11 text-primary-600 mb-0">你可以使用寫做範本為靈感來源</p>
+
+                <a class="template-list template-list-1 d-flex justify-content-between align-items-center bg-neutral-0 text-decoration-none border rounded-xs pe-2 ps-6" href="./settingTemplate-1.html" role="button">
+                    <p class="fs-11 text-primary-700 mb-0">感恩日記</p>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 30L27 24.0006L21 18" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+
+                <a class="template-list template-list-2 d-flex justify-content-between align-items-center bg-neutral-0 text-decoration-none border rounded-xs pe-2 ps-6" href="./settingTemplate-2.html" role="button">
+                    <p class="fs-11 text-primary-700 mb-0">早上思考時間</p>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 30L27 24.0006L21 18" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+
+                <a class="template-list template-list-3 d-flex justify-content-between align-items-center bg-neutral-0 text-decoration-none border rounded-xs pe-2 ps-6" href="./settingTemplate-3.html" role="button">
+                    <p class="fs-11 text-primary-700 mb-0">代辦事項</p>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 30L27 24.0006L21 18" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+
+                <a class="template-list template-list-4 d-flex justify-content-between align-items-center bg-neutral-0 text-decoration-none border rounded-xs pe-2 ps-6" href="./settingTemplate-4.html" role="button">
+                    <p class="fs-11 text-primary-700 mb-0">晚上輕鬆隨筆</p>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 30L27 24.0006L21 18" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+
+                <a class="template-list template-list-5 d-flex justify-content-between align-items-center bg-neutral-0 text-decoration-none border rounded-xs pe-2 ps-6" href="./settingTemplate-5.html" role="button">
+                    <p class="fs-11 text-primary-700 mb-0">撫平焦慮</p>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 30L27 24.0006L21 18" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+
+                <a class="template-list template-list-6 d-flex justify-content-center align-items-center bg-neutral-0 text-decoration-none border rounded-xs pe-2 ps-6" href="./settingTemplate.html" role="button">
+                    <p class="fs-11 text-neutral-400 mb-0">+新增範本</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <%- include('./layout/footer'); -%>
+
+    <script type="module" src="../main.js"></script>
+    <!--保持footer維持primary-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 找到底部的「總覽」按鈕 (第一個)
+        const navBtns = document.querySelectorAll(".btn-nav-bottom");
+        if (navBtns.length > 0) {
+          navBtns[3].classList.add("active");  // 讓第一個變 active
+        }
+      });
+    </script>
+</body>
+</html>
