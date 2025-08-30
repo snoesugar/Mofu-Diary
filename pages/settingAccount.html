@@ -12,7 +12,7 @@
     <main class="main main-settingAccount">
         <div class="container d-flex flex-column gap-6">
             <nav class="d-flex justify-content-between align-items-center">
-                <div class="icons" style="width: 48px; aspect-ratio: 1 / 1;"><svg width="48" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27.5 18L21.5 23.9994L27.5 30" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <a href="./setting.html" class="icons" style="width: 48px; aspect-ratio: 1 / 1;"><svg width="48" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27.5 18L21.5 23.9994L27.5 30" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
                 <h1 class="fs-10 fw-bold text-primary-600 text-center mb-0">帳戶管理</h1>
                 <div class="icons" style="width: 48px; aspect-ratio: 1 / 1;"></div>
             </nav>
@@ -48,7 +48,7 @@
                         </svg>
                     </button>
 
-                    <div class="modal fade" id="personalData-1" tabindex="-1" aria-labelledby="personalData-1-Label" aria-hidden="true">
+                    <div class="modal fade personalData-1-modal" id="personalData-1" tabindex="-1" aria-labelledby="personalData-1-Label" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content gap-2 mx-auto px-4 py-3">
                         <div class="modal-header border-bottom-0 p-0">
@@ -75,15 +75,46 @@
                         </svg>
                     </button>
 
-                    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="personalData-2" aria-labelledby="personalData-2-Label">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="personalData-2-Label">Offcanvas bottom</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <div class="offcanvas offcanvas-bottom personalData-2-offcanvas" tabindex="-1" id="personalData-2" aria-labelledby="personalData-2-Label">
+                    <div class="offcanvas-header d-flex justify-content-between py-4">
+                        <button type="button" class="offcanvas-close p-0" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M28.2937 18.7944C28.6842 18.4038 29.3173 18.4038 29.7078 18.7944C30.0979 19.185 30.0979 19.818 29.7078 20.2085L25.4129 24.5034L29.7 28.7915C30.0901 29.182 30.0901 29.815 29.7 30.2055C29.3095 30.5961 28.6764 30.5961 28.2859 30.2055L23.9998 25.9175L19.7137 30.2055C19.3232 30.5961 18.69 30.5961 18.2996 30.2055C17.9095 29.815 17.9094 29.182 18.2996 28.7915L22.5857 24.5034L18.2918 20.2085C17.9014 19.8179 17.9015 19.185 18.2918 18.7944C18.6822 18.4038 19.3154 18.4038 19.7058 18.7944L23.9998 23.0893L28.2937 18.7944Z" fill="#BC8035"/>
+                            </svg>
+                        </button>
+                        <h2 class="offcanvas-title fw-bold text-primary-700" id="personalData-2-Label">你的性別</h2>
+                        <div style="width: 48px; height: 48px;"></div>
                     </div>
-                    <div class="offcanvas-body small">
-                        ...
+                    <div class="offcanvas-body d-flex flex-column gap-4 px-4 py-7">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="d-block fs-10 text-primary-700 text-decoration-none p-3">男</a></li>
+                            <li><a href="#" class="d-block fs-10 text-primary-700 text-decoration-none p-3">女</a></li>
+                            <li><a href="#" class="d-block fs-10 text-primary-700 text-decoration-none p-3">其他</a></li>
+                        </ul>
+                        <button type="submit" class="btn btn-primary fs-12">儲存</button>
                     </div>
                     </div>
+
+                    <button class="personalData-3 d-flex justify-content-between align-items-center bg-neutral-0 border rounded-xs ps-6 pe-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#personalData-3" aria-controls="personalData-3">
+                            <div class="d-flex align-items-center gap-6">
+                                <span class="fs-11 fw-bold text-primary-700 mb-0">生日</span>
+                                <p class="fs-11 text-primary-700 mb-0">2025/07/19</p>
+                            </div>
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 30L27 24.0006L21 18" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+    
+                        <div class="offcanvas offcanvas-bottom personalData-3-offcanvas d-flex flex-column gap-2 p-4 pb-8" tabindex="-1" id="personalData-3" aria-labelledby="personalData-3-Label">
+                        <h2 class="offcanvas-title fs-11 text-primary-700 text-center" id="personalData-3-Label">你的性別</h2>
+                        <div class="offcanvas-body p-0">
+                            <div id="airDatepicker"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary fs-12">儲存</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary bg-alert-300">登出帳戶</button>
                 </div>
 
             </div>
