@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <title>帳號登入頁</title>
+  </head>
+  <body class="bg-primary-50  d-flex flex-column align-items-center justify-content-center">
+    <main class="ttt ">
+        <%- include('./layout/phone'); -%> 
+        <section class="  mt-115-5">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <img src="../assets/images/登入頁用/登入頁title.svg" alt="" class="">
+                <h2 class="fw-bold text-primary-600 fs-10 mt-7 mb-0">歡迎回來！</h2>
+                <p class="fs-11 text-primary-700 mt-2 mb-2">繼續你的放鬆旅程吧！</p>
+            </div>
+            <div class="px-4">
+                <form>
+                    <div class="mb-4">
+                        <label for="exampleInputEmail1" class="form-label fw-medium text-primary-700 fs-11 mb-2">Email 帳號</label>
+                        <input type="email" class="form-control rounded-lg text-neutral-400 fs-11 px-6 py-13-5" id="exampleInputEmail1" aria-describedby="emailHelp"  placeholder="email@email.com">
+                    </div>
+                    <div class="mb-4">
+                        <label for="inputPassword" class="fw-medium text-primary-700 fs-11 mb-2">密碼</label>
+                        <input type="password" class="form-control rounded-lg text-neutral-400 fs-11 px-6 py-13-5" id="inputPassword2" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary d-block w-100 text-neutral-0 fs-11 py-13-5 ">登入</button>
+                </form>
+            </div>
+            <div class="d-flex align-items-center my-7 text-neutral-400 px-4">
+                <div class="flex-grow-1 border-bottom border-neutral-400 "></div>
+                    <span class="mx-2 fs-11">或是</span>
+                <div class="flex-grow-1 border-bottom border-neutral-400"></div>
+            </div>
+            <div class="px-4 register-btn-gap d-flex flex-column ">
+                <a href="" class="btn btn-primary border-neutral-100  bg-neutral-0 register-btn-pd w-100 d-flex btn-hover"><img src="../assets/images/register/google-icon.svg" class="" alt="google"><span class="text-primary-700 fs-11 flex-grow-1 text-center ms-auto">Google 帳號註冊</span></a>
+                <a href="" class="btn btn-primary border-neutral-100  bg-neutral-0 register-btn-pd w-100 d-flex btn-hover"><img src="../assets/images/register/facebook-icon.svg" class="" alt="Facebook"><span class="text-primary-700 fs-11 flex-grow-1 text-center ms-auto">Facebook 帳號註冊</span></a>
+                <a href="" class="btn btn-primary border-neutral-100  bg-neutral-0 register-btn-pd w-100 d-flex btn-hover "><img src="../assets/images/register/apple-icon.svg" class="" alt="Apple"><span class="text-primary-700 fs-11 flex-grow-1 text-center ms-auto">Apple 帳號註冊</span></a>
+            </div>
+            <div class="d-flex align-items-center my-7 text-neutral-400 px-4">
+                <div class="border-bottom border-neutral-400 w-100"></div>
+            </div>
+            <div class="d-flex justify-content-center ">
+                <p class="fs-11 text-primary-700 fw-medium">沒有帳戶嗎？請點</p><a href="../pages/register.html" class="ms-2 fs-11 text-primary-600 fw-bold">這邊註冊</a>
+            </div>
+        </section>
+    </main>
+
+    
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>

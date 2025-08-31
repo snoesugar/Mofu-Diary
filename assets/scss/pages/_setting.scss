@@ -7,26 +7,22 @@
                 height: 4rem;
                 .setting-item-content{
                     gap: .125rem;
+                    .avatar{
+                        width: 2.5rem;
+                        aspect-ratio: 1 / 1;
+                        overflow: hidden;
+                        img{
+                            width: 100%;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                    }
+                    .icons{
+                        width: 2.5rem;
+                        height: 2.5rem;
+                    }
                 }
             }
-        }
-    }
-}
-
-.main-settingAccount{
-    padding-top: 3.625rem;
-    .loginAccount{
-        position: relative;
-        .form-control{
-            height: 4rem;
-            padding-right: .5rem;
-            padding-left: 4.75rem;
-        }
-        span{
-            position: absolute;
-            bottom: 21px;
-            left: 1.5rem;
-            z-index: 1;
         }
     }
 }

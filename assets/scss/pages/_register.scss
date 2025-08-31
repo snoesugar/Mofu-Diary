@@ -1,0 +1,88 @@
+
+/* 當 radio 被選中時，改變 label 背景和邊框 */
+.btn-check:checked + .btn {
+    background-color: $primary-100 !important;
+}
+
+.google-size{
+    // max-width: 393px;
+    // width: 100%;
+    width: 100%; 
+    height: auto; 
+    display: block;
+}
+.gender-size{
+    width: 105px;
+    height: 121px;
+    border-radius: 8px;
+}
+.pb-65{
+    padding-bottom: 65px;
+}
+.select-box{
+    // width: 165px;
+    // padding-right: .75rem; /* 跟 form-control 一樣 */
+    // max-width: 165px;
+    // width: 100%;
+    width:165px; 
+    flex:0 0 165px
+}
+.input-pd{
+    padding: 13.5px 12px;
+}
+
+.mt-115-5{
+    margin-top: 115.5px !important;
+}
+.mt-88{
+    margin-top: 88px;
+}
+.icon-border{
+    border-bottom: 1px solid $neutral-100;
+    border-top:1px solid $neutral-100 ;
+    border-right: 1px solid $neutral-100;
+}
+.py-17{
+    padding-top: 17px;
+    padding-bottom: 17px;
+}
+
+.ttt{
+    max-width: 393px;
+    width: 100%;
+}
+
+input.form-control.rounded-lg {
+  border-radius: 0.5rem; /* 或 $border-radius-lg */
+}
+
+.py-13-5{
+    padding-top: 13.5px;
+    padding-bottom: 13.5px;
+}
+
+.register-btn-pd{
+    padding:8px 22px;
+}
+
+.btn-hover:hover{
+    background-color: $primary-100 !important;;
+}
+
+.register-btn-gap{
+    gap: 10px;
+}
+
+.fw-bold{
+    font-weight: 700 !important;
+}
+
+
+.fw-medium{
+    font-weight: 500 !important;
+}
+
+
+.progress-style{
+    height: 6px;
+}
