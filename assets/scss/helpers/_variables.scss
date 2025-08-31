@@ -715,20 +715,14 @@ $line-height-lg:              2 !default;
 
 $h1-font-size:                $font-size-base * 3 !default;//2.5 ;     //48px custom
 $h2-font-size:                $font-size-base * 2.25 !default;         //36px custom
-$h3-font-size:                $font-size-base * 1.5 !default;//1.75 ;   //24px custom
-$h4-font-size:                $font-size-base * 1.312 !default;//1.5 ;  //21px custom
-$h5-font-size:                $font-size-base * 1.125 !default;//1.25 ; //18px custom
+$h3-font-size:                $font-size-base * 1.5 !default;//1.75 ;  //24px custom
+$h4-font-size:                $font-size-base * 1.3125 !default;//1.5 ;//21px custom
+$h5-font-size:                $font-size-base * 1.125 !default;//1.25 ;//18px custom
 $h6-font-size:                $font-size-base !default;                //16px custom
 // scss-docs-end font-variables
 
 // scss-docs-start font-sizes
-$font-sizes: (
-  1: $h1-font-size,           //48px
-  2: $font-size-base * 2.5,   //40px
-  3: $h2-font-size,           //36px
-  4: $font-size-base * 2,     //32px
-  5: $font-size-base * 1.75,  //28px
-  6: $h3-font-size,           //24px
+$custom-font-sizes: (
   7: $h4-font-size,           //21px
   8: $font-size-base * 1.25,  //20px
   9: $h5-font-size,           //18px custom
@@ -736,7 +730,17 @@ $font-sizes: (
   11: $font-size-base * 0.875,//14px custom
   12: $font-size-base * 0.75, //12px custom
   13: $font-size-base * 0.625,//10px custom
-) !default;
+);
+
+$font-sizes: map-merge((
+  1: $h1-font-size,           //48px
+  2: $font-size-base * 2.5,   //40px
+  3: $h2-font-size,           //36px
+  4: $font-size-base * 2,     //32px
+  5: $font-size-base * 1.75,  //28px
+  6: $h3-font-size,           //24px
+), $custom-font-sizes) !default;
+
 // scss-docs-end font-sizes
 
 
