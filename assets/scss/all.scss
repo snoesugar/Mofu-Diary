@@ -12,6 +12,7 @@
 
 /*component*/
 @import "./component/button-custom"; 
+@import "./component/tag";
 
 /* Bootstrap 主體 (會根據上面修改的 $utilities 來生成 .fw-xxx 類別) */
 @import "../../node_modules/bootstrap/scss/bootstrap";
