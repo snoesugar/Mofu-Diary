@@ -12,7 +12,6 @@
 
 /*component*/
 @import "./component/button-custom"; 
-@import "./component/tag"; // 再元件
 
 /* Bootstrap 主體 (會根據上面修改的 $utilities 來生成 .fw-xxx 類別) */
 @import "../../node_modules/bootstrap/scss/bootstrap";
@@ -21,6 +20,10 @@
 @import "./layout/header.scss";
 @import "./layout/footer.scss";
 @import "./pages/index.scss";
+@import "./pages/login.scss";
+@import "./pages/register.scss";
+@import "./pages/breating.scss";
+@import "./pages/growth.scss";
 @import "./pages/overview";
 @import "./pages/data";
 @import "./pages/setting";
