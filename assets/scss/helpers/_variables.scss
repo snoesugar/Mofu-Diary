@@ -593,7 +593,7 @@ $container-max-widths: (
 // Set the number of columns and specify the width of the gutters.
 
 $grid-columns:                12 !default;
-$grid-gutter-width:           2rem;//1.5rem !default; //custom
+$grid-gutter-width:           2rem !default;//1.5rem ; //custom
 $grid-row-columns:            6 !default;
 
 // Container padding
@@ -615,7 +615,7 @@ $border-widths: (
   5: 5px
 ) !default;
 $border-style:                solid !default;
-$border-color:                $neutral-100;//$gray-300 !default; custom
+$border-color:                $neutral-100 !default;//$gray-300 ; custom
 $border-color-translucent:    rgba($black, .175) !default;
 // scss-docs-end border-variables
 
@@ -629,7 +629,7 @@ $border-radius-pill:          50rem !default;
 
 //custom
 $border-radius-xs:            .5rem !default;           //8px  custom
-$border-radius-s :            0.75rem;                  //12px custom
+$border-radius-s :            0.75rem !default;         //12px custom
 $border-radius-m :            1rem !default;            //16px custom
 $border-radius-l:             1.5rem !default;          //24px custom
 
@@ -713,11 +713,11 @@ $line-height-base:            1.5 !default;
 $line-height-sm:              1.25 !default;
 $line-height-lg:              2 !default;
 
-$h1-font-size:                $font-size-base * 3;//2.5 !default;      //48px custom
+$h1-font-size:                $font-size-base * 3 !default;//2.5 ;     //48px custom
 $h2-font-size:                $font-size-base * 2.25 !default;         //36px custom
-$h3-font-size:                $font-size-base * 1.5;//1.75 !default;   //24px custom
-$h4-font-size:                $font-size-base * 1.312;//1.5 !default;  //21px custom
-$h5-font-size:                $font-size-base * 1.125;//1.25 !default; //18px custom
+$h3-font-size:                $font-size-base * 1.5 !default;//1.75 ;   //24px custom
+$h4-font-size:                $font-size-base * 1.312 !default;//1.5 ;  //21px custom
+$h5-font-size:                $font-size-base * 1.125 !default;//1.25 ; //18px custom
 $h6-font-size:                $font-size-base !default;                //16px custom
 // scss-docs-end font-variables
 
