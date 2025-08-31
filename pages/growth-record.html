@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  
+    <title>成長紀錄</title>
+  </head>
+  <body class="bg-primary-50 d-flex flex-column align-items-center justify-content-center">
+    <main class="ttt position-relative">
+        <%- include('./layout/phone'); -%> 
+        <section class="container px-4 mb-3">
+            <div class="row mx-0">
+                <div class="col-12 d-flex px-0">
+                    <p class="text-primary-600 fs-10 fw-bold d-flex align-items-center mb-0"><a href="" class="me-95px"><img src="../assets/images/growth-record/left.svg" alt=""></a>成長紀錄</p>
+                </div>
+            </div>
+        </section>
+        <section class="container px-4">
+          <div class="row mx-0">
+            <div class="col-12 px-0 bg-neutral-0 d-flex flex-column align-items-center rounded-s px-6">
+              <span class="btn  bg-neutral-0 border-neutral-100  shadow-sm rounded-s mes-h2 mt-5">喵～我還要罐罐</span>
+              <img src="../assets/images/growth-record/cat-hero.png" alt="" class="mt-5">
+              <div class="px-4 w-100 d-flex flex-column align-items-center">
+                <p class="mt-4 fs-4 fw-bold text-primary-600 mb-0">LV.2</p>
+                <p class="fs-13 text-primary-600 fw-medium mb-1">罐罐數量 4/10</p>
+                <div class="progress flex-grow-1  progress-style-lv w-100">
+                  <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="fs-11 text-primary-700 fw-medium mt-1">距離 LV.3 還差<span class="mx-2 fs-10 text-primary-600 fw-bold">6 </span>個罐罐</p>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <p class="btn bg-primary-200 rounded-m py-1 px-4 fs-11  d-flex align-items-center mb-1"><img src="../assets/images/growth-record/bhd.svg" alt="" class="cake-size"><span class="fw-bold text-primary-600">114 - 07 - 01</span></p>
+                <p class="text-primary-600 fw-medium fs-12 ">0 歲 1 個月 5 天</p>
+              </div>
+              <div class="d-flex justify-content-center ">
+                <p class="d-flex flex-column  border border-neutral-100 "><span class="fs-11 fw-bold text-primary-700" >性別</span><img src="../assets/images/growth-record/gender-male.svg" alt=""></p>
+                <p class="d-flex flex-column  border border-neutral-100"><span class="fs-11 fw-bold text-primary-700">個性</span><span>活潑</span></p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- <img src="../assets/images/Breathing/cat-sleep-2.png" alt="" class="cat-pos position-absolute"> -->
+        
+
+        <%- include('./layout/footer'); -%>
+
+        
+    
+    </main>
+
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>

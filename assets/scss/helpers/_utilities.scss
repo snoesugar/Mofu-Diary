@@ -822,30 +822,13 @@ $utilities: map-merge(
       property: font-weight,
       class: fw,
       values: (
-        lighter: $font-weight-lighter,
-        light: $font-weight-light,
-        normal: $font-weight-normal,
-        medium: $font-weight-medium,
-        semibold: $font-weight-semibold,
-        bold: $font-weight-bold,
-        bolder: $font-weight-bolder,
-        regular: 600,  //custom
+        regular: 600,
       )
     ),
     "rounded": (
       property: border-radius,
       class: rounded,
       values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill),
-        //custom
         xs: var(--#{$prefix}border-radius-xs),     //8px
         s:  var(--#{$prefix}border-radius-s),      //12px
         m:  var(--#{$prefix}border-radius-m),      //16px
@@ -857,16 +840,6 @@ $utilities: map-merge(
       property: border-top-left-radius border-top-right-radius,
       class: rounded-top,
       values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill),
-        //custom
         xs: var(--#{$prefix}border-radius-xs),     //8px
         s:  var(--#{$prefix}border-radius-s),      //12px
         m:  var(--#{$prefix}border-radius-m),      //16px
@@ -878,16 +851,6 @@ $utilities: map-merge(
       property: border-top-right-radius border-bottom-right-radius,
       class: rounded-end,
       values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill),
-        //custom
         xs: var(--#{$prefix}border-radius-xs),     //8px
         s:  var(--#{$prefix}border-radius-s),      //12px
         m:  var(--#{$prefix}border-radius-m),      //16px
@@ -899,16 +862,6 @@ $utilities: map-merge(
       property: border-bottom-right-radius border-bottom-left-radius,
       class: rounded-bottom,
       values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill),
-        //custom
         xs: var(--#{$prefix}border-radius-xs),     //8px
         s:  var(--#{$prefix}border-radius-s),      //12px
         m:  var(--#{$prefix}border-radius-m),      //16px
@@ -920,37 +873,6 @@ $utilities: map-merge(
       property: border-bottom-left-radius border-top-left-radius,
       class: rounded-start,
       values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill),
-        //custom
-        xs: var(--#{$prefix}border-radius-xs),     //8px
-        s:  var(--#{$prefix}border-radius-s),      //12px
-        m:  var(--#{$prefix}border-radius-m),      //16px
-        l:  var(--#{$prefix}border-radius-l),      //24px
-        100: 100px,
-      )
-    ),
-    "rounded-bottom-right": (
-      property: border-bottom-right-radius,
-      class: rounded-bottom-right,
-      values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill),
-        //custom
         xs: var(--#{$prefix}border-radius-xs),     //8px
         s:  var(--#{$prefix}border-radius-s),      //12px
         m:  var(--#{$prefix}border-radius-m),      //16px

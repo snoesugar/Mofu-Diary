@@ -1,0 +1,56 @@
+.phone-size{
+    max-width: 393px;
+    width: 100%;
+}
+
+.btn-custom{
+    border-radius: 100px;
+    padding-top: 13.5px;
+    padding-bottom: 13.5px;
+}
+.mt-115-5{
+    margin-top: 115.5px !important;
+}
+.video-bg{
+    background-color:#faedcc;
+}
+
+.video-style{
+  width: auto;   /* 固定寬度 */
+  height: 363px;   /* 高度自動依比例縮放 */
+}
+.bg-login-gradient {
+    background: linear-gradient(
+    to top,
+    $primary-300 0%, /* $primary-300:   #F4D588; */
+    #F8E7B7 59.38%,  /* 這個顏色在你的變數裡沒有，直接用 HEX */
+    $primary-200 100%  /* $primary-200:   #F9EABA;*/
+    );
+    background-repeat: no-repeat; /* 不要重複 */
+    background-attachment: fixed; /* 可選，背景固定不隨滾動 */
+    background-size: cover;       /* 拉到填滿容器 */
+
+}
+.test-border{
+    border: 1px solid red;
+}
+.col-custom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content:center;
+}
+.primary-logo-style{
+    width: 131px;
+    height: 131px; 
+}
+
+#logo {
+    opacity: 1;
+    transition: opacity 3s ease;
+}
+
+#loginPage {
+    transition: opacity 1s ease;
+}
+

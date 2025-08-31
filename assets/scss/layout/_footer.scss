@@ -1,13 +1,8 @@
-body {
-  padding-bottom: 106.39px; /* 假設 bottom-nav 高度是 60px */
-}
-
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 106.39px;
   background: $neutral-0; 
   z-index: 1030; // 保持在最上層 (比 Bootstrap navbar 還高)
   }
