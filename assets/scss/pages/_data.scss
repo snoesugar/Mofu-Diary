@@ -1,0 +1,50 @@
+/*貓咪nav*/
+.w96 {
+  width: 96px;
+  height: 72px;
+}
+
+#pills-tab .nav-item {
+  flex: 1; /* 平均分配 */
+  text-align: center;
+}
+
+.nav-data {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 500;
+  color: $primary-700;
+  background-color: $primary-100;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 0px;
+  border-radius: 6px;
+  &.active {
+    color: $primary-700;
+    background-color: $neutral-0;
+    border-radius: 6px;
+  }
+  &.active:hover {
+    color: $primary-700;
+    background-color: $neutral-0;
+    border-radius: 6px;
+  }
+}
+
+.p13 {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.mb14 {
+  margin-bottom: 14px;
+}
+
+.data-title {
+  padding: 8.5px 46px;
+}
+
+.wh102 {
+  width: 102px;
+  height: 140px;
+}
