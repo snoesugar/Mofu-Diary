@@ -1,4 +1,11 @@
 import './assets/scss/all.scss';
+<<<<<<< HEAD
+=======
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import './assets/js/air-datepicker-setting';
+
+console.log('Hello world');
+>>>>>>> main
 
 const logo = document.getElementById('logo');
 const loginPage = document.getElementById('loginPage');
@@ -38,4 +45,4 @@ togglePassword.addEventListener('click', function () {
 });
 
 
-console.log('Hello world');
+
