@@ -87,10 +87,86 @@
 }
 
 .body {
-  height: 750px;
+  height: auto;//暫訂
   background:#{$primary-50};
 }
 
 .icon_cat_can {
   color: #{$neutral-500};  /* 因為 fill="currentColor" stroke="currentColor" */
+}
+
+//border樣式 dotted
+.border-dotted { 
+  border-style: dashed !important;; 
+}
+
+
+//按鈕按住變色
+.topic-btn {
+    max-width: 74px;
+  flex: 0 0 74px; 
+  // 按住時也變色
+  &:active {
+    background-color: #D2A14E !important;
+    color: #fff !important;
+    border-color: #D2A14E !important;
+  }
+
+  // 切換後保持
+  &.active,
+  &.active:focus {
+    background-color: #D2A14E !important;
+    color: #fff !important;
+    border-color: #D2A14E !important;
+  }
+}
+
+/* 自訂小圓角 */
+$radius-xs: .25rem;
+.rounded-top-m    { 
+  border-top-left-radius: 16px !important; 
+  border-top-right-radius: 16px !important; }
+.rounded-bottom-xs { 
+  border-bottom-left-radius: 8px !important; 
+  border-bottom-right-radius: 8px !important; }
+
+/* 讓 flush 也有邊與圓角、項目間留距 */
+.accordion.accordion-flush {
+  .accordion-item {
+    background: #{$neutral-0};
+    border: 1px solid var(--bs-border-color);
+    overflow: hidden;              /* 讓圓角吃到內層 */
+  }
+  .accordion-item + .accordion-item { margin-top: -1rem; }
+
+  /* 讓父層底色透出 */
+  .accordion-button,
+  .accordion-body { background-color: transparent !important; }
+  .accordion-button:focus { box-shadow: none; }
+}
+  /*移除箭頭*/
+   .accordion-button::after { 
+    display: none !important; 
+  }
+
+/* 只有最後一張卡片用漸層 */
+.accordion.accordion-flush .accordion-item:last-child {
+  background-color: #fff;
+  --bs-gradient:
+    /* 左上：白→淡綠→透明 */
+    radial-gradient(
+      140% 140% at 0% 0%,
+      #ffffff 0%,
+      #ffffff 50%,
+      rgba(223,240,183,.55) 70%,
+      rgba(223,240,183,0) 100%
+    ),
+    /* 右下：淡黃暈染→透明 */
+    radial-gradient(
+      110% 110% at 100% 100%,
+      rgba(255,246,0,.45) 0%,
+      rgba(255,246,0,0) 60%
+    );
+  background-image: var(--bs-gradient);
+  overflow: hidden;
 }
