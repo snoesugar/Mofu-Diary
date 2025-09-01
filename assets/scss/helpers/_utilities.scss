@@ -815,126 +815,80 @@ $utilities: map-merge(
   --#{$prefix}border-radius-l:  #{$border-radius-l};
 }
 
+// 1️⃣ 先定義要新增的值
+$custom-rounded-values: (
+  xs: var(--#{$prefix}border-radius-xs), // 8px
+  s:  var(--#{$prefix}border-radius-s),  // 12px
+  m:  var(--#{$prefix}border-radius-m),  // 16px
+  l:  var(--#{$prefix}border-radius-l),  // 24px
+  100: 100px
+);
+
+/*自粗體大小fw*/
 $utilities: map-merge(
   $utilities,
   (
-    "font-weight": (
-      property: font-weight,
-      class: fw,
-      values: (
-        lighter: $font-weight-lighter,
-        light: $font-weight-light,
-        normal: $font-weight-normal,
-        medium: $font-weight-medium,
-        semibold: $font-weight-semibold,
-        bold: $font-weight-bold,
-        bolder: $font-weight-bolder,
-        regular: 600,  //custom
+    "font-weight": map-merge(
+      map-get($utilities, "font-weight"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "font-weight"), values),
+          (
+            regular: 600
+          )
+        )
+      )
+    )
+  )
+);
+
+/*框弧度rounded*/
+$utilities: map-merge(
+  $utilities,
+  (
+    "rounded": map-merge(
+      map-get($utilities, "rounded"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "rounded"), values),
+          $custom-rounded-values
+        )
       )
     ),
-    "rounded": (
-      property: border-radius,
-      class: rounded,
-      values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill),
-        //custom
-        xs: var(--#{$prefix}border-radius-xs),     //8px
-        s:  var(--#{$prefix}border-radius-s),      //12px
-        m:  var(--#{$prefix}border-radius-m),      //16px
-        l:  var(--#{$prefix}border-radius-l),      //24px
-        100: 100px,
+    "rounded-top": map-merge(
+      map-get($utilities, "rounded-top"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "rounded-top"), values),
+          $custom-rounded-values
+        )
       )
     ),
-    "rounded-top": (
-      property: border-top-left-radius border-top-right-radius,
-      class: rounded-top,
-      values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill),
-        //custom
-        xs: var(--#{$prefix}border-radius-xs),     //8px
-        s:  var(--#{$prefix}border-radius-s),      //12px
-        m:  var(--#{$prefix}border-radius-m),      //16px
-        l:  var(--#{$prefix}border-radius-l),      //24px
-        100: 100px,
+    "rounded-end": map-merge(
+      map-get($utilities, "rounded-end"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "rounded-end"), values),
+          $custom-rounded-values
+        )
       )
     ),
-    "rounded-end": (
-      property: border-top-right-radius border-bottom-right-radius,
-      class: rounded-end,
-      values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill),
-        //custom
-        xs: var(--#{$prefix}border-radius-xs),     //8px
-        s:  var(--#{$prefix}border-radius-s),      //12px
-        m:  var(--#{$prefix}border-radius-m),      //16px
-        l:  var(--#{$prefix}border-radius-l),      //24px
-        100: 100px,
+    "rounded-bottom": map-merge(
+      map-get($utilities, "rounded-bottom"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "rounded-bottom"), values),
+          $custom-rounded-values
+        )
       )
     ),
-    "rounded-bottom": (
-      property: border-bottom-right-radius border-bottom-left-radius,
-      class: rounded-bottom,
-      values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill),
-        //custom
-        xs: var(--#{$prefix}border-radius-xs),     //8px
-        s:  var(--#{$prefix}border-radius-s),      //12px
-        m:  var(--#{$prefix}border-radius-m),      //16px
-        l:  var(--#{$prefix}border-radius-l),      //24px
-        100: 100px,
-      )
-    ),
-    "rounded-start": (
-      property: border-bottom-left-radius border-top-left-radius,
-      class: rounded-start,
-      values: (
-        null: var(--#{$prefix}border-radius),
-        0: 0,
-        1: var(--#{$prefix}border-radius-sm),
-        2: var(--#{$prefix}border-radius),
-        3: var(--#{$prefix}border-radius-lg),
-        4: var(--#{$prefix}border-radius-xl),
-        5: var(--#{$prefix}border-radius-xxl),
-        circle: 50%,
-        pill: var(--#{$prefix}border-radius-pill),
-        //custom
-        xs: var(--#{$prefix}border-radius-xs),     //8px
-        s:  var(--#{$prefix}border-radius-s),      //12px
-        m:  var(--#{$prefix}border-radius-m),      //16px
-        l:  var(--#{$prefix}border-radius-l),      //24px
-        100: 100px,
+    "rounded-start": map-merge(
+      map-get($utilities, "rounded-start"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "rounded-start"), values),
+          $custom-rounded-values
+        )
       )
     ),
     "rounded-bottom-right": (
