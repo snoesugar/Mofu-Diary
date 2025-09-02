@@ -60,10 +60,35 @@
         <!--日期-->
         <div class="col-12 mb-2">
           <div class="bg-neutral-0 border text-center rounded-s p-4">
-            <h2 class="fs-11 text-primary-600 d-flex justify-content-center align-items-center fw-bold mb-2">
-              2025年 7月
-              <img src="/assets/images/icons/icon_chevron_down.png" class="wh40" alt="icon_chevron_down">
-            </h2>
+            <!-- 月份選擇 -->
+            <div class="dropdown d-flex justify-content-center align-items-center mb-2">
+              <h2 class="fs-11 text-primary-600 fw-bold mb-0">
+                2025年 7月
+              </h2>
+              <!-- 這裡用你的箭頭當觸發 -->
+              <img src="/assets/images/icons/icon_chevron_down.png" 
+                  class="wh40 dropdown-toggle" 
+                  id="monthDropdown" 
+                  data-bs-toggle="dropdown" 
+                  aria-expanded="false" 
+                  alt="icon_chevron_down" 
+                  style="cursor:pointer;">
+              <!-- 下拉選單 -->
+              <ul class="dropdown-menu" aria-labelledby="monthDropdown">
+                <li><a class="dropdown-item" href="#">2025年 1月</a></li>
+                <li><a class="dropdown-item" href="#">2025年 2月</a></li>
+                <li><a class="dropdown-item" href="#">2025年 3月</a></li>
+                <li><a class="dropdown-item" href="#">2025年 4月</a></li>
+                <li><a class="dropdown-item" href="#">2025年 5月</a></li>
+                <li><a class="dropdown-item" href="#">2025年 6月</a></li>
+                <li><a class="dropdown-item" href="#">2025年 7月</a></li>
+                <li><a class="dropdown-item" href="#">2025年 8月</a></li>
+                <li><a class="dropdown-item" href="#">2025年 9月</a></li>
+                <li><a class="dropdown-item" href="#">2025年 10月</a></li>
+                <li><a class="dropdown-item" href="#">2025年 11月</a></li>
+                <li><a class="dropdown-item" href="#">2025年 12月</a></li>
+              </ul>
+            </div>
             <table class="table table-layout-fixed table-borderless">
               <thead>
                 <tr class="fs-12">
@@ -231,7 +256,7 @@
                     <div class="d-flex flex-column align-items-center justify-content-center">
                       <img src="/assets/images/mood/cat_happy.png" class="cat-mood" alt="cat_happy">
                       </div>
-                      <p class="fs-12 bg-primary-600 text-neutral-0 rounded-100 mb-0 mx-2">17</p>
+                      <p class="fs-12 bg-primary-600 text-neutral-0 rounded-100 mb-0">17</p>
                     </div>
                   </td>
                   <td class="text-center">
