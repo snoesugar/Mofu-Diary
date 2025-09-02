@@ -1,0 +1,45 @@
+.custom-input {
+  padding: 8px 12px;
+  font-size: 14px;
+  width: 100%;
+  min-height: 67px;   /* 給點高度，不然只有一行 */
+  border: 1px solid #FFFFFF;
+  border-radius: 8px;
+  outline: none;
+  resize: none;   /* 禁止手動拖拉，讓 JS 自動控制高度 */
+  overflow: hidden;   /* 關鍵：不要出現卷軸 */
+
+  /* 文字樣式 */
+  color: $primary-800;
+  line-height: 1.5;
+  white-space: pre-wrap; /* 保留換行，也能自動換行 */
+  word-break: break-word; /* 長字自動斷行 */
+
+  /* 內陰影 */
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* placeholder 顏色 */
+.custom-input::placeholder {
+  color: $primary-800;
+}
+
+.diary-img {
+  width: 109px;          /* 橫向填滿容器 */
+  height: 104px;        /* 固定高度 */
+  border-radius: 8px;   /* 圓角 */
+  overflow: hidden;     /* 超出部分裁切 */
+}
+
+.diary-img img {
+  width: 100%;          /* 橫向填滿容器 */
+  height: 100%;         /* 高度填滿容器 */
+  object-fit: cover;    /* 填滿容器，保持比例 */
+  object-position: center; /* 圖片置中 */
+  display: block;       /* 避免底部空隙 */
+}
+
+.diary-footer {
+margin-bottom: -390px;
+
+}

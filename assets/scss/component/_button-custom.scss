@@ -69,6 +69,31 @@
   padding: 8px 22px;
 }
 
+/*總覽-日記回顧*/
+.btn.btn-alert {
+  @include button-variant(
+  $white,      
+  $alert-300,          
+  $color: #C65A5A,      
+  $hover-background: $alert-100,
+  $hover-border: $alert-300,
+  $hover-color: #C65A5A,
+  $active-background: $alert-100,
+  $active-border: $alert-300,
+  $active-color: #C65A5A,
+  $disabled-background: rgba($alert-300, 0.6),
+  $disabled-border: rgba($alert-300, 0.6),
+  $disabled-color: #C65A5A
+  );
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  border-radius: 100px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+
 /*footer的nav*/
 .btn-nav-bottom {
   color: $neutral-400;
