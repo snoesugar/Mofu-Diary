@@ -41,5 +41,21 @@
 
 .diary-footer {
 margin-bottom: -390px;
+}
 
+.custom-modal {
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+  width: 323px;
+  margin: 0 auto;
+}
+
+/*視窗背景*/
+.custom-yellow {
+  background-image: 
+    url("/assets/images/overview/Ellipse 9.png"), /* 左上角圖片 */
+    url("/assets/images/overview/Ellipse 8.png"); /* 右下角圖片 */
+  
+  background-repeat: no-repeat, no-repeat;         /* 分別設定不重複 */
+  background-position: top left, bottom right;     /* 分別設定位置 */
+  background-size: auto, auto;                     /* 分別設定大小，可改成 cover/contain */
 }
