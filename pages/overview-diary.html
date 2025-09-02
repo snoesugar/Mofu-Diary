@@ -369,8 +369,26 @@
       </div>
     </div>
     <div class="diary-footer p-4 shadow-lg">
-      <button class="btn btn-primary w-100 mb-2">完成編輯</button>
+      <button type="button" class="btn btn-primary w-100 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">完成編輯</button>
       <button class="btn btn-alert w-100 mb-2">取消編輯</button>
+    </div>
+    
+    <!-- 完成編輯Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <button type="button" class="btn-close m-4" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="text-center">
+            <img src="/assets/images/save/saved_successfully.png" class="mb-2 mt-n8" alt="saved_successfully">
+            <p class="fs-11 text-primary-600 fw-bold mb-2">儲存成功</p>
+            <svg width="30" height="30" viewBox="0 0 30 30" class="mb-2" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15Z" fill="#86B42E"/>
+            <path d="M9 14.7632L13.1379 19.5L21 10.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <button type="button" class="btn btn-primary mb-3 mx-5" onclick="location.href='overview.html'">回總覽</button>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="../main.js"></script>
