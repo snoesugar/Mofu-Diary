@@ -45,15 +45,50 @@ body{
     #page1 {
       opacity: 1;
       visibility: visible;
-      p{
+        p{
         position: absolute;
         top: 311px;
         left: 24px;
-      }
-      .arrow{
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
+        }
+    }
+
+    #page2{
+        p{
+            position: absolute;
+            top: 69px;
+            left: 24px;
+        }
+    }
+
+    #page3{
+        p{
+            position: absolute;
+            bottom: 252px;
+            right: 22px;
+        }
+    }
+
+    #page4{
+        p{
+            position: absolute;
+            top: 171px;
+            right: 25px;
+        }
+    }
+
+    #page5{
+        p{
+            position: absolute;
+            top: 42px;
+            right: 25px;
+        }
+    }
+
+    #page6{
+        p{
+            position: absolute;
+            top: 582px;
+            right: 23px;
+        }
     }
 }
