@@ -406,7 +406,7 @@
         <!--搜尋-->
         <div class="col-12 mb-2">
           <div class="fs-12 position-relative">
-            <input type="text" class="border cat-search rounded-100 w-100"  placeholder="輸入日記內容關鍵字">
+            <input type="text" class="border cat-search rounded-100 w-100"  placeholder="輸入日記內容關鍵字" id="searchInput">
             <svg width="32" height="33" class="position-absolute start-0 icon-search" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M14.0426 20.6071C12.3546 20.6071 10.9255 20.022 9.75532 18.8518C8.58511 17.6815 8 16.2525 8 14.5645C8 12.8766 8.58511 11.4475 9.75532 10.2773C10.9255 9.10708 12.3546 8.52197 14.0426 8.52197C15.7305 8.52197 17.1596 9.10708 18.3298 10.2773C19.5 11.4475 20.0851 12.8766 20.0851 14.5645C20.0851 15.2028 19.9965 15.8128 19.8191 16.3943C19.6418 16.9759 19.383 17.4936 19.0426 17.9475L23.6809 22.5858C23.8936 22.7986 24 23.061 24 23.373C24 23.6851 23.8936 23.9475 23.6809 24.1603C23.4681 24.373 23.2057 24.4794 22.8936 24.4794C22.5816 24.4794 22.3191 24.373 22.1064 24.1603L17.4894 19.5432C17.0638 19.8695 16.5426 20.1284 15.9255 20.3198C15.3085 20.5113 14.6809 20.6071 14.0426 20.6071ZM14.0426 18.3518C15.1064 18.3518 16.0035 17.9865 16.734 17.256C17.4645 16.5255 17.8298 15.6284 17.8298 14.5645C17.8298 13.5007 17.4645 12.6035 16.734 11.873C16.0035 11.1425 15.1064 10.7773 14.0426 10.7773C12.9787 10.7773 12.0816 11.1425 11.3511 11.873C10.6206 12.6035 10.2553 13.5007 10.2553 14.5645C10.2553 15.6284 10.6206 16.5255 11.3511 17.256C12.0816 17.9865 12.9787 18.3518 14.0426 18.3518Z" fill="#888888"/>
             </svg>
@@ -417,7 +417,7 @@
         </div>
         <!--小貓卡片-->
         <!--第一張-->
-        <div class="col-12 mb-2">
+        <div class="col-12 mb-2 search-card" data-tag="日常生活 感謝的事 其他">
           <div class="d-flex justify-content-between align-items-center bg-neutral-0 border text-center rounded-s p-4">
             <div class="my-2 me-3">
               <img src="/Mofu-Diary/assets/cat_happy-ShtQ3uwo.png" class="wh74 m-2" alt="cat_happy">
@@ -476,7 +476,7 @@
           </div>
         </div>
         <!--第二張-->
-        <div class="col-12 mb-2">
+        <div class="col-12 mb-2 search-card" data-tag="日常生活 感謝的事 今日成就 重要的事">
           <div class="d-flex justify-content-between align-items-center bg-neutral-0 border text-center rounded-s p-4">
             <div class="my-2 me-3">
               <img src="/Mofu-Diary/assets/cat_cry-B8CH2xKr.png" class="wh74 m-2" alt="cat_cry">
@@ -536,7 +536,7 @@
           </div>
         </div>
         <!--第三張-->
-        <div class="col-12 mb-2">
+        <div class="col-12 mb-2 search-card" data-tag="今日成就 其他">
           <div class="d-flex justify-content-between align-items-center bg-neutral-0 border text-center rounded-s p-4">
             <div class="my-2 me-3">
               <img src="/Mofu-Diary/assets/cat_calm-B52feuo6.png" class="wh74 m-2" alt="cat_calm">
@@ -590,7 +590,7 @@
           </div>
         </div>
         <!--第四張-->
-        <div class="col-12 mb-2">
+        <div class="col-12 mb-2 search-card" data-tag="日常生活 感謝的事 其他">
           <div class="d-flex justify-content-between align-items-center bg-neutral-0 border text-center rounded-s p-4">
             <div class="my-2 me-3">
               <img src="/Mofu-Diary/assets/cat_dizziness-DvxzGnhx.png" class="wh74 m-2" alt="cat_dizziness">
@@ -647,7 +647,7 @@
           </div>
         </div>
         <!--第五張-->
-        <div class="col-12 mb-5">
+        <div class="col-12 mb-5 search-card" data-tag="其他">
           <div class="d-flex justify-content-between align-items-center bg-neutral-0 border text-center rounded-s p-4">
             <div class="my-2 me-3">
               <img src="/Mofu-Diary/assets/cat_angry-C9U1GFSi.png" class="wh74 m-2" alt="cat_angry">
@@ -759,6 +759,29 @@
           navBtns[0].classList.add("active");  // 讓第一個變 active
         }
       });
+    </script>
+    <!--搜尋日記內容-->
+    <script>
+      const searchInput = document.getElementById("searchInput");
+      const cards = document.querySelectorAll(".search-card");
+
+      function filterCards() {
+        const searchText = searchInput.value.toLowerCase();
+
+        cards.forEach(card => {
+          const cardText = card.innerText.toLowerCase();  // 卡片內文字
+          const cardTag = card.dataset.tag.toLowerCase(); // 卡片的標籤
+
+          // 判斷：輸入文字是否出現在 標籤 或 內容
+          if (cardText.includes(searchText) || cardTag.includes(searchText)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+
+      searchInput.addEventListener("input", filterCards);
     </script>
   </body>
 </html>
