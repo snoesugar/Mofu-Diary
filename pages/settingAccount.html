@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帳戶管理</title>
+</head>
+<body>
+    <%- include('./layout/header'); -%>
+
+    <main class="main main-settingAccount bg-primary-50">
+        <div class="container d-flex flex-column gap-6">
+            <nav class="d-flex justify-content-between align-items-center">
+                <a href="./setting.html" class="icons" style="width: 48px; aspect-ratio: 1 / 1;"><svg width="48" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27.5 18L21.5 23.9994L27.5 30" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <h1 class="fs-10 fw-bold text-primary-600 text-center mb-0">帳戶管理</h1>
+                <div class="icons" style="width: 48px; aspect-ratio: 1 / 1;"></div>
+            </nav>
+            <div class="content d-flex flex-column gap-5">
+                
+                <div class="d-flex justify-content-center">
+                    <div class="avatar">
+                        <div class="imgs rounded-circle"><img src="../assets/images/avatar.png" alt="avatar"></div>
+                        <div class="icons d-inline-block bg-neutral-0 border rounded-circle">
+                            <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 32.8206C26.0103 32.8206 27.7128 32.1232 29.1077 30.7283C30.5026 29.3334 31.2 27.6309 31.2 25.6206C31.2 23.6103 30.5026 21.9078 29.1077 20.5129C27.7128 19.118 26.0103 18.4206 24 18.4206C21.9897 18.4206 20.2872 19.118 18.8923 20.5129C17.4974 21.9078 16.8 23.6103 16.8 25.6206C16.8 27.6309 17.4974 29.3334 18.8923 30.7283C20.2872 32.1232 21.9897 32.8206 24 32.8206ZM23.9918 29.7437C22.8349 29.7437 21.8598 29.3471 21.0667 28.5539C20.2735 27.7608 19.8769 26.7857 19.8769 25.6288C19.8769 24.4722 20.2735 23.4944 21.0667 22.6955C21.8598 21.8968 22.8349 21.4975 23.9918 21.4975C25.1484 21.4975 26.1262 21.8968 26.9251 22.6955C27.7238 23.4944 28.1231 24.4722 28.1231 25.6288C28.1231 26.7857 27.7238 27.7608 26.9251 28.5539C26.1262 29.3471 25.1484 29.7437 23.9918 29.7437ZM11.0769 38.3591C10.2307 38.3591 9.50632 38.0578 8.90379 37.4553C8.30126 36.8527 8 36.1284 8 35.2821V15.9796C8 15.1334 8.30126 14.409 8.90379 13.8064C9.50632 13.2039 10.2307 12.9027 11.0769 12.9027H16.2462L18.2769 10.6668C18.5625 10.3511 18.9064 10.1013 19.3087 9.91722C19.711 9.73315 20.1329 9.64111 20.5744 9.64111H27.4256C27.8671 9.64111 28.289 9.73315 28.6913 9.91722C29.0936 10.1013 29.4375 10.3511 29.7231 10.6668L31.7538 12.9027H36.9231C37.7693 12.9027 38.4937 13.2039 39.0962 13.8064C39.6987 14.409 40 15.1334 40 15.9796V35.2821C40 36.1284 39.6987 36.8527 39.0962 37.4553C38.4937 38.0578 37.7693 38.3591 36.9231 38.3591H11.0769Z" fill="#BC8035"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="loginAccount d-flex flex-column gap-2">
+                    <label for="loginAccount" class="form-label fs-11 text-primary-600 mb-0">登入帳戶</label>
+                    <input type="text" class="form-control fs-11 text-primary-700 rounded-xs" id="loginAccount" placeholder="xxxxxx@gmail.com" value="sarahwang@gmail.com ( 已綁定 Google )">
+                    <span class="fs-11 fw-bold text-primary-700 mb-0">帳號</span>
+                </div>
+
+                <div class="personalData d-flex flex-column gap-2">
+                    <p class="fs-11 text-primary-600 mb-0">個人資料</p>
+
+                    <button type="button" class="personalData-1 d-flex justify-content-between align-items-center bg-neutral-0 border rounded-xs ps-6 pe-2" data-bs-toggle="modal" data-bs-target="#personalData-1">
+                        <div class="d-flex align-items-center gap-6">
+                            <span class="fs-11 fw-bold text-primary-700 mb-0">帳號</span>
+                            <p class="fs-11 text-primary-700 mb-0">王喵喵</p>
+                        </div>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 30L27 24.0006L21 18" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div class="modal fade personalData-1-modal" id="personalData-1" tabindex="-1" aria-labelledby="personalData-1-Label" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content gap-2 mx-auto px-4 py-3">
+                        <div class="modal-header border-bottom-0 p-0">
+                            <h1 class="modal-title fs-11 text-primary-700" id="personalData-1-Label">編輯姓名</h1>
+                        </div>
+                        <div class="modal-body d-flex gap-2 p-0">
+                            <input type="text" class="form-control fs-11 text-primary-700 px-6 py-2" placeholder="姓名" aria-label="姓名" value="王喵喵" style="height: 44px;">
+                            <button type="submit" class="btn btn-primary fs-11 fw-normal text-nowrap rounded-xs px-3 py-2">確認</button>
+                        </div>
+                        <div class="modal-footer justify-content-start border-top-0 p-0">
+                            <p class="fs-11 text-neutral-400">上限 10 字</p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <button class="personalData-2 d-flex justify-content-between align-items-center bg-neutral-0 border rounded-xs ps-6 pe-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#personalData-2" aria-controls="personalData-2">
+                        <div class="d-flex align-items-center gap-6">
+                            <span class="fs-11 fw-bold text-primary-700 mb-0">性別</span>
+                            <p class="fs-11 text-primary-700 mb-0">女</p>
+                        </div>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 30L27 24.0006L21 18" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div class="offcanvas offcanvas-bottom personalData-2-offcanvas" tabindex="-1" id="personalData-2" aria-labelledby="personalData-2-Label">
+                    <div class="offcanvas-header d-flex justify-content-between py-4">
+                        <button type="button" class="offcanvas-close p-0" data-bs-dismiss="offcanvas" aria-label="Close">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M28.2937 18.7944C28.6842 18.4038 29.3173 18.4038 29.7078 18.7944C30.0979 19.185 30.0979 19.818 29.7078 20.2085L25.4129 24.5034L29.7 28.7915C30.0901 29.182 30.0901 29.815 29.7 30.2055C29.3095 30.5961 28.6764 30.5961 28.2859 30.2055L23.9998 25.9175L19.7137 30.2055C19.3232 30.5961 18.69 30.5961 18.2996 30.2055C17.9095 29.815 17.9094 29.182 18.2996 28.7915L22.5857 24.5034L18.2918 20.2085C17.9014 19.8179 17.9015 19.185 18.2918 18.7944C18.6822 18.4038 19.3154 18.4038 19.7058 18.7944L23.9998 23.0893L28.2937 18.7944Z" fill="#BC8035"/>
+                            </svg>
+                        </button>
+                        <h2 class="offcanvas-title fw-bold text-primary-700" id="personalData-2-Label">你的性別</h2>
+                        <div style="width: 48px; height: 48px;"></div>
+                    </div>
+                    <div class="offcanvas-body d-flex flex-column gap-4 px-4 py-7">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="d-block fs-10 text-primary-700 text-decoration-none p-3">男</a></li>
+                            <li><a href="#" class="d-block fs-10 text-primary-700 text-decoration-none p-3">女</a></li>
+                            <li><a href="#" class="d-block fs-10 text-primary-700 text-decoration-none p-3">其他</a></li>
+                        </ul>
+                        <button type="submit" class="btn btn-primary fs-12">儲存</button>
+                    </div>
+                    </div>
+
+                    <button class="personalData-3 d-flex justify-content-between align-items-center bg-neutral-0 border rounded-xs ps-6 pe-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#personalData-3" aria-controls="personalData-3">
+                            <div class="d-flex align-items-center gap-6">
+                                <span class="fs-11 fw-bold text-primary-700 mb-0">生日</span>
+                                <p class="fs-11 text-primary-700 mb-0">2025/07/19</p>
+                            </div>
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 30L27 24.0006L21 18" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+    
+                        <div class="offcanvas offcanvas-bottom personalData-3-offcanvas d-flex flex-column gap-2 p-4 pb-8" tabindex="-1" id="personalData-3" aria-labelledby="personalData-3-Label">
+                        <h2 class="offcanvas-title fs-11 text-primary-700 text-center" id="personalData-3-Label">你的性別</h2>
+                        <div class="offcanvas-body p-0">
+                            <div id="airDatepicker"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary fs-12">儲存</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-primary bg-alert-300">登出帳戶</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <%- include('./layout/footer'); -%>
+
+    <script type="module" src="../main.js"></script>
+    <!--保持footer維持primary-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 找到底部的「總覽」按鈕 (第一個)
+        const navBtns = document.querySelectorAll(".btn-nav-bottom");
+        if (navBtns.length > 0) {
+          navBtns[3].classList.add("active");  // 讓第一個變 active
+        }
+      });
+    </script>
+</body>
+</html>

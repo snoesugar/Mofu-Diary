@@ -1,0 +1,14 @@
+.main-settingNotification{
+    padding-top: 3.625rem;
+    .content{
+        .timeselect{
+            height: 4rem;
+            input{
+                opacity: 0;
+            }
+        }
+        .form-check.form-switch{
+            height: 4rem;
+        }
+    }
+}

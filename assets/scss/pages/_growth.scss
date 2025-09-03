@@ -1,0 +1,178 @@
+.me-95px{
+    margin-right: 95px;
+}
+.mes-h2{
+    padding: 9.5px 18.5px;
+}
+
+.progress-style-lv{
+    height: 6px;
+}
+.cake-size{
+    width: 20px;
+    height: 20px;
+}
+
+.card-gap{
+    gap: 22px;
+}
+
+.card-px{
+    padding-left: 48.75px;
+    padding-right: 48.75px;
+}
+
+.card-img-size{
+    width: 48px;
+    height: 48px;
+}
+
+.card-item-rounded{
+    width: 32px;
+    height: 32px;
+    margin:  8px;
+
+    border-radius: 50%;
+}
+
+
+
+
+
+.selectable {
+  border: 4px solid white;   /* 預設白色邊框 */
+  border-radius: 16px;        /* 可選圓角 */
+  cursor: pointer;           /* 滑鼠變手型提示可點擊 */
+}
+
+.selectable.selected {
+  border-color: #EE6666;         /* 點選後變紅色 */
+}
+
+
+
+// /* Modal 內容 */
+.custom-modal {
+  width: 346px;
+  height: 284px;
+//   background-image: url("../assets/images/place/lv-1.svg");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+  border: none;
+  box-shadow: 0px 0px 12px 4px rgba(255, 230, 102, 0.36) !important;
+  color: white;
+  border-radius: 12px;
+  text-align: center;
+  padding: 20px;
+}
+/* 移除標題與內容之間的灰色格線 */
+.modal-header {
+  border-bottom: none;
+}
+.unlock-text button {
+  background: transparent;  /* 移除背景 */
+  border: none;            /* 移除邊框 */
+  padding: 0;              /* 移除預設內距 */
+  cursor: pointer;         /* 保留點擊效果 */
+}
+.btn-close {
+//   --bs-btn-close-color:#BC8035; /* 自訂顏色 */
+//   filter: none; /* 確保不會被 Bootstrap 的 filter 蓋掉 */
+  background-image: url("../assets/images/place/cancel.svg");
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+//   position: relative;
+}
+
+
+.modal-header .btn-close {
+  margin-left: 0 !important;  /* 清掉預設往右推的 margin */
+}
+
+.modal-content{
+    background-image: url("../assets/images/place/lv-1.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.modal-place-1{
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), /* 白色透明遮罩 */
+        url("../assets/images/place/place-beach-all.png");              /* 背景圖 */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.modal-place-2{
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), /* 白色透明遮罩 */
+        url("../assets/images/place/place-forest-all.png");              /* 背景圖 */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.modal-place-3{
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), /* 白色透明遮罩 */
+        url("../assets/images/place/place-home-2-all.png");              /* 背景圖 */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* 遮罩 */
+.overlay-mask {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border-radius: 16px;
+  background-color: rgba(0,0,0,0.25);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/* 黃色淡罩（解鎖階段） */
+.overlay-mask.unlocked {
+  background-color: rgba(255,230,102,0.28); /* 淡黃色 */
+}
+
+.unlock-text {
+  display: none;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.lock-content {
+  transition: all 0.3s;
+  display: flex;
+}
+
+/* 中間鎖圖 */
+.lock-content {
+  transition: all 0.3s;
+}
+
+/* 標準化 unlock button 只顯示圖片 */
+.unlock-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+/* 完全解鎖後的狀態（資料屬性用） */
+.selectable[data-fully-unlocked="true"] .overlay-mask,
+.selectable[data-fully-unlocked="true"] .unlock-text {
+  display: none !important; /* 已完全解鎖就隱藏那些 UI */
+}
+
+/* 如果要顯示已解鎖訊息，可用類似以下 (可選) */
+.selectable[data-fully-unlocked="true"] .unlocked-badge {
+  display: block;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Notify</title>
+</head>
+<body>
+    <%- include('./layout/header'); -%>
+
+    <main class="main main-settingNotification bg-primary-50">
+      <div class="container d-flex flex-column gap-6">
+        <nav class="d-flex justify-content-between align-items-center">
+          <a href="./setting.html" class="icons" style="width: 48px; aspect-ratio: 1 / 1;"><svg width="48" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27.5 18L21.5 23.9994L27.5 30" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <h1 class="fs-10 fw-bold text-primary-600 text-center mb-0">推播通知</h1>
+          <div class="icons" style="width: 48px; aspect-ratio: 1 / 1;"></div>
+        </nav>
+
+        <div class="content d-flex flex-column gap-2 px-4">
+          <p class="fs-11 text-primary-600 mb-0">每日記錄提醒</p>
+
+          <div class="timeselect position-relative bg-neutral-0 border rounded-xs overflow-hidden">
+            <label for="timeselect" class="form-label position-absolute w-100 h-100 d-flex justify-content-between align-items-center pe-2 ps-6">
+              <p class="fs-11 text-primary-700 mb-0">晚上 08:00</p>
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 30L27 24.0006L21 18" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </label>
+            <input type="time" class="form-control position-absolute w-100 h-100 bg-0 border-0" id="timeselect">
+          </div>
+
+          <div class="form-check form-switch d-flex justify-content-between align-items-center bg-neutral-0 border rounded-xs overflow-hidden pe-2 ps-6">
+            <label class="form-check-label fs-11 text-primary-700" for="switchNotify">當建立一則日記<br>提醒我持續記錄</label>
+            <input class="form-check-input" type="checkbox" role="switch" id="switchNotify" checked>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('./layout/footer'); -%>
+
+    <script type="module" src="../main.js"></script>
+    <!--保持footer維持primary-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 找到底部的「總覽」按鈕 (第一個)
+        const navBtns = document.querySelectorAll(".btn-nav-bottom");
+        if (navBtns.length > 0) {
+          navBtns[3].classList.add("active");  // 讓第一個變 active
+        }
+      });
+    </script>
+</body>
+</html>

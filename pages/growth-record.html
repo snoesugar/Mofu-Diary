@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  
+    <title>成長紀錄</title>
+  </head>
+  <body class="bg-primary-50 d-flex flex-column align-items-center justify-content-center">
+    <main class="ttt position-relative">
+        <%- include('./layout/phone'); -%> 
+        <section class="container px-4 mb-3">
+            <div class="row mx-0">
+                <div class="col-12 d-flex px-0">
+                    <p class="text-primary-600 fs-10 fw-bold d-flex align-items-center mb-0"><a href="" class="me-95px"><img src="../assets/images/growth-record/left.svg" alt=""></a>成長紀錄</p>
+                </div>
+            </div>
+        </section>
+        <section class="container px-4">
+          <div class="row mx-0">
+            <div class="col-12 px-0 bg-neutral-0 d-flex flex-column align-items-center rounded-s px-6">
+              <span class="btn  bg-neutral-0 border-neutral-100  shadow-sm rounded-s mes-h2 mt-5">喵～我還要罐罐</span>
+              <img src="../assets/images/growth-record/cat-hero.png" alt="" class="mt-5">
+              <div class="px-4 w-100 d-flex flex-column align-items-center">
+                <p class="mt-4 fs-4 fw-bold text-primary-600 mb-0" id="lv-number" data-lv="2" data-bs-toggle="modal" data-bs-target="#levelup">LV.2</p>
+                <p class="fs-13 text-primary-600 fw-medium mb-1">罐罐數量 4/10</p>
+                <div class="progress flex-grow-1  progress-style-lv w-100">
+                  <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                  <p class="fs-11 text-primary-700 fw-medium mt-1" id="lv-next">距離 LV.<span class="next-lv">3</span> 還差<span class="mx-2 fs-10 text-primary-600 fw-bold">6</span>個罐罐  </p>
+              </div>
+              <div class="d-flex flex-column align-items-center">
+                <p class="btn bg-primary-200 rounded-m py-1 px-4 fs-11  d-flex align-items-center mb-1"><img src="../assets/images/growth-record/bhd.svg" alt="" class="cake-size"><span class="fw-bold text-primary-600">114 - 07 - 01</span></p>
+                <p class="text-primary-600 fw-medium fs-12 ">0 歲 1 個月 5 天</p>
+              </div>
+              <div class="d-flex w-100 card-gap mb-3" >
+                <div class="border border-neutral-100 py-3 flex-fill d-flex flex-column align-items-center justify-content-center rounded-s">
+                  <p class="d-flex flex-column align-items-center justify-content-center mb-0 gap-2"><span class="fs-11 fw-bold text-primary-700 " >性別</span><img src="../assets/images/growth-record/gender-male.svg" alt="" class="card-img-size"></p>
+                </div>
+                <div class=" border border-neutral-100 py-3 flex-fill d-flex flex-column align-items-center justify-content-start rounded-s">
+                  <p class="d-flex flex-column align-items-center justify-content-center mb-0 gap-2 "><span class="fs-11 fw-bold text-primary-700">個性</span><span class="d-flex justify-content-center align-items-center text-neutral-0 fs-12 bg-primary-600 fw-bold card-item-rounded">活潑</span></p>
+                </div>
+              </div>
+              <div>
+                <!-- level up modal -->
+                <div class="modal fade" id="levelup" tabindex="-1" aria-labelledby="levelupLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+                    <div class="modal-content custom-modal p-0">
+                      <div class="modal-header ">
+                        <button type="button" class="p-0 border-0 bg-white" data-bs-dismiss="modal" aria-label="Close"><img src="../assets/images/place/cancel.svg" alt="" ></button>
+                      </div>
+                      <div class="modal-body p-0">
+                        <p class="fw-bold text-primary-600 fs-7 mb-3">LEVEL UP!</p>
+                        <img src="../assets/images/place/cup.svg" alt="">
+                        <p class="fw-bold text-primary-600 fs-7 mb-3 modal-lv">LV.3</p>
+                        <p class="fs-11 text-primary-700 mb-0">太厲害啦！繼續一起加油吧！</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- unlock modal -->
+                <!-- 海灘 彈出modal-->
+                <div class="modal fade" id="unlock1" tabindex="-1" aria-labelledby="unlock1" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+                    <div class="modal-content custom-modal p-0 modal-place-1">
+                      <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body  p-0">
+                        <p class="fs-7 text-primary-600 fw-bold mb-0">解鎖新場景</p>
+                        <img src="../assets/images/place/unlock.svg" alt="">
+                        <p class="fs-7 text-primary-600 fw-bold mb-2">夏日海邊</p>
+                        <p class="fs-11 text-primary-700 mb-0">恭喜！快換新場景看看吧！</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 樹林 彈出modal-->
+                <div class="modal fade" id="unlock2" tabindex="-1" aria-labelledby="unlock2" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+                    <div class="modal-content custom-modal p-0 modal-place-2">
+                      <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body  p-0">
+                        <p class="fs-7 text-primary-600 fw-bold mb-0">解鎖新場景</p>
+                        <img src="../assets/images/place/unlock.svg" alt="">
+                        <p class="fs-7 text-primary-600 fw-bold mb-2">叢林</p>
+                        <p class="fs-11 text-primary-700 mb-0">恭喜！快換新場景看看吧！</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 粉紅屋 彈出modal-->
+                <div class="modal fade" id="unlock3" tabindex="-1" aria-labelledby="unlock3" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+                    <div class="modal-content custom-modal p-0 modal-place-3">
+                      <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body  p-0">
+                        <p class="fs-7 text-primary-600 fw-bold mb-0">解鎖新場景</p>
+                        <img src="../assets/images/place/unlock.svg" alt="">
+                        <p class="fs-7 text-primary-600 fw-bold mb-2">粉紅屋</p>
+                        <p class="fs-11 text-primary-700 mb-0">恭喜！快換新場景看看吧！</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p class="fs-10 fw-bold text-primary-700 mb-2 text-center">場景設定</p>
+                <p class="fs-11 text-primary-700 mb-4 text-center">持續記錄、提升等級，就可以解鎖越多場景喔！</p>
+                <div class="mb-1 selectable ">
+                  <img src="../assets/images/place/place-home.svg" alt="" class="">
+                </div>
+                <!-- 海灘-->
+                <div class="position-relative d-inline-block selectable mb-1" data-require-lv="3">
+                  <img src="../assets/images/place/place-beach.svg" alt="">
+                  <!-- 遮罩層 -->
+                  <div class="overlay overlay-mask"></div>
+                  <div class="position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center lock-content">
+                    <p class="fw-bold fs-6 text-neutral-0 mb-0">LV.3</p>
+                    <img src="../assets/images/place/lock.svg" alt="" class="">
+                  </div>
+                  <!-- 黃色解鎖遮罩 -->
+                  <div class="unlock-text">        
+                    <!-- Button trigger modal -->
+                    <button type="button" class="unlock-btn" data-bs-toggle="modal" data-bs-target="#unlock1">
+                      <img src="../assets/images/place/unlock.svg" alt="">
+                    </button>
+                  </div>
+                </div>
+                <!-- 樹林 -->
+                <div class="position-relative d-inline-block selectable mb-2" data-require-lv="6">
+                  <img src="../assets/images/place/place-forest.svg" alt="">
+                  <!-- 遮罩層 -->
+                  <div class="overlay overlay-mask"></div>
+                  <div class="position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center lock-content">
+                    <p class="fw-bold fs-6 text-neutral-0 mb-0">LV.6</p>
+                    <img src="../assets/images/place/lock.svg" alt="" class="">
+                  </div>
+                  <!-- 黃色解鎖遮罩 -->
+                  <div class="unlock-text">        
+                    <!-- Button trigger modal -->
+                    <button type="button" class="unlock-btn" data-bs-toggle="modal" data-bs-target="#unlock2">
+                      <img src="../assets/images/place/unlock.svg" alt="">
+                    </button>
+                  </div>
+                </div>      
+                <!-- 粉紅屋 -->
+                <div class="position-relative d-inline-block selectable mb-2" data-require-lv="9">
+                  <img src="../assets/images/place/place-home-2.svg" alt="">
+                  <!-- 遮罩層 -->
+                  <div class="overlay overlay-mask"></div>
+                  <div class="position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center lock-content">
+                    <p class="fw-bold fs-6 text-neutral-0 mb-0">LV.9</p>
+                    <img src="../assets/images/place/lock.svg" alt="" class="">
+                  </div>
+                  <!-- 黃色解鎖遮罩 -->
+                  <div class="unlock-text">        
+                    <!-- Button trigger modal -->
+                    <button type="button" class="unlock-btn" data-bs-toggle="modal" data-bs-target="#unlock3">
+                      <img src="../assets/images/place/unlock.svg" alt="">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- <img src="../assets/images/Breathing/cat-sleep-2.png" alt="" class="cat-pos position-absolute"> -->
+        
+
+        <%- include('./layout/footer'); -%>
+
+        
+    
+    </main>
+    <script src="../assets/js/gorwth.js"></script>
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gratitude Journal</title>
+</head>
+<body>
+    <%- include('./layout/header'); -%>
+    
+    <main class="main main-gratitudeJournal bg-primary-50">
+        <div class="container d-flex flex-column gap-6">
+            <nav class="d-flex justify-content-between align-items-center">
+                <a href="./settingTemplate.html" class="icons" style="width: 48px; aspect-ratio: 1 / 1;"><svg width="48" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27.5 18L21.5 23.9994L27.5 30" stroke="#BC8035" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <h1 class="fs-10 fw-bold text-primary-600 text-center mb-0">寫作範本</h1>
+                <div class="icons" style="width: 48px; aspect-ratio: 1 / 1;"></div>
+            </nav>
+
+            <div class="content d-flex flex-column gap-4 px-4">
+              <p class="fs-11 text-primary-600 mb-0">你可以使用寫做範本為靈感來源</p>
+
+              <div class="bg-neutral-0 border rounded-top-m rounded-bottom-xs overflow-hidden px-5 py-4">
+                <label for="gratitudeJournal-textarea" class="form-label fs-11 text-primary-700">代辦事項</label>
+                <textarea class="form-control fs-11 text-primary-700 rounded-xs" id="gratitudeJournal-textarea" rows="4"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">儲存</button>
+            </div>
+        </div>
+    </main>
+
+    <%- include('./layout/footer'); -%>
+
+    <script type="module" src="../main.js"></script>
+    <!--保持footer維持primary-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // 找到底部的「總覽」按鈕 (第一個)
+        const navBtns = document.querySelectorAll(".btn-nav-bottom");
+        if (navBtns.length > 0) {
+          navBtns[3].classList.add("active");  // 讓第一個變 active
+        }
+      });
+    </script>
+</body>
+</html>

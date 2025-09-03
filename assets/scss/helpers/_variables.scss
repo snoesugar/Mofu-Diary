@@ -445,9 +445,9 @@ $enable-grid-classes:         true !default;
 $enable-container-classes:    true !default;
 $enable-cssgrid:              false !default;
 $enable-button-pointers:      true !default;
-$enable-rfs:                  false !default;//true !default; custom
+$enable-rfs:                  false !default;//true; custom
 $enable-validation-icons:     true !default;
-$enable-negative-margins:     true;//false !default; custom
+$enable-negative-margins:     true !default;//false ; custom
 $enable-deprecation-messages: true !default;
 $enable-important-utilities:  true !default;
 
@@ -593,7 +593,7 @@ $container-max-widths: (
 // Set the number of columns and specify the width of the gutters.
 
 $grid-columns:                12 !default;
-$grid-gutter-width:           2rem;//1.5rem !default; //custom
+$grid-gutter-width:           2rem !default;//1.5rem ; //custom
 $grid-row-columns:            6 !default;
 
 // Container padding
@@ -615,7 +615,7 @@ $border-widths: (
   5: 5px
 ) !default;
 $border-style:                solid !default;
-$border-color:                $neutral-100;//$gray-300 !default; custom
+$border-color:                $neutral-100 !default;//$gray-300 ; custom
 $border-color-translucent:    rgba($black, .175) !default;
 // scss-docs-end border-variables
 
@@ -629,7 +629,7 @@ $border-radius-pill:          50rem !default;
 
 //custom
 $border-radius-xs:            .5rem !default;           //8px  custom
-$border-radius-s :            0.75rem;                  //12px custom
+$border-radius-s :            0.75rem !default;         //12px custom
 $border-radius-m :            1rem !default;            //16px custom
 $border-radius-l:             1.5rem !default;          //24px custom
 
@@ -713,22 +713,16 @@ $line-height-base:            1.5 !default;
 $line-height-sm:              1.25 !default;
 $line-height-lg:              2 !default;
 
-$h1-font-size:                $font-size-base * 3;//2.5 !default;      //48px custom
+$h1-font-size:                $font-size-base * 3 !default;//2.5 ;     //48px custom
 $h2-font-size:                $font-size-base * 2.25 !default;         //36px custom
-$h3-font-size:                $font-size-base * 1.5;//1.75 !default;   //24px custom
-$h4-font-size:                $font-size-base * 1.312;//1.5 !default;  //21px custom
-$h5-font-size:                $font-size-base * 1.125;//1.25 !default; //18px custom
+$h3-font-size:                $font-size-base * 1.5 !default;//1.75 ;  //24px custom
+$h4-font-size:                $font-size-base * 1.3125 !default;//1.5 ;//21px custom
+$h5-font-size:                $font-size-base * 1.125 !default;//1.25 ;//18px custom
 $h6-font-size:                $font-size-base !default;                //16px custom
 // scss-docs-end font-variables
 
 // scss-docs-start font-sizes
-$font-sizes: (
-  1: $h1-font-size,           //48px
-  2: $font-size-base * 2.5,   //40px
-  3: $font-size-base * 2,     //32px
-  4: $h2-font-size,           //36px
-  5: $font-size-base * 1.75,  //28px
-  6: $h3-font-size,           //24px
+$custom-font-sizes: (
   7: $h4-font-size,           //21px
   8: $font-size-base * 1.25,  //20px
   9: $h5-font-size,           //18px custom
@@ -736,7 +730,17 @@ $font-sizes: (
   11: $font-size-base * 0.875,//14px custom
   12: $font-size-base * 0.75, //12px custom
   13: $font-size-base * 0.625,//10px custom
-) !default;
+);
+
+$font-sizes: map-merge((
+  1: $h1-font-size,           //48px
+  2: $font-size-base * 2.5,   //40px
+  3: $h2-font-size,           //36px
+  4: $font-size-base * 2,     //32px
+  5: $font-size-base * 1.75,  //28px
+  6: $h3-font-size,           //24px
+), $custom-font-sizes) !default;
+
 // scss-docs-end font-sizes
 
 
@@ -1840,5 +1844,7 @@ $kbd-bg:                            var(--#{$prefix}body-color) !default;
 $nested-kbd-font-weight:            null !default; // Deprecated in v5.2.0, removing in v6
 
 $pre-color:                         null !default;
+
+
 
 @import "variables-dark"; // TODO: can be removed safely in v6, only here to avoid breaking changes in v5.3

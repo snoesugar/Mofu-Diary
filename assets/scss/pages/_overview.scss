@@ -1,5 +1,5 @@
 .roof {
-  background: url(/assets/images/總覽/roof.png) no-repeat center center;
+  background: url(/assets/images/overview/roof.png) no-repeat center center;
   background-color: #e8f6ff;
   background-position: contain;
   padding-top: 44.75px;
@@ -70,7 +70,14 @@
 }
 
 .icon-search {
+  width: 32px;
+  height: 33px;
   margin: 11px 9px 11px 10px;
+}
+
+.wh40 {
+  width: 40px;
+  height: 40px;
 }
 
 //小貓卡片
@@ -82,6 +89,12 @@
 .wh26 {
   width: 26px;
   height: 26px;
+}
+
+.wh28 {
+  width: 28px;
+  height: 26.88px;
+  margin: 4px 4.56px;
 }
 
 .w-64 {
