@@ -1,4 +1,4 @@
-body{
+body.settingNewbieGuide{
     padding: 0;
 }
 .main-settingNewbieGuide{
@@ -43,52 +43,88 @@ body{
     }
     
     #page1 {
-      opacity: 1;
-      visibility: visible;
-        p{
-        position: absolute;
-        top: 311px;
-        left: 24px;
+        opacity: 1;
+        visibility: visible;
+        .texts{
+            position: absolute;
+            top: 311px;
+            left: 24px;
+            img{
+                width: 3rem;
+                position: absolute;
+                top: 1px;
+                right: -54px;
+            }
         }
     }
 
     #page2{
-        p{
+        .texts{
             position: absolute;
             top: 69px;
             left: 24px;
+            img{
+                width: 3rem;
+                position: absolute;
+                bottom: -16px;
+                right: -20px;
+            }
         }
     }
 
     #page3{
-        p{
+        .texts{
             position: absolute;
             bottom: 252px;
             right: 22px;
+            img{
+                width: 3rem;
+                position: absolute;
+                bottom: -50px;
+                right: 16px;
+            }
         }
     }
 
     #page4{
-        p{
+        .texts{
             position: absolute;
             top: 171px;
             right: 25px;
+            img{
+                width: 3rem;
+                position: absolute;
+                top: -8px;
+                left: -54px;
+            }
         }
     }
 
     #page5{
-        p{
+        .texts{
             position: absolute;
             top: 42px;
             right: 25px;
+            img{
+                width: 3rem;
+                position: absolute;
+                top: -12px;
+                left: -51px;
+            }
         }
     }
 
     #page6{
-        p{
+        .texts{
             position: absolute;
             top: 582px;
             right: 23px;
+            img{
+                width: 3rem;
+                position: absolute;
+                top: -8.5px;
+                left: -51px;
+            }
         }
     }
 }
