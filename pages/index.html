@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-12 d-flex flex-column ">
       <!-- 頂部：問候 -->
-      <div class="d-flex justify-content-between align-items-start my-2 mx-4">
+      <div class="d-flex justify-content-between align-items-start my-2">
         <div>
           <h1 class="text-primary-700 fw-bold fs-6 mb-1">Hi, Sarah</h1>
           <p class="fs-11 text-primary-700 mb-0">與 Mofu 相遇的第 17 天</p>
@@ -36,7 +36,7 @@
       <div class="scene-footer d-flex align-self-start"><!--fixed-bottom不管頁面怎麼捲動，這個元素永遠黏在螢幕底端-->
         <button class="tag-btn d-flex align-items-center">
           <img src="../assets/images/icons/icon_calendar_date.png" alt="icon_calendar_date" class="" width="20" height="20">
-          <span class="fs-9 text-primary-600 fw-bold">編輯放鬆行程</span>
+          <span class="fs-9 text-primary-600 fw-bold">我的放鬆行程</span>
         </button>
       
         <div class="task-card position-relative px-4 pt-2 mb-2 rounded-3 d-flex align-items-start flex-grow-1">
@@ -191,7 +191,7 @@
           </template>  
         </div>
       </div>
-      <div class="mb-5 p-2 rounded-3">
+      <div class="mb-5 rounded-3">
         <h3 class="fs-11 text-primary-600 mb-2">呼吸練習</h3>
         <div class="d-flex justify-content-between btn border-1 border-neutral-100 bg-neutral-0 p-3 rounded-3 w-100 mb-2">
             <div class="d-flex justify-content-between align-items-center text-primary-700">
@@ -312,19 +312,42 @@
          btn.setAttribute('aria-label', `目前圖示：${opt.dataset.label || ''}`);
        }
       });
-      //愛心切換
-      document.addEventListener('click', (e) => {
-        const slot = e.target.closest('#energyBtn .icon-slot');
-        if (!slot) return;                                  // 不是點在任何一顆上
-            
-        const variant = slot.dataset.variant || 'energy';   // 之後要擴充別的圖形也可用
-        const next    = slot.dataset.state === 'solid' ? 'outline' : 'solid';
-        const tpl     = document.getElementById(`${variant}-${next}`);
-        if (!tpl) return;
-            
-        slot.innerHTML     = tpl.innerHTML;                 // 只替換被點到的那顆
-        slot.dataset.state = next;                          // 更新該顆狀態
-      });
+       // 愛心評分：點第 N 顆 => 前 N 顆實心；再點同一顆 => 清空
+  document.addEventListener('click', (e) => {
+    const btn   = e.target.closest('#energyBtn');
+    const slot  = e.target.closest('#energyBtn .icon-slot');
+    if (!btn || !slot) return;
+
+    const slots = Array.from(btn.querySelectorAll('.icon-slot'));
+    const idx   = slots.indexOf(slot);             // 第幾顆被點
+    const solid = document.getElementById('energy-solid');
+    const line  = document.getElementById('energy-outline');
+    if (!solid || !line) return;
+
+    // 目前連續「實心」的數量（由左到右）
+    let filled = 0;
+    for (const s of slots) {
+      if ((s.dataset.state || 'outline') === 'solid') filled++;
+      else break;
+    }
+
+    // 點同一顆（與目前 filled 相同）就清空，否則設為 idx+1 顆
+    const target = (filled === idx + 1) ? 0 : (idx + 1);
+
+    // 套用實心 / 空心
+    slots.forEach((s, i) => {
+      if (i < target) {
+        s.innerHTML = solid.innerHTML;
+        s.dataset.state = 'solid';
+      } else {
+        s.innerHTML = line.innerHTML;
+        s.dataset.state = 'outline';
+      }
+    });
+
+    // 無障礙說明
+    btn.setAttribute('aria-label', `能量指數：${target} / ${slots.length}`);
+  });
     </script>
   </body>
 </html>
