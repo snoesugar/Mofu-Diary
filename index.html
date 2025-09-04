@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>edit-itinerary</title>
-    <script type="module" crossorigin src="/Mofu-Diary/assets/main-B79dE8yP.js"></script>
-    <link rel="stylesheet" crossorigin href="/Mofu-Diary/assets/main-BaEHWcO_.css">
+    <script type="module" crossorigin src="/Mofu-Diary/assets/main-DfMVaiwJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/Mofu-Diary/assets/main-DK9uYrrk.css">
   </head>
   <body>
     
@@ -14,7 +14,7 @@
   <div class="row">
     <div class="col-12 d-flex flex-column ">
       <!-- 頂部：問候 -->
-      <div class="d-flex justify-content-between align-items-start my-2 mx-4">
+      <div class="d-flex justify-content-between align-items-start my-2">
         <div>
           <h1 class="text-primary-700 fw-bold fs-6 mb-1">Hi, Sarah</h1>
           <p class="fs-11 text-primary-700 mb-0">與 Mofu 相遇的第 17 天</p>
@@ -37,7 +37,7 @@
       <div class="scene-footer d-flex align-self-start"><!--fixed-bottom不管頁面怎麼捲動，這個元素永遠黏在螢幕底端-->
         <button class="tag-btn d-flex align-items-center">
           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAwCAYAAAC4wJK5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANqSURBVHgB7ZjbSxRRHMe/Zy4VmGRhtye36AKR7XYR1qd28QJCUEF/wBb00ovrYxB0hHrWHnqS0Jd6EvRBEHTDDSIExVZ7KCp06aFSglZSMNbZ6ffT9cJiNjOe2SLmA4c5c+bMMN9zfr9zfr8DBAQEBAT4hMAOGJIXEoAesZDvbJGZLFwyKCMhHWYSsDLNcqIHHtHgEf4BDXo3faDVhNEND5gw+/h9/s6QrIvAI55FGDBCG3ciBC/Y9v71L8Cugkdcm9OgjIb4ulsshwu26C82Z/PQ43CJaS+nIUQN1wuwblrYleZ6ixzNwgWORQzJSESj6adqCP6TLQDXm+VYxklnRyLY/sl+R1AeAWvkdOSPxWUm96eOjnzCpBUIDgXs2XcIiqjKQ7vmpKPhpBM7ne2g34nG2zhQU4sfs9N4O9CJ6lNRnLnShlePb+HcjXvYe/g4luZn8X64C7lPb6AKz6vTVrCAz5PPVwQwB0/W48tUCkdrGzHx9C4Wvk5jqveBUgGMUhFTvQ9ReeQ46u88gbG7AlU1Z2nk51B9Ogo/USriSG3DysizAVafqsfC3AwWyLRYEBe/cOQTTvn2YZRMKIp3Ax3I/1wks5lamYmPqS4Yeyow8/IZlpcWoRqlInjUuZTyvegDLMgPXIugjSVHG9EkfIK+H6aLqxDEtYgC7MkmOR6DT6RkHW+qMTfvKHXsv8V/IUKpY/fJSNVeW0toQs81yLGe0nYh9DBFqy92kgBthbKZGJaXZCWMGfrRDvKbxOZnlTBfk7D7FLoc4wSI7N5TEvU7lImgKU0LFNpK21PyIgdxISptTXIsZkO0Uz1BomNQhDIRcTmebtjCTNYyNpqdLF8NaKt9bHhOR0vx3bEL0LLF6lXOCsknWvlGCBGGInwXQXtKmi6PBETShDVjbyRi81BEWZbYRjmW1FGxnwvt9j3cZtur5qWCsojg45i4TOe40G2S2wxh9EMRyvYJWjbXkz8ynct8zycYJgr9FuyRlLy09piyRLs97vJEYzuUiRD0w6VtJnal6WdzIzJ63oK1MgMkoL/oJ8pQJqJhm124OOpJ+EQQAP4reEiKRFh17FNCCC5xJMKCntk0ZRxGJFAGeGFw0s+ROfGZaDFwKxtulmFXp+KrEakWK7jMgd1Ao5rzYxkOCAgICPDEL7avHr5zvhSIAAAAAElFTkSuQmCC" alt="icon_calendar_date" class="" width="20" height="20">
-          <span class="fs-9 text-primary-600 fw-bold">編輯放鬆行程</span>
+          <span class="fs-9 text-primary-600 fw-bold">我的放鬆行程</span>
         </button>
       
         <div class="task-card position-relative px-4 pt-2 mb-2 rounded-3 d-flex align-items-start flex-grow-1">
@@ -192,7 +192,7 @@
           </template>  
         </div>
       </div>
-      <div class="mb-5 p-2 rounded-3">
+      <div class="mb-5 rounded-3">
         <h3 class="fs-11 text-primary-600 mb-2">呼吸練習</h3>
         <div class="d-flex justify-content-between btn border-1 border-neutral-100 bg-neutral-0 p-3 rounded-3 w-100 mb-2">
             <div class="d-flex justify-content-between align-items-center text-primary-700">
@@ -356,18 +356,41 @@
          btn.setAttribute('aria-label', `目前圖示：${opt.dataset.label || ''}`);
        }
       });
-      //愛心切換
+       // 愛心評分：點第 N 顆 => 前 N 顆實心；再點同一顆 => 清空
       document.addEventListener('click', (e) => {
-        const slot = e.target.closest('#energyBtn .icon-slot');
-        if (!slot) return;                                  // 不是點在任何一顆上
-            
-        const variant = slot.dataset.variant || 'energy';   // 之後要擴充別的圖形也可用
-        const next    = slot.dataset.state === 'solid' ? 'outline' : 'solid';
-        const tpl     = document.getElementById(`${variant}-${next}`);
-        if (!tpl) return;
-            
-        slot.innerHTML     = tpl.innerHTML;                 // 只替換被點到的那顆
-        slot.dataset.state = next;                          // 更新該顆狀態
+        const btn   = e.target.closest('#energyBtn');
+        const slot  = e.target.closest('#energyBtn .icon-slot');
+        if (!btn || !slot) return;
+      
+        const slots = Array.from(btn.querySelectorAll('.icon-slot'));
+        const idx   = slots.indexOf(slot);             // 第幾顆被點
+        const solid = document.getElementById('energy-solid');
+        const line  = document.getElementById('energy-outline');
+        if (!solid || !line) return;
+      
+        // 目前連續「實心」的數量（由左到右）
+        let filled = 0;
+        for (const s of slots) {
+          if ((s.dataset.state || 'outline') === 'solid') filled++;
+          else break;
+        }
+      
+        // 點同一顆（與目前 filled 相同）就清空，否則設為 idx+1 顆
+        const target = (filled === idx + 1) ? 0 : (idx + 1);
+      
+        // 套用實心 / 空心
+        slots.forEach((s, i) => {
+          if (i < target) {
+            s.innerHTML = solid.innerHTML;
+            s.dataset.state = 'solid';
+          } else {
+            s.innerHTML = line.innerHTML;
+            s.dataset.state = 'outline';
+          }
+        });
+      
+        // 無障礙說明
+        btn.setAttribute('aria-label', `能量指數：${target} / ${slots.length}`);
       });
     </script>
   </body>
