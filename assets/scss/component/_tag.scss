@@ -46,7 +46,7 @@
 
 /* 使用：外框 198×52，右側斜邊；左邊貼齊 */
 .tag-btn{
-  @include trapezoid-fixed-left(198px, 52px, 183px, 8px, 0px, #FFF7E9, #E7C795, 10px, 6px);
-  > span{ color:#{$primary-50}; }
+  @include trapezoid-fixed-left(198px, 52px, 183px, 8px, 0px, $primary-50, $primary-400, 10px, 6px);
+  > span{ color: $primary-600; }
   white-space: nowrap;
 }

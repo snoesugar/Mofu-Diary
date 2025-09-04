@@ -26,7 +26,7 @@
   aspect-ratio: 393 / 685;
   position: relative;
   margin: 0 auto;
-  background: url("../assets/images/bg/bg1.png") no-repeat center / cover; //
+  background: url("./assets/images/bg/bg1.png") no-repeat center / cover; //
 }
 
 /* ZZZ 位置： inset（391/262/178/115） */
@@ -57,10 +57,10 @@
     box-shadow: 0 1px 2px rgba(0,0,0,.04); 
 }
 .progress-thin { 
-    height: 6px; --bs-progress-bg: #{$primary-50}; 
+    height: 6px; --bs-progress-bg: $primary-50; 
 }
 .progress-thin .progress-bar { 
-    --bs-progress-bar-bg:  #{$primary-500}; 
+    --bs-progress-bar-bg:  $primary-500; 
 }
 .icon-badge { 
     width:24px; 
@@ -88,11 +88,11 @@
 
 .body {
   height: auto;//暫訂
-  background:#{$primary-50};
+  background: $primary-50;
 }
 
 .icon_cat_can {
-  color: #{$neutral-500};  /* 因為 fill="currentColor" stroke="currentColor" */
+  color: $neutral-500;  /* 因為 fill="currentColor" stroke="currentColor" */
 }
 
 
@@ -106,24 +106,42 @@ $radius-xs: .25rem;
   border-bottom-left-radius: 8px !important; 
   border-bottom-right-radius: 8px !important; }
 
+/* 參數 */
+.accordion.accordion-flush {
+  --acc-item-h: 143px;
+  --acc-peek:   47px;
+}
 /* 讓 flush 也有邊與圓角、項目間留距 */
 .accordion.accordion-flush {
   .accordion-item {
-    background: #{$neutral-0};
+    height: var(--acc-item-h);
+    background: $neutral-0;
     border: 1px solid var(--bs-border-color);
     overflow: hidden;              /* 讓圓角吃到內層 */
+    position: relative;
   }
-  .accordion-item + .accordion-item { margin-top: -1rem; }
+
+   /* 收折時堆疊，只露出 47px（限定「上一張是收折」才套負 margin）*/
+  .accordion-item:not(:has(.accordion-collapse.show)) + .accordion-item {
+    margin-top: calc(-1 * (var(--acc-item-h) - var(--acc-peek))); /* = -96px */
+  }
+
+  /* 標題高度=47px；去掉陰影與箭頭 */
+  .accordion-button{
+    min-height: var(--acc-peek);
+    padding-top: .5rem; padding-bottom: .5rem;
+    box-shadow: none;
+    background-color: transparent !important;
+  }
+  
+  .accordion-button::after{ display:none !important; }
+  .accordion-body{ background-color: transparent !important; }
 
   /* 讓父層底色透出 */
   .accordion-button,
   .accordion-body { background-color: transparent !important; }
-  .accordion-button:focus { box-shadow: none; }
-}
-  /*移除箭頭*/
-   .accordion-button::after { 
-    display: none !important; 
-  }
+  .accordion-button { min-height: var(--acc-peek); padding-top:.5rem; padding-bottom:.5rem; box-shadow:none; }
+
 
 /* 只有最後一張卡片用漸層 */
 .accordion.accordion-flush .accordion-item:last-child {
@@ -145,4 +163,6 @@ $radius-xs: .25rem;
     );
   background-image: var(--bs-gradient);
   overflow: hidden;
+}
+
 }
