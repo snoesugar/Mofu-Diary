@@ -313,41 +313,41 @@
        }
       });
        // 愛心評分：點第 N 顆 => 前 N 顆實心；再點同一顆 => 清空
-  document.addEventListener('click', (e) => {
-    const btn   = e.target.closest('#energyBtn');
-    const slot  = e.target.closest('#energyBtn .icon-slot');
-    if (!btn || !slot) return;
-
-    const slots = Array.from(btn.querySelectorAll('.icon-slot'));
-    const idx   = slots.indexOf(slot);             // 第幾顆被點
-    const solid = document.getElementById('energy-solid');
-    const line  = document.getElementById('energy-outline');
-    if (!solid || !line) return;
-
-    // 目前連續「實心」的數量（由左到右）
-    let filled = 0;
-    for (const s of slots) {
-      if ((s.dataset.state || 'outline') === 'solid') filled++;
-      else break;
-    }
-
-    // 點同一顆（與目前 filled 相同）就清空，否則設為 idx+1 顆
-    const target = (filled === idx + 1) ? 0 : (idx + 1);
-
-    // 套用實心 / 空心
-    slots.forEach((s, i) => {
-      if (i < target) {
-        s.innerHTML = solid.innerHTML;
-        s.dataset.state = 'solid';
-      } else {
-        s.innerHTML = line.innerHTML;
-        s.dataset.state = 'outline';
-      }
-    });
-
-    // 無障礙說明
-    btn.setAttribute('aria-label', `能量指數：${target} / ${slots.length}`);
-  });
+      document.addEventListener('click', (e) => {
+        const btn   = e.target.closest('#energyBtn');
+        const slot  = e.target.closest('#energyBtn .icon-slot');
+        if (!btn || !slot) return;
+      
+        const slots = Array.from(btn.querySelectorAll('.icon-slot'));
+        const idx   = slots.indexOf(slot);             // 第幾顆被點
+        const solid = document.getElementById('energy-solid');
+        const line  = document.getElementById('energy-outline');
+        if (!solid || !line) return;
+      
+        // 目前連續「實心」的數量（由左到右）
+        let filled = 0;
+        for (const s of slots) {
+          if ((s.dataset.state || 'outline') === 'solid') filled++;
+          else break;
+        }
+      
+        // 點同一顆（與目前 filled 相同）就清空，否則設為 idx+1 顆
+        const target = (filled === idx + 1) ? 0 : (idx + 1);
+      
+        // 套用實心 / 空心
+        slots.forEach((s, i) => {
+          if (i < target) {
+            s.innerHTML = solid.innerHTML;
+            s.dataset.state = 'solid';
+          } else {
+            s.innerHTML = line.innerHTML;
+            s.dataset.state = 'outline';
+          }
+        });
+      
+        // 無障礙說明
+        btn.setAttribute('aria-label', `能量指數：${target} / ${slots.length}`);
+      });
     </script>
   </body>
 </html>

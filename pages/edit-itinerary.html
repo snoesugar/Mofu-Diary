@@ -41,7 +41,7 @@
       
         <div class="task-card position-relative px-4 pt-2 mb-2 rounded-3 d-flex align-items-start flex-grow-1">
           <div class="flex-grow-1 pe-6">
-            <div class="fs-11 fw-medium text-primary-500">已完成 0 / 4</div>
+            <div class="fs-11 fw-medium text-primary-500">已完成 2 / 4</div>
             <div class="progress progress-thin mt-1 rounded-pill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
               <div class="progress-bar rounded-pill" style="width:50%"></div><!--width:0%改動可改進度條百分比-->
             </div>
@@ -222,7 +222,7 @@
                   <p class="mb-0 fs-11 text-primary-700">分鐘</p>
                 </div>  
               </div>
-              <svg class="bg-primary-50 btn border border-1 p-0 rounded-2 border-primary-200" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="bg-primary-50 btn border border-1 p-0 rounded-2 border-primary-200" width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.4286 36.5714H13.8514L31.7714 18.6743L29.3257 16.2286L11.4286 34.1714V36.5714ZM9.71429 40C9.2419 40 8.8381 39.8324 8.50286 39.4971C8.16762 39.1619 8 38.7581 8 38.2857V34.1458C8 33.6905 8.08747 33.253 8.2624 32.8334C8.43733 32.4134 8.6851 32.0442 9.00571 31.7257L31.7714 8.98286C32.1061 8.66956 32.4754 8.42743 32.8795 8.25646C33.2837 8.08549 33.7138 8 34.1701 8C34.6263 8 35.0682 8.08762 35.4958 8.26286C35.9234 8.4381 36.3048 8.69333 36.64 9.02857L39.0171 11.4286C39.3524 11.7486 39.6 12.1181 39.76 12.5371C39.92 12.9562 40 13.3832 40 13.8181C40 14.2822 39.9217 14.7191 39.765 15.1287C39.6084 15.5383 39.3591 15.9125 39.0171 16.2514L16.2743 38.9943C15.957 39.3149 15.5893 39.5627 15.1712 39.7376C14.7528 39.9125 14.3128 40 13.8514 40H9.71429ZM30.5371 17.4629L29.3257 16.2286L31.7714 18.6743L30.5371 17.4629Z" fill="#BC8035"/>
               </svg>
             </div>
@@ -230,7 +230,7 @@
         <div class="d-flex btn border-1 border-neutral-100 bg-neutral-0 p-3 rounded-3 w-100">
             <button class="btn p-0 d-flex justify-content-between align-items-center text-primary-700">
               <button class="btn p-2 d-flex align-items-center">
-                <svg class="bg-primary-50 btn border border-1 p-0 rounded-1 border-primary-200" width="30" height="30" viewBox="14 14 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="bg-primary-50 btn border border-1 p-0 rounded-1 border-primary-200" width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M24.0024 18.0034C24.5547 18.0034 25.0024 18.4511 25.0024 19.0034V22.9985H28.9966C29.5488 22.9987 29.9966 23.4463 29.9966 23.9985C29.9966 24.5507 29.5488 24.9984 28.9966 24.9985H25.0024V28.9966C25.0024 29.5489 24.5547 29.9966 24.0024 29.9966C23.4503 29.9964 23.0024 29.5488 23.0024 28.9966V24.9985H19.0034C18.4511 24.9985 18.0034 24.5508 18.0034 23.9985C18.0034 23.4463 18.4511 22.9985 19.0034 22.9985H23.0024V19.0034C23.0024 18.4512 23.4503 18.0036 24.0024 18.0034Z" fill="#BC8035"/>
                 </svg>
                 <h6 class="mb-0 ms-4 fs-11 text-primary-700">新增呼吸練習</h6>
@@ -347,18 +347,41 @@
          btn.setAttribute('aria-label', `目前圖示：${opt.dataset.label || ''}`);
        }
       });
-      //愛心切換
+      // 愛心評分：點第 N 顆 => 前 N 顆實心；再點同一顆 => 清空
       document.addEventListener('click', (e) => {
-        const slot = e.target.closest('#energyBtn .icon-slot');
-        if (!slot) return;                                  // 不是點在任何一顆上
-            
-        const variant = slot.dataset.variant || 'energy';   // 之後要擴充別的圖形也可用
-        const next    = slot.dataset.state === 'solid' ? 'outline' : 'solid';
-        const tpl     = document.getElementById(`${variant}-${next}`);
-        if (!tpl) return;
-            
-        slot.innerHTML     = tpl.innerHTML;                 // 只替換被點到的那顆
-        slot.dataset.state = next;                          // 更新該顆狀態
+        const btn   = e.target.closest('#energyBtn');
+        const slot  = e.target.closest('#energyBtn .icon-slot');
+        if (!btn || !slot) return;
+      
+        const slots = Array.from(btn.querySelectorAll('.icon-slot'));
+        const idx   = slots.indexOf(slot);             // 第幾顆被點
+        const solid = document.getElementById('energy-solid');
+        const line  = document.getElementById('energy-outline');
+        if (!solid || !line) return;
+      
+        // 目前連續「實心」的數量（由左到右）
+        let filled = 0;
+        for (const s of slots) {
+          if ((s.dataset.state || 'outline') === 'solid') filled++;
+          else break;
+        }
+      
+        // 點同一顆（與目前 filled 相同）就清空，否則設為 idx+1 顆
+        const target = (filled === idx + 1) ? 0 : (idx + 1);
+      
+        // 套用實心 / 空心
+        slots.forEach((s, i) => {
+          if (i < target) {
+            s.innerHTML = solid.innerHTML;
+            s.dataset.state = 'solid';
+          } else {
+            s.innerHTML = line.innerHTML;
+            s.dataset.state = 'outline';
+          }
+        });
+      
+        // 無障礙說明
+        btn.setAttribute('aria-label', `能量指數：${target} / ${slots.length}`);
       });
     </script>
   </body>

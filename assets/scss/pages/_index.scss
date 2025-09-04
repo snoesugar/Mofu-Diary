@@ -17,7 +17,7 @@
 //
 
 /* 讓內容不被固定底列遮住 */
-.has-bottom-pad { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+.has-bottom-pad { padding-bottom: calc(106px + env(safe-area-inset-bottom)); }
 
 /* 背景容器：等比縮放，基準為 393×685 */
 .bg-scene {
@@ -26,7 +26,7 @@
   aspect-ratio: 393 / 685;
   position: relative;
   margin: 0 auto;
-  background: url(link href="/Mofu-Diary/assets/images/bg/bg1.png") no-repeat center / cover; //
+  background: url("/Mofu-Diary/assets/images/bg/bg1.png") no-repeat center/cover;
 }
 
 /* ZZZ 位置： inset（391/262/178/115） */
