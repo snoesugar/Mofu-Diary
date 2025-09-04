@@ -26,9 +26,7 @@
   aspect-ratio: 393 / 685;
   position: relative;
   margin: 0 auto;
-  // background: url("../assets/images/bg/bg1.png") no-repeat center / cover; //
-  background: url("../assets/images/icons/bg1.png") no-repeat center / cover; //
-  // background: url("/Mofu-Diary/assets/images/bg/bg1.png") no-repeat center/cover;
+  background-image: url('/assets/images/bg/bg1.png');/**/
 }
 
 /* ZZZ 位置： inset（391/262/178/115） */
