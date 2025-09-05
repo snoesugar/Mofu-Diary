@@ -12,3 +12,66 @@
     margin-top: 267px;
     margin-left: 162px;
 }
+
+// .bg-breating-1 {
+    // background-image: url("../assets/images/Breathing/noise.png");
+    // background: rgba(81, 67, 32,0.5); /* 灰色遮罩 */
+    
+// }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.bg-hhh{
+     background: rgba(81, 67, 32,0.5); /* 灰色遮罩 */
+}
+
+.bg-breating-1 {
+  /* 底色漸層：下淺上深 */
+  background: linear-gradient(
+    to top,                             /* 漸層方向：往上 */
+    rgba(120, 100, 70, 0.25) 0%,         
+    rgba(81, 67, 32, 0.75) 100%            /* 頂部：深咖啡色 */
+  );
+    background-repeat: no-repeat;  
+  background-size: cover;       
+  background-position: center;  
+}
+
+.bg-breating-4 {
+    background: linear-gradient(
+    to bottom,                         
+    rgba(255, 255, 255, 1) 0%,          
+    rgba(117, 205, 247, 0.5) 100%         /* 底部：藍色 */
+    );
+    background-repeat: no-repeat;   
+    background-size: cover;         
+    background-position: center;    
+}
+main.ttt {
+  flex: 1; /* 讓 main 撐滿剩下高度 */
+}
+
+.cat-img-size{
+    width: 96px;
+}
+.mt-200px{
+    margin-top: 200px;
+}
+
+.mt-86px{
+    margin-top: 86px;
+}
+
+.phone-img {
+  filter: brightness(0) saturate(100%) !important; /* 全部變成黑色 */
+}
+
+.gap-36px{
+    gap: 36px;
+}
+
+.mt-115px{
+    margin-top: 115px;
+}

@@ -1,0 +1,85 @@
+/* 上拉選單的外框 */
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  bottom: -100%; /* 一開始藏在畫面下方 */
+  width: 100%;
+  height: 60%; /* 想要多高可以自己調整 */
+  background: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+  transition: bottom 0.4s ease; /* 平滑動畫 */
+  z-index: 2000; /* 確保蓋在上層 */
+}
+
+/* 內部內容 */
+.sheet-content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* 當有 active class 時，就滑上來 */
+.bottom-sheet.active {
+  bottom: 0;
+}
+
+.sheet-header .btn-close {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  margin-right: auto; /* 靠左 */
+}
+
+
+/* 上方點點 */
+.dots .dot {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: $neutral-200;
+}
+.dots .dot.small {
+  width: 4px;
+  height: 4px;
+}
+.dots .dot.big {
+  width: 6px;
+  height: 6px;
+  background-color: $primary-700;
+}
+
+/* 下方卡片 */
+.duration-box {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 文字重點數字 */
+.duration-box .highlight {
+  color: $primary-700; /* 金棕色 */
+  font-size: 1.2rem;
+}
+
+/* 刻度條 */
+.ticks .tick {
+  display: inline-block;
+  width: 3px;
+  height: 10px;
+  background-color: #c0c0c0;
+  margin: 0 4px;
+  border-radius: 2px;
+}
+.ticks .tick.active {
+  height: 16px;
+  background-color: $primary-700; /* 高亮刻度 */
+}
+.px-6px{
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.btn-py-13-5{
+    padding-top: 13.5px;
+    padding-bottom: 13.5px;
+}
