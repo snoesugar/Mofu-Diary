@@ -1,8 +1,16 @@
+:root{
+  --panel-top: 0px;        /* 由 JS 寫入：目前抽屜 top */
+  --panel-head-h: 52px;    /* .scene-footer 高度（JS 會覆蓋） */
+}
+
 /*全頁框架容器*/
 .page-wrapper {
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
 }
+
+// /* ▲ Bootstrap container 會有左右 padding，會干擾 393×685 百分比定位 */
+// .container.bg-scene{ padding-left:0; padding-right:0; }
 
 /* 四邊距形成「209×158」的槽位 */
 .cat-slot {
@@ -15,7 +23,7 @@
 }
 
 /* 讓內容不被固定底列遮住 */
-.has-bottom-pad { padding-bottom: calc(106px + env(safe-area-inset-bottom)); }
+.has-bottom-pad { padding-bottom: calc(108px + env(safe-area-inset-bottom)); }
 
 /* 背景容器：等比縮放，基準為 393×685 */
 .bg-scene {
@@ -23,7 +31,7 @@
   max-width: 393px;
   aspect-ratio: 393 / 685;
   position: relative;
-  margin: 0 auto;
+  // margin: 0 auto;
   background: url("/Mofu-Diary/assets/images/bg/bg1.png") no-repeat center/cover;
   // background-image: url('/assets/images/bg/bg1.png');/**/
 }
@@ -52,38 +60,63 @@
 
 /* 進度卡樣式 */
 .task-card { 
-    background-color: rgba($primary-50, 0.33);
-    box-shadow: 0 1px 2px rgba(0,0,0,.04); 
+  background-color: rgba($primary-50, 0.33);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04); 
 }
 .progress-thin { 
-    height: 6px; --bs-progress-bg: #{$primary-50}; 
+  height: 6px; --bs-progress-bg: #{$primary-50}; 
 }
 .progress-thin .progress-bar { 
-    --bs-progress-bar-bg:  #{$primary-500}; 
+  --bs-progress-bar-bg:  #{$primary-500}; 
 }
 .icon-badge { 
-    width:24px; 
-    height:24px; 
-    border-radius:50%; 
-    background:$neutral-50; 
-    box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  width:24px; 
+  height:24px; 
+  border-radius:50%; 
+  background:$neutral-50; 
+  box-shadow:0 2px 8px rgba(0,0,0,.08); }
 
-/* 底部固定列 */
-.bottom-bar {
-//   background:#fff;
-//   border-top: 1px solid rgba(0,0,0,.06);
-//   box-shadow: 0 -4px 20px rgba(0,0,0,.06);
-  padding-bottom: env(safe-area-inset-bottom);
+/* 抽屜容器：固定在視窗底部，開啟時上滑到 top:67px */
+.relax-panel{
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  top: var(--panel-top);                 /* ▲ 由 JS 控制 */
+  z-index: 9999;                         /* ▲ 壓最上層 */
+  display: flex; flex-direction: column; align-items: center;
+  min-height: 0;            /* 讓子層可正確收縮（避免 Safari 撐開） */
+  pointer-events: none;                 /* 先把事件交給內部 */
+  transition: top .28s ease;
 }
+.relax-panel.is-open{} /* ▲ 只作狀態標記，位置由變數控制 */
 
-/* 場景底部貼齊：高 52px */
+/* 只調整 .scene-footer：當作抽屜的「頭」 */
 .scene-footer{
-  position: absolute;
-  left: 0px; right: 0; bottom: 0;
-  height: 52px;
-  padding-right: 1rem;
-  
+  pointer-events: auto;
+  width: 100%; max-width: 393px;
+  background: transparent;
+  position: static;   /* 取消你原本的 absolute */
+  margin-bottom: 0;  /* 保險：清底部距離，確保「貼齊」 */
 }
+
+/* 抽屜內容：填滿剩餘高度並可捲動 */
+.relax-panel .scene-body{
+  pointer-events: auto;
+  width: 100%; max-width: 393px;
+  background: var(--panel-bg, var(--bs-body-bg, #fff)); /* 可覆寫底色 */
+  border-radius: 0px 12px 0 0;
+  
+ /* 永遠緊貼在 .scene-footer 下方 */
+  flex: 1 1 auto;
+  min-height: 0;     /* 關鍵：避免內容把容器撐開 */
+  overflow: auto;
+}
+
+ /* ▲ 展開時，底部導覽不吃點擊（避免擋抽屜） */
+html.panel-open .nav-bottom,
+html.panel-open footer { pointer-events:none; }
+
+/* 若第二個 container 仍有 has-bottom-pad（給底部導覽預留），可視需要拿掉 */
+.body.has-bottom-pad { padding-bottom: 108px; }
 
 .body {
   height: auto;//暫訂
@@ -145,24 +178,24 @@ $radius-xs: .25rem;
   .accordion-button { min-height: var(--acc-peek); padding-top:.5rem; padding-bottom:.5rem; box-shadow:none; }
 }
 
-  /* 只有最後一張卡片用漸層 */
-  .accordion.accordion-flush .accordion-item:last-child {
-    background-color: #fff;
-    --bs-gradient:
-      /* 左上：白→淡綠→透明 */
-      radial-gradient(
-        140% 140% at 0% 0%,
-        #ffffff 0%,
-        #ffffff 50%,
-        rgba(223,240,183,.55) 70%,
-        rgba(223,240,183,0) 100%
-      ),
-      /* 右下：淡黃暈染→透明 */
-      radial-gradient(
-        110% 110% at 100% 100%,
-        rgba(255,246,0,.45) 0%,
-        rgba(255,246,0,0) 60%
-      );
-    background-image: var(--bs-gradient);
-    overflow: hidden;
-  }
+/* 只有最後一張卡片用漸層 */
+.accordion.accordion-flush .accordion-item:last-child {
+  background-color: #fff;
+  --bs-gradient:
+    /* 左上：白→淡綠→透明 */
+    radial-gradient(
+      140% 140% at 0% 0%,
+      #ffffff 0%,
+      #ffffff 50%,
+      rgba(223,240,183,.55) 70%,
+      rgba(223,240,183,0) 100%
+    ),
+    /* 右下：淡黃暈染→透明 */
+    radial-gradient(
+      110% 110% at 100% 100%,
+      rgba(255,246,0,.45) 0%,
+      rgba(255,246,0,0) 60%
+    );
+  background-image: var(--bs-gradient);
+  overflow: hidden;
+}

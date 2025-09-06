@@ -46,7 +46,8 @@
 
 /* 使用：外框 198×52，右側斜邊；左邊貼齊 */
 .tag-btn{
-  @include trapezoid-fixed-left(198px, 52px, 183px, 8px, 0px, $primary-50, $primary-400, 10px, 6px);
+  @include trapezoid-fixed-left(198px, 52px, 183px, 6px, 0px, $primary-50, $primary-400, 10px, 6px);
   > span{ color: $primary-600; }
   white-space: nowrap;
+  margin-bottom: -1px; // 解決不了縮放會有間距問題，用爛方法在width393px保持正常
 }
