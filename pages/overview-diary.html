@@ -394,13 +394,15 @@
     <script type="module" src="../main.js"></script>
     <!--保持footer維持primary-->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // 找到底部的「總覽」按鈕 (第一個)
-        const navBtns = document.querySelectorAll(".btn-nav-bottom");
-        if (navBtns.length > 0) {
-          navBtns[0].classList.add("active"); // 讓第一個變 active
-        }
-      });
+      window.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener("DOMContentLoaded", function () {
+          // 找到底部的「總覽」按鈕 (第一個)
+          const navBtns = document.querySelectorAll(".btn-nav-bottom");
+          if (navBtns.length > 0) {
+            navBtns[0].classList.add("active"); // 讓第一個變 active
+          }
+        });
+      })
     </script>
 
     <!--今日心情更換圖示js-->
@@ -438,15 +440,17 @@
     </script>
     <!--讓 textarea 高度自動隨內容增加-->
     <script>
-      document.querySelectorAll('.custom-input').forEach(textarea => {
-      textarea.addEventListener('input', function () {
-        this.style.height = 'auto';   // 先歸零，避免撐不回去
-        this.style.height = this.scrollHeight + 'px'; // 根據內容調整高度
+      window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.custom-input').forEach(textarea => {
+        textarea.addEventListener('input', function () {
+          this.style.height = 'auto';   // 先歸零，避免撐不回去
+          this.style.height = this.scrollHeight + 'px'; // 根據內容調整高度
+        });
+  
+        // 初始化（避免 placeholder 太長時沒撐開）
+        textarea.style.height = (textarea.scrollHeight - 40) + 'px'; // -4px 調整留白
       });
-
-      // 初始化（避免 placeholder 太長時沒撐開）
-      textarea.style.height = (textarea.scrollHeight - 40) + 'px'; // -4px 調整留白
-    });
+      });
     </script>
   </body>
 </html>
