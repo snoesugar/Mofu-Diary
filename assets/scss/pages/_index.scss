@@ -32,8 +32,10 @@
   aspect-ratio: 393 / 685;
   position: relative;
   // margin: 0 auto;
-  background: url("/Mofu-Diary/assets/images/bg/bg1.png") no-repeat center/cover;
-  // background-image: url('/assets/images/bg/bg1.png');/**/
+  background-image: url('/assets/images/bg/bg1.png');
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
 }
 
 /* ZZZ 位置： inset（391/262/178/115） */
