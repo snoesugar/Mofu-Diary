@@ -721,26 +721,24 @@
     </script>
     <!--搜尋日記內容-->
     <script>
-      const searchInput = document.getElementById("searchInput");
-      const cards = document.querySelectorAll(".search-card");
+      const searchInput = document.querySelector("#searchInput"); // 你的輸入框
+      const cards = document.querySelectorAll(".search-card");   // 所有卡片
 
-      function filterCards() {
-        const searchText = searchInput.value.toLowerCase();
+      searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // 防止表單送出或換行
+          const keyword = this.value.trim();
 
-        cards.forEach(card => {
-          const cardText = card.innerText.toLowerCase();  // 卡片內文字
-          const cardTag = card.dataset.tag.toLowerCase(); // 卡片的標籤
-
-          // 判斷：輸入文字是否出現在 標籤 或 內容
-          if (cardText.includes(searchText) || cardTag.includes(searchText)) {
-            card.style.display = "block";
-          } else {
-            card.style.display = "none";
-          }
-        });
-      }
-
-      searchInput.addEventListener("input", filterCards);
+          cards.forEach(card => {
+            const tags = card.dataset.tag; // 讀取 data-tag
+            if (tags.includes(keyword)) {
+              card.style.display = "block"; // 顯示符合的卡片
+            } else {
+              card.style.display = "none";  // 隱藏不符合的卡片
+            }
+          });
+        }
+      });
     </script>
   </body>
 </html>
