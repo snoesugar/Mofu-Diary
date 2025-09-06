@@ -394,13 +394,15 @@
     <script type="module" src="../main.js"></script>
     <!--保持footer維持primary-->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // 找到底部的「總覽」按鈕 (第一個)
-        const navBtns = document.querySelectorAll(".btn-nav-bottom");
-        if (navBtns.length > 0) {
-          navBtns[0].classList.add("active"); // 讓第一個變 active
-        }
-      });
+      window.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener("DOMContentLoaded", function () {
+          // 找到底部的「總覽」按鈕 (第一個)
+          const navBtns = document.querySelectorAll(".btn-nav-bottom");
+          if (navBtns.length > 0) {
+            navBtns[0].classList.add("active"); // 讓第一個變 active
+          }
+        });
+      })
     </script>
 
     <!--今日心情更換圖示js-->
