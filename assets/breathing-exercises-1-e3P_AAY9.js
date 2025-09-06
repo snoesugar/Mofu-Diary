@@ -1,0 +1,1 @@
+import"./main-D9XYyFna.js";let t=3;const e=document.getElementById("countdown"),n=setInterval(()=>{t--,e.textContent=t,t<=0&&(clearInterval(n),window.location.href="breathing-exercises-2.html")},1e3);
