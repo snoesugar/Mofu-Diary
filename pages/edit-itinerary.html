@@ -67,133 +67,8 @@
       <div class="row">
         <div class="col-12 d-flex flex-column">
           <div class="mt-4 mb-5 d-flex">
-            <div class="text-primary-600 pe-4">
-            <h3 class="fs-11">今日心情</h3>
-             <div class="dropdown" id="iconPicker">
-                <button id="iconBtn" type="button"
-                        class="btn border-1 border-neutral-100 bg-neutral-0 p-4 rounded-3 d-inline-flex align-items-center gap-2"
-                        data-bs-toggle="dropdown"
-                        data-bs-display="static"
-                        aria-expanded="false">
-                  <span class="icon-slot" aria-hidden="true">
-                    <!-- 初始 SVG -->
-                    <svg width="30" height="30" viewBox="14 14 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24.0024 18.0034C24.5547 18.0034 25.0024 18.4511 25.0024 19.0034V22.9985H28.9966C29.5488 22.9987 29.9966 23.4463 29.9966 23.9985C29.9966 24.5507 29.5488 24.9984 28.9966 24.9985H25.0024V28.9966C25.0024 29.5489 24.5547 29.9966 24.0024 29.9966C23.4503 29.9964 23.0024 29.5488 23.0024 28.9966V24.9985H19.0034C18.4511 24.9985 18.0034 24.5508 18.0034 23.9985C18.0034 23.4463 18.4511 22.9985 19.0034 22.9985H23.0024V19.0034C23.0024 18.4512 23.4503 18.0036 24.0024 18.0034Z" 
-                    fill="#BC8035"/>
-                    </svg>
-                  </span>
-                </button>
-
-                <div class="dropdown-menu p-2 shadow icon-option" style="min-width:60px;">
-                  <div class="d-flex">
-                      <button type="button"
-                        class="icon-option border-0 bg-neutral-0 d-inline-flex align-items-center p-1 me-2"
-                        data-key="cat_happy"
-                        data-label="cat_happy"
-                        aria-label="cat_happy"
-                        >
-                        <img height="40" width="40" src="/assets/images/overview/cat_happy.png" alt="cat_happy">
-                      </button>
-                      <button type="button"
-                        class="icon-option border-0 bg-neutral-0 d-inline-flex align-items-center p-1 me-2"
-                        data-key="cat_angry"
-                        data-label="cat_angry"
-                        aria-label="cat_angry"
-                        >
-                        <img height="40" width="40" src="/assets/images/overview/cat_angry.png" alt="cat_angry">
-                      </button>
-                      <button type="button"
-                        class="icon-option border-0 bg-neutral-0 d-inline-flex align-items-center p-1 me-2"
-                        data-key="cat_cry"
-                        data-label="cat_cry"
-                        aria-label="cat_cry"
-                        >
-                        <img height="40" width="40" src="/assets/images/overview/cat_cry.png" alt="cat_cry">
-                      </button>
-                      <button type="button"
-                        class="icon-option border-0 bg-neutral-0 d-inline-flex align-items-center p-1 me-2"
-                        data-key="cat_dizziness"
-                        data-label="cat_dizziness"
-                        aria-label="cat_dizziness"
-                        >
-                        <img height="40" width="40" src="/assets/images/overview/cat_dizziness.png" alt="cat_dizziness">
-                      </button>
-                      <button type="button"
-                        class="icon-option border-0 bg-neutral-0 d-inline-flex align-items-center p-1"
-                        data-key="cat_calm"
-                        data-label="cat_calm"
-                        aria-label="cat_calm"
-                        >
-                        <img height="40" width="40" src="/assets/images/overview/cat_calm.png" alt="cat_calm">
-                      </button>
-                  </div>
-                </div>
-                <!-- SVG 模板 -->
-                      <template id="icon-cat_happy">
-                        <img height="30" width="30" src="/assets/images/overview/cat_happy.png" alt="cat_happy">
-                      </template>
-                      <template id="icon-cat_angry">
-                        <img height="30" width="30" src="/assets/images/overview/cat_angry.png" alt="cat_angry">
-                      </template>
-                      <template id="icon-cat_cry">
-                          <img height="30" width="30" src="/assets/images/overview/cat_cry.png" alt="cat_cry">
-                      </template>
-                      <template id="icon-cat_dizziness">
-                          <img height="30" width="30" src="/assets/images/overview/cat_dizziness.png" alt="cat_dizziness">
-                      </template>
-                      <template id="icon-cat_calm">
-                          <img height="30" width="30" src="/assets/images/overview/cat_calm.png" alt="cat_calm">
-                      </template>
-              </div>
-            </div>
-            <div class="fs-11 text-primary-600 d-flex flex-column flex-grow-1">
-              <h3 class="fs-11">能量指數</h3>
-              <button id="energyBtn" aria-label="能量指數" class="d-flex btn border-1 border-neutral-100 bg-neutral-0 p-3 rounded-3">
-                <span class="icon-slot me-2" data-variant="energy" data-state="outline">
-                  <svg class="" width="44" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 38.1436C23.6308 38.1436 23.265 38.0787 22.9026 37.9488C22.5402 37.8188 22.2154 37.6171 21.9282 37.3436L19.3436 34.9847C16.3897 32.2906 13.7607 29.6513 11.4564 27.0667C9.15214 24.4821 8 21.6582 8 18.5949C8 16.1057 8.83473 14.0271 10.5042 12.359C12.1737 10.6906 14.2538 9.85645 16.7446 9.85645C18.1491 9.85645 19.4838 10.1607 20.7487 10.7693C22.0137 11.3778 23.0974 12.2359 24 13.3436C24.9299 12.2359 26.0201 11.3778 27.2706 10.7693C28.521 10.1607 29.8514 9.85645 31.2615 9.85645C33.7507 9.85645 35.8293 10.6906 37.4974 12.359C39.1658 14.0271 40 16.1057 40 18.5949C40 21.6582 38.8513 24.4855 36.5538 27.077C34.2564 29.6684 31.6239 32.3043 28.6564 34.9847L26.0718 37.3436C25.7846 37.6171 25.4598 37.8188 25.0974 37.9488C24.735 38.0787 24.3692 38.1436 24 38.1436ZM22.5346 16.4985C21.8295 15.3662 21.0017 14.4889 20.0513 13.8667C19.1009 13.2445 17.9932 12.9334 16.7282 12.9334C15.1137 12.9334 13.7682 13.4701 12.6917 14.5436C11.6152 15.6171 11.0769 16.9654 11.0769 18.5883C11.0769 19.9953 11.5761 21.49 12.5744 23.0724C13.5726 24.6549 14.7624 26.1915 16.1436 27.6821C17.5248 29.1727 18.947 30.5641 20.4103 31.8564C21.8735 33.1488 23.0701 34.212 24 35.0462C24.9299 34.212 26.1265 33.1488 27.5897 31.8564C29.053 30.5641 30.4752 29.1727 31.8564 27.6821C33.2376 26.1915 34.4274 24.6549 35.4256 23.0724C36.4239 21.49 36.9231 19.9953 36.9231 18.5883C36.9231 16.9654 36.3848 15.6171 35.3083 14.5436C34.2318 13.4701 32.8863 12.9334 31.2718 12.9334C30.0068 12.9334 28.8957 13.2445 27.9385 13.8667C26.9812 14.4889 26.15 15.3662 25.4449 16.4985C25.2748 16.7747 25.0612 16.9778 24.8041 17.1077C24.5467 17.2376 24.2766 17.3026 23.9938 17.3026C23.7108 17.3026 23.4393 17.2376 23.1795 17.1077C22.9197 16.9778 22.7047 16.7747 22.5346 16.4985Z" 
-                    fill="#EE6666"/>
-                  </svg>
-                </span>
-                <span class="icon-slot me-2">
-                  <svg class="" width="44" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 38.1436C23.6308 38.1436 23.265 38.0787 22.9026 37.9488C22.5402 37.8188 22.2154 37.6171 21.9282 37.3436L19.3436 34.9847C16.3897 32.2906 13.7607 29.6513 11.4564 27.0667C9.15214 24.4821 8 21.6582 8 18.5949C8 16.1057 8.83473 14.0271 10.5042 12.359C12.1737 10.6906 14.2538 9.85645 16.7446 9.85645C18.1491 9.85645 19.4838 10.1607 20.7487 10.7693C22.0137 11.3778 23.0974 12.2359 24 13.3436C24.9299 12.2359 26.0201 11.3778 27.2706 10.7693C28.521 10.1607 29.8514 9.85645 31.2615 9.85645C33.7507 9.85645 35.8293 10.6906 37.4974 12.359C39.1658 14.0271 40 16.1057 40 18.5949C40 21.6582 38.8513 24.4855 36.5538 27.077C34.2564 29.6684 31.6239 32.3043 28.6564 34.9847L26.0718 37.3436C25.7846 37.6171 25.4598 37.8188 25.0974 37.9488C24.735 38.0787 24.3692 38.1436 24 38.1436ZM22.5346 16.4985C21.8295 15.3662 21.0017 14.4889 20.0513 13.8667C19.1009 13.2445 17.9932 12.9334 16.7282 12.9334C15.1137 12.9334 13.7682 13.4701 12.6917 14.5436C11.6152 15.6171 11.0769 16.9654 11.0769 18.5883C11.0769 19.9953 11.5761 21.49 12.5744 23.0724C13.5726 24.6549 14.7624 26.1915 16.1436 27.6821C17.5248 29.1727 18.947 30.5641 20.4103 31.8564C21.8735 33.1488 23.0701 34.212 24 35.0462C24.9299 34.212 26.1265 33.1488 27.5897 31.8564C29.053 30.5641 30.4752 29.1727 31.8564 27.6821C33.2376 26.1915 34.4274 24.6549 35.4256 23.0724C36.4239 21.49 36.9231 19.9953 36.9231 18.5883C36.9231 16.9654 36.3848 15.6171 35.3083 14.5436C34.2318 13.4701 32.8863 12.9334 31.2718 12.9334C30.0068 12.9334 28.8957 13.2445 27.9385 13.8667C26.9812 14.4889 26.15 15.3662 25.4449 16.4985C25.2748 16.7747 25.0612 16.9778 24.8041 17.1077C24.5467 17.2376 24.2766 17.3026 23.9938 17.3026C23.7108 17.3026 23.4393 17.2376 23.1795 17.1077C22.9197 16.9778 22.7047 16.7747 22.5346 16.4985Z" 
-                    fill="#EE6666"/>
-                  </svg>
-                </span>
-                <span class="icon-slot me-2">
-                  <svg class="" width="44" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 38.1436C23.6308 38.1436 23.265 38.0787 22.9026 37.9488C22.5402 37.8188 22.2154 37.6171 21.9282 37.3436L19.3436 34.9847C16.3897 32.2906 13.7607 29.6513 11.4564 27.0667C9.15214 24.4821 8 21.6582 8 18.5949C8 16.1057 8.83473 14.0271 10.5042 12.359C12.1737 10.6906 14.2538 9.85645 16.7446 9.85645C18.1491 9.85645 19.4838 10.1607 20.7487 10.7693C22.0137 11.3778 23.0974 12.2359 24 13.3436C24.9299 12.2359 26.0201 11.3778 27.2706 10.7693C28.521 10.1607 29.8514 9.85645 31.2615 9.85645C33.7507 9.85645 35.8293 10.6906 37.4974 12.359C39.1658 14.0271 40 16.1057 40 18.5949C40 21.6582 38.8513 24.4855 36.5538 27.077C34.2564 29.6684 31.6239 32.3043 28.6564 34.9847L26.0718 37.3436C25.7846 37.6171 25.4598 37.8188 25.0974 37.9488C24.735 38.0787 24.3692 38.1436 24 38.1436ZM22.5346 16.4985C21.8295 15.3662 21.0017 14.4889 20.0513 13.8667C19.1009 13.2445 17.9932 12.9334 16.7282 12.9334C15.1137 12.9334 13.7682 13.4701 12.6917 14.5436C11.6152 15.6171 11.0769 16.9654 11.0769 18.5883C11.0769 19.9953 11.5761 21.49 12.5744 23.0724C13.5726 24.6549 14.7624 26.1915 16.1436 27.6821C17.5248 29.1727 18.947 30.5641 20.4103 31.8564C21.8735 33.1488 23.0701 34.212 24 35.0462C24.9299 34.212 26.1265 33.1488 27.5897 31.8564C29.053 30.5641 30.4752 29.1727 31.8564 27.6821C33.2376 26.1915 34.4274 24.6549 35.4256 23.0724C36.4239 21.49 36.9231 19.9953 36.9231 18.5883C36.9231 16.9654 36.3848 15.6171 35.3083 14.5436C34.2318 13.4701 32.8863 12.9334 31.2718 12.9334C30.0068 12.9334 28.8957 13.2445 27.9385 13.8667C26.9812 14.4889 26.15 15.3662 25.4449 16.4985C25.2748 16.7747 25.0612 16.9778 24.8041 17.1077C24.5467 17.2376 24.2766 17.3026 23.9938 17.3026C23.7108 17.3026 23.4393 17.2376 23.1795 17.1077C22.9197 16.9778 22.7047 16.7747 22.5346 16.4985Z" 
-                    fill="#EE6666"/>
-                  </svg>
-                </span>
-                <span class="icon-slot me-2">
-                  <svg class="" width="44" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 38.1436C23.6308 38.1436 23.265 38.0787 22.9026 37.9488C22.5402 37.8188 22.2154 37.6171 21.9282 37.3436L19.3436 34.9847C16.3897 32.2906 13.7607 29.6513 11.4564 27.0667C9.15214 24.4821 8 21.6582 8 18.5949C8 16.1057 8.83473 14.0271 10.5042 12.359C12.1737 10.6906 14.2538 9.85645 16.7446 9.85645C18.1491 9.85645 19.4838 10.1607 20.7487 10.7693C22.0137 11.3778 23.0974 12.2359 24 13.3436C24.9299 12.2359 26.0201 11.3778 27.2706 10.7693C28.521 10.1607 29.8514 9.85645 31.2615 9.85645C33.7507 9.85645 35.8293 10.6906 37.4974 12.359C39.1658 14.0271 40 16.1057 40 18.5949C40 21.6582 38.8513 24.4855 36.5538 27.077C34.2564 29.6684 31.6239 32.3043 28.6564 34.9847L26.0718 37.3436C25.7846 37.6171 25.4598 37.8188 25.0974 37.9488C24.735 38.0787 24.3692 38.1436 24 38.1436ZM22.5346 16.4985C21.8295 15.3662 21.0017 14.4889 20.0513 13.8667C19.1009 13.2445 17.9932 12.9334 16.7282 12.9334C15.1137 12.9334 13.7682 13.4701 12.6917 14.5436C11.6152 15.6171 11.0769 16.9654 11.0769 18.5883C11.0769 19.9953 11.5761 21.49 12.5744 23.0724C13.5726 24.6549 14.7624 26.1915 16.1436 27.6821C17.5248 29.1727 18.947 30.5641 20.4103 31.8564C21.8735 33.1488 23.0701 34.212 24 35.0462C24.9299 34.212 26.1265 33.1488 27.5897 31.8564C29.053 30.5641 30.4752 29.1727 31.8564 27.6821C33.2376 26.1915 34.4274 24.6549 35.4256 23.0724C36.4239 21.49 36.9231 19.9953 36.9231 18.5883C36.9231 16.9654 36.3848 15.6171 35.3083 14.5436C34.2318 13.4701 32.8863 12.9334 31.2718 12.9334C30.0068 12.9334 28.8957 13.2445 27.9385 13.8667C26.9812 14.4889 26.15 15.3662 25.4449 16.4985C25.2748 16.7747 25.0612 16.9778 24.8041 17.1077C24.5467 17.2376 24.2766 17.3026 23.9938 17.3026C23.7108 17.3026 23.4393 17.2376 23.1795 17.1077C22.9197 16.9778 22.7047 16.7747 22.5346 16.4985Z" 
-                    fill="#EE6666"/>
-                  </svg>
-                </span>
-                <span class="icon-slot">
-                  <svg class="" width="44" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24 38.1436C23.6308 38.1436 23.265 38.0787 22.9026 37.9488C22.5402 37.8188 22.2154 37.6171 21.9282 37.3436L19.3436 34.9847C16.3897 32.2906 13.7607 29.6513 11.4564 27.0667C9.15214 24.4821 8 21.6582 8 18.5949C8 16.1057 8.83473 14.0271 10.5042 12.359C12.1737 10.6906 14.2538 9.85645 16.7446 9.85645C18.1491 9.85645 19.4838 10.1607 20.7487 10.7693C22.0137 11.3778 23.0974 12.2359 24 13.3436C24.9299 12.2359 26.0201 11.3778 27.2706 10.7693C28.521 10.1607 29.8514 9.85645 31.2615 9.85645C33.7507 9.85645 35.8293 10.6906 37.4974 12.359C39.1658 14.0271 40 16.1057 40 18.5949C40 21.6582 38.8513 24.4855 36.5538 27.077C34.2564 29.6684 31.6239 32.3043 28.6564 34.9847L26.0718 37.3436C25.7846 37.6171 25.4598 37.8188 25.0974 37.9488C24.735 38.0787 24.3692 38.1436 24 38.1436ZM22.5346 16.4985C21.8295 15.3662 21.0017 14.4889 20.0513 13.8667C19.1009 13.2445 17.9932 12.9334 16.7282 12.9334C15.1137 12.9334 13.7682 13.4701 12.6917 14.5436C11.6152 15.6171 11.0769 16.9654 11.0769 18.5883C11.0769 19.9953 11.5761 21.49 12.5744 23.0724C13.5726 24.6549 14.7624 26.1915 16.1436 27.6821C17.5248 29.1727 18.947 30.5641 20.4103 31.8564C21.8735 33.1488 23.0701 34.212 24 35.0462C24.9299 34.212 26.1265 33.1488 27.5897 31.8564C29.053 30.5641 30.4752 29.1727 31.8564 27.6821C33.2376 26.1915 34.4274 24.6549 35.4256 23.0724C36.4239 21.49 36.9231 19.9953 36.9231 18.5883C36.9231 16.9654 36.3848 15.6171 35.3083 14.5436C34.2318 13.4701 32.8863 12.9334 31.2718 12.9334C30.0068 12.9334 28.8957 13.2445 27.9385 13.8667C26.9812 14.4889 26.15 15.3662 25.4449 16.4985C25.2748 16.7747 25.0612 16.9778 24.8041 17.1077C24.5467 17.2376 24.2766 17.3026 23.9938 17.3026C23.7108 17.3026 23.4393 17.2376 23.1795 17.1077C22.9197 16.9778 22.7047 16.7747 22.5346 16.4985Z" 
-                    fill="#EE6666"/>
-                  </svg>
-                </span>
-              </button>
-              <template id="energy-solid">
-                <!-- 實心 SVG -->
-                <svg width="44" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 38.1436C23.6308 38.1436 23.265 38.0787 22.9026 37.9488C22.5402 37.8188 22.2154 37.6171 21.9282 37.3436L19.3436 34.9847C16.3897 32.2906 13.7607 29.6513 11.4564 27.0667C9.15214 24.4821 8 21.6582 8 18.5949C8 16.106 8.83419 14.0274 10.5026 12.359C12.1709 10.6906 14.2496 9.85645 16.7385 9.85645C18.147 9.85645 19.4838 10.1607 20.7487 10.7693C22.0137 11.3778 23.0974 12.2359 24 13.3436C24.9299 12.2359 26.0205 11.3778 27.2718 10.7693C28.5231 10.1607 29.853 9.85645 31.2615 9.85645C33.7504 9.85645 35.8291 10.6906 37.4974 12.359C39.1658 14.0274 40 16.106 40 18.5949C40 21.6582 38.8513 24.4855 36.5538 27.077C34.2564 29.6684 31.6239 32.3043 28.6564 34.9847L26.0718 37.3436C25.7846 37.6171 25.4598 37.8188 25.0974 37.9488C24.735 38.0787 24.3692 38.1436 24 38.1436Z" fill="#EE6666"/>
-                </svg>
-              </template>
-              <template id="energy-outline">
-                <!-- 空心 SVG（不同 path） -->
-                <svg class="" width="44" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M24 38.1436C23.6308 38.1436 23.265 38.0787 22.9026 37.9488C22.5402 37.8188 22.2154 37.6171 21.9282 37.3436L19.3436 34.9847C16.3897 32.2906 13.7607 29.6513 11.4564 27.0667C9.15214 24.4821 8 21.6582 8 18.5949C8 16.1057 8.83473 14.0271 10.5042 12.359C12.1737 10.6906 14.2538 9.85645 16.7446 9.85645C18.1491 9.85645 19.4838 10.1607 20.7487 10.7693C22.0137 11.3778 23.0974 12.2359 24 13.3436C24.9299 12.2359 26.0201 11.3778 27.2706 10.7693C28.521 10.1607 29.8514 9.85645 31.2615 9.85645C33.7507 9.85645 35.8293 10.6906 37.4974 12.359C39.1658 14.0271 40 16.1057 40 18.5949C40 21.6582 38.8513 24.4855 36.5538 27.077C34.2564 29.6684 31.6239 32.3043 28.6564 34.9847L26.0718 37.3436C25.7846 37.6171 25.4598 37.8188 25.0974 37.9488C24.735 38.0787 24.3692 38.1436 24 38.1436ZM22.5346 16.4985C21.8295 15.3662 21.0017 14.4889 20.0513 13.8667C19.1009 13.2445 17.9932 12.9334 16.7282 12.9334C15.1137 12.9334 13.7682 13.4701 12.6917 14.5436C11.6152 15.6171 11.0769 16.9654 11.0769 18.5883C11.0769 19.9953 11.5761 21.49 12.5744 23.0724C13.5726 24.6549 14.7624 26.1915 16.1436 27.6821C17.5248 29.1727 18.947 30.5641 20.4103 31.8564C21.8735 33.1488 23.0701 34.212 24 35.0462C24.9299 34.212 26.1265 33.1488 27.5897 31.8564C29.053 30.5641 30.4752 29.1727 31.8564 27.6821C33.2376 26.1915 34.4274 24.6549 35.4256 23.0724C36.4239 21.49 36.9231 19.9953 36.9231 18.5883C36.9231 16.9654 36.3848 15.6171 35.3083 14.5436C34.2318 13.4701 32.8863 12.9334 31.2718 12.9334C30.0068 12.9334 28.8957 13.2445 27.9385 13.8667C26.9812 14.4889 26.15 15.3662 25.4449 16.4985C25.2748 16.7747 25.0612 16.9778 24.8041 17.1077C24.5467 17.2376 24.2766 17.3026 23.9938 17.3026C23.7108 17.3026 23.4393 17.2376 23.1795 17.1077C22.9197 16.9778 22.7047 16.7747 22.5346 16.4985Z" 
-                  fill="#EE6666"/>
-                </svg>
-              </template>  
-            </div>
+            <%- include('./layout/mood-picker-inline'); -%>
+            <%- include('./layout/energy-index'); -%>
           </div>
           <div class="mb-5 p-2 border border-1 border-primary-700 border-dotted rounded-3">
             <h3 class="fs-11 text-primary-600 mb-2">呼吸練習</h3>
@@ -247,62 +122,11 @@
           </div>
           <div class="mb-5 p-2 border border-1 border-primary-700 border-dotted rounded-3">
             <h3 class="fs-11 text-primary-600 mb-2">和 Mofu 分享我的一天...</h3>
-            <p class="fs-12 text-primary-700 mb-0">你可以在這裡設定日記主題</p> <!--p的通用樣式可能錯了-->
-            <p class="fs-12 text-primary-700 mb-2">書寫可以幫助你釋放情緒與思緒 好好結束一天</p><!--p的通用樣式可能錯了-->
-            <div class="d-flex flex-wrap gap-3 mb-3">
-              <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">日常生活</button>
-              <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">感謝的事</button>
-              <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">今日成就</button>
-              <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">重要的事</button>
-              <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">很棒的事</button>
-              <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">其他</button>
-              <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">＋ 自訂</button> 
-            </div>
-            <a class="d-flex align-items-center text-primary-700" href="settingTemplate.html">
-              <p class="fs-12 mb-0">前往設定</p>
-              <p class="fs-12 fw-bold mb-0">筆記模板</p>
-            </a>
+            <%- include('./layout/myday-diary-template'); -%>
           </div>
           <div class="mb-5">
             <h3 class="fs-11 text-primary-600 mb-2">預覽</h3>
-            <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
-              <div class="accordion-item rounded-top-m rounded-bottom-xs" href="edit-diary.html">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed fs-11 text-primary-700" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                    日常生活
-                  </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item rounded-top-m rounded-bottom-xs">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed fs-11 text-primary-700" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                    感謝的事
-                  </button>
-                </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item rounded-top-m rounded-bottom-xs">
-                <h2 class="accordion-header">
-                  <button class="accordion-button collapsed fs-11 text-primary-700" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                    其他
-                  </button>
-                </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-
-                  </div>
-                </div>
-              </div>
-            </div>
+            <%- include('./layout/myday-diary-cards'); -%>
             <div class="border-1 border-neutral-100 bg-primary-100 p-3 rounded-3 d-flex justify-content-center align-items-center">
               <button class="btn p-0 d-flex align-items-center">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -335,55 +159,7 @@
       navBtns[1].classList.add("active");  // 讓第一個變 active
     }
   });
-  //今日心情更換圖示js
-  document.addEventListener('click', (e) => {
-   const opt = e.target.closest('#iconPicker .icon-option');
-   if (!opt) return
-   const key  = opt.dataset.key;
-   const tpl  = document.getElementById(`icon-${key}`);
-   const slot = document.querySelector('#iconBtn .icon-slot');
-   const btn  = document.getElementById('iconBtn')
-   if (tpl && slot) {
-     slot.innerHTML = tpl.innerHTML;  // 回填 SVG
-     btn.setAttribute('aria-label', `目前圖示：${opt.dataset.label || ''}`);
-   }
-  });
-  // 愛心評分：點第 N 顆 => 前 N 顆實心；再點同一顆 => 清空
-  document.addEventListener('click', (e) => {
-    const btn   = e.target.closest('#energyBtn');
-    const slot  = e.target.closest('#energyBtn .icon-slot');
-    if (!btn || !slot) return;
-  
-    const slots = Array.from(btn.querySelectorAll('.icon-slot'));
-    const idx   = slots.indexOf(slot);             // 第幾顆被點
-    const solid = document.getElementById('energy-solid');
-    const line  = document.getElementById('energy-outline');
-    if (!solid || !line) return;
-  
-    // 目前連續「實心」的數量（由左到右）
-    let filled = 0;
-    for (const s of slots) {
-      if ((s.dataset.state || 'outline') === 'solid') filled++;
-      else break;
-    }
-  
-    // 點同一顆（與目前 filled 相同）就清空，否則設為 idx+1 顆
-    const target = (filled === idx + 1) ? 0 : (idx + 1);
-  
-    // 套用實心 / 空心
-    slots.forEach((s, i) => {
-      if (i < target) {
-        s.innerHTML = solid.innerHTML;
-        s.dataset.state = 'solid';
-      } else {
-        s.innerHTML = line.innerHTML;
-        s.dataset.state = 'outline';
-      }
-    });
-  
-    // 無障礙說明
-    btn.setAttribute('aria-label', `能量指數：${target} / ${slots.length}`);
-  });
+
   /* ▲ 進出場位置計算：收合=只露 52px 頭，展開=停在問候區塊底下 */
   (function(){
     const root  = document.documentElement;
