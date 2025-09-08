@@ -31,11 +31,17 @@
   max-width: 393px;
   aspect-ratio: 393 / 685;
   position: relative;
+  
   // margin: 0 auto;
   background-image: url('/assets/images/bg/bg1.png');
   background-repeat:no-repeat;
+  // background-position:center -90px;
   background-position:center;
   background-size:cover;
+}
+
+.mt-top {
+  margin-top: 60px;
 }
 
 /* ZZZ 位置： inset（391/262/178/115） */
@@ -163,6 +169,18 @@ $radius-xs: .25rem;
     margin-top: calc(-1 * (var(--acc-item-h) - var(--acc-peek))); /* = -96px */
   }
 
+  /* ★ 展開態（由 JS 加在 #accordionFlushExample 上） */
+#accordionFlushExample.acc-open {
+  .accordion-item {
+    height: auto !important;            /* 展開不固定高 */
+    background-image: none !important;  /* 蓋掉收合時的漸層 */
+    background-color: #fff !important;  /* 展開全白 */
+  }
+  .accordion-item + .accordion-item {
+    margin-top: 8px !important;         /* 展開才有間距 8px，!important 蓋過負 margin 疊法 */
+  }
+}
+
   /* 標題高度=47px；去掉陰影與箭頭 */
   .accordion-button{
     min-height: var(--acc-peek);
@@ -181,10 +199,10 @@ $radius-xs: .25rem;
 }
 
 /* 只有最後一張卡片用漸層 */
-.accordion.accordion-flush .accordion-item:last-child {
+/* 改成只在「未展開(.acc-open)」時才套漸層 */
+#accordionFlushExample:not(.acc-open) .accordion-item:last-child {
   background-color: #fff;
   --bs-gradient:
-    /* 左上：白→淡綠→透明 */
     radial-gradient(
       140% 140% at 0% 0%,
       #ffffff 0%,
@@ -192,7 +210,6 @@ $radius-xs: .25rem;
       rgba(223,240,183,.55) 70%,
       rgba(223,240,183,0) 100%
     ),
-    /* 右下：淡黃暈染→透明 */
     radial-gradient(
       110% 110% at 100% 100%,
       rgba(255,246,0,.45) 0%,
@@ -201,3 +218,20 @@ $radius-xs: .25rem;
   background-image: var(--bs-gradient);
   overflow: hidden;
 }
+
+
+// 儲存筆記內容
+.diary-textarea {
+  min-height: 67px;
+  resize: vertical;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.saved-list .diary-entry {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.875rem;
+  color: var(--bs-primary-700, #1e3050);
+  margin-bottom: .5rem;
+} 
