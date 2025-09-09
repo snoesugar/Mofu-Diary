@@ -1,7 +1,7 @@
 <!--myday-diary-cards.ejs  -->
 <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
-  <div class="accordion-item rounded-top-m rounded-bottom-xs py-4 px-5">
-    <h2 class="accordion-header mb-2">
+  <div class="accordion-item rounded-top-m rounded-bottom-xs pb-4 pt-0 px-5">
+    <h2 class="accordion-header">
       <button class="accordion-button collapsed fs-11 text-primary-700 fw-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         日常生活
       </button>
@@ -18,8 +18,8 @@
       </div>
     </div>
   </div>
-  <div class="accordion-item rounded-top-m rounded-bottom-xs py-4 px-5">
-    <h2 class="accordion-header mb-2">
+  <div class="accordion-item rounded-top-m rounded-bottom-xs pb-4 pt-0 px-5">
+    <h2 class="accordion-header">
       <button class="accordion-button collapsed fs-11 text-primary-700 fw-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
         感謝的事
       </button>
@@ -36,8 +36,8 @@
       </div>
     </div>
   </div>
-  <div class="accordion-item rounded-top-m rounded-bottom-xs py-4 px-5">
-    <h2 class="accordion-header mb-2">
+  <div class="accordion-item rounded-top-m rounded-bottom-xs pb-4 pt-0 px-5">
+    <h2 class="accordion-header">
       <button class="accordion-button collapsed fs-11 text-primary-700 fw-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
         其他
       </button>
@@ -58,7 +58,7 @@
 
 
 <script>
-/* ★修正版：點任一標題，全數展開/收合；展開時加 .acc-open */
+/* 動態版：新增卡片後自動納入群組展開/收合 */
 (function(){
   const $  = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
@@ -67,21 +67,34 @@
   if (!accRoot) return;
 
   const Bootstrap = window.bootstrap;
-  const items = $$('#accordionFlushExample .accordion-collapse');
-  const instances = items.map(el => Bootstrap?.Collapse?.getOrCreateInstance(el, { toggle:false }) || null);
+  const instMap = new Map(); // el => Collapse instance
 
-  const isAllShown = () => items.every(el => el.classList.contains('show'));
+  function collapses(){ return $$('#accordionFlushExample .accordion-collapse'); }
+  function buttons(){ return $$('#accordionFlushExample .accordion-button'); }
+
+  function ensureInstances(){
+    const els = collapses();
+    if (!Bootstrap?.Collapse) return els;
+    els.forEach(el => {
+      if (!instMap.has(el)) {
+        instMap.set(el, Bootstrap.Collapse.getOrCreateInstance(el, { toggle:false }));
+      }
+    });
+    for (const el of [...instMap.keys()]) if (!el.isConnected) instMap.delete(el);
+    return els;
+  }
+
+  const isAllShown = () => collapses().every(el => el.classList.contains('show'));
 
   function setAll(open){
-    if (instances.some(Boolean)) {
-      instances.forEach(inst => open ? inst.show() : inst.hide());
+    if (instMap.size > 0) {
+      for (const inst of instMap.values()) open ? inst.show() : inst.hide();
     } else {
-      /* ★Fallback：即使沒載入 Bootstrap JS 也能運作 */
-      items.forEach(el => {
+      collapses().forEach(el => {
         el.classList.toggle('show', open);
         el.style.height = open ? 'auto' : '';
       });
-      $$('#accordionFlushExample .accordion-button').forEach(btn => {
+      buttons().forEach(btn => {
         btn.classList.toggle('collapsed', !open);
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
@@ -89,43 +102,25 @@
     accRoot.classList.toggle('acc-open', open);
   }
 
-  /* 點任一 header → 群組切換 */
+  function syncFlag(){ accRoot.classList.toggle('acc-open', isAllShown()); }
+
+  ensureInstances();
+
   accRoot.addEventListener('click', (e) => {
     const btn = e.target.closest('.accordion-button');
     if (!btn) return;
-    e.preventDefault();
-    e.stopPropagation();
+    e.preventDefault(); e.stopPropagation();
     setAll(!isAllShown());
   });
 
-  /* 同步旗標（有載 Bootstrap 時生效） */
-  accRoot.addEventListener('shown.bs.collapse', () => accRoot.classList.toggle('acc-open', isAllShown()));
-  accRoot.addEventListener('hidden.bs.collapse', () => accRoot.classList.toggle('acc-open', isAllShown()));
+  accRoot.addEventListener('shown.bs.collapse', syncFlag);
+  accRoot.addEventListener('hidden.bs.collapse', syncFlag);
 
-  // ★ 保留你的儲存功能
-  const saveBtn = document.getElementById('saveDiaryBtn');
-  if (saveBtn) {
-    saveBtn.addEventListener('click', () => {
-      const areas = $$('#accordionFlushExample .diary-textarea');
-      areas.forEach(area => {
-        const text = area.value.trim();
-        if (!text) return;
-        const body = area.closest('.accordion-body');
-        const list = $('.saved-list', body);
-        if (!list) return;
+  // 新卡片進場時刷新
+  const mo = new MutationObserver(() => { ensureInstances(); syncFlag(); });
+  mo.observe(accRoot, { childList:true, subtree:true });
 
-        const entry = document.createElement('div');
-        entry.className = 'diary-entry';
-        entry.textContent = text; // CSS 用 pre-wrap 保留換行
-        list.appendChild(entry);
-
-        // 若要存檔後清空輸入 → 打開下一行
-        // area.value = '';
-      });
-
-      // 抽屜內容變高時，讓量測重算
-      window.dispatchEvent(new Event('resize'));
-    });
-  }
+  // 接收外部通知
+  accRoot.addEventListener('accordion:updated', () => { ensureInstances(); syncFlag(); });
 })();
 </script>

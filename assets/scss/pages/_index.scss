@@ -155,7 +155,7 @@ $radius-xs: .25rem;
 /* 參數 */
 .accordion.accordion-flush {
   --acc-item-h: 143px;
-  --acc-peek:   17px;
+  --acc-peek:   47px;
 }
 
 /* 讓 flush 也有邊與圓角、項目間留距 */
@@ -173,9 +173,10 @@ $radius-xs: .25rem;
     margin-top: calc(-1 * (var(--acc-item-h) - var(--acc-peek))); /* = -96px */
   }
 
-  /* 去掉陰影與箭頭 */
+  /* 標題高度=47px；去掉陰影與箭頭 */
   .accordion-button{
     min-height: var(--acc-peek);
+    padding-top: .5rem; padding-bottom: .5rem;
     box-shadow: none;
     background-color: transparent !important;
   }
@@ -186,7 +187,7 @@ $radius-xs: .25rem;
   /* 讓父層底色透出 */
   .accordion-button,
   .accordion-body { background-color: transparent !important; }
-  .accordion-button { min-height: var(--acc-peek); box-shadow:none; }
+  .accordion-button { min-height: var(--acc-peek); padding-top:.5rem; padding-bottom:.5rem; box-shadow:none; }
 }
 
 /* 只有最後一張卡片用漸層 */
