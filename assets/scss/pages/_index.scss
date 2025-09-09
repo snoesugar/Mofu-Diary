@@ -137,7 +137,11 @@ html.panel-open footer { pointer-events:none; }
   // color: #{$neutral-500};  /* 因為 fill="currentColor" stroke="currentColor" */
 }
 
+/*自訂shadow*/
 
+.shadow-mini {
+  box-shadow:0px 0px 4px rgba(0, 0, 0, 0.1) ; //custom
+}
 
 /* 自訂小圓角 */
 $radius-xs: .25rem;
@@ -151,7 +155,7 @@ $radius-xs: .25rem;
 /* 參數 */
 .accordion.accordion-flush {
   --acc-item-h: 143px;
-  --acc-peek:   47px;
+  --acc-peek:   17px;
 }
 
 /* 讓 flush 也有邊與圓角、項目間留距 */
@@ -169,22 +173,9 @@ $radius-xs: .25rem;
     margin-top: calc(-1 * (var(--acc-item-h) - var(--acc-peek))); /* = -96px */
   }
 
-  /* ★ 展開態（由 JS 加在 #accordionFlushExample 上） */
-#accordionFlushExample.acc-open {
-  .accordion-item {
-    height: auto !important;            /* 展開不固定高 */
-    background-image: none !important;  /* 蓋掉收合時的漸層 */
-    background-color: #fff !important;  /* 展開全白 */
-  }
-  .accordion-item + .accordion-item {
-    margin-top: 8px !important;         /* 展開才有間距 8px，!important 蓋過負 margin 疊法 */
-  }
-}
-
-  /* 標題高度=47px；去掉陰影與箭頭 */
+  /* 去掉陰影與箭頭 */
   .accordion-button{
     min-height: var(--acc-peek);
-    padding-top: .5rem; padding-bottom: .5rem;
     box-shadow: none;
     background-color: transparent !important;
   }
@@ -195,7 +186,7 @@ $radius-xs: .25rem;
   /* 讓父層底色透出 */
   .accordion-button,
   .accordion-body { background-color: transparent !important; }
-  .accordion-button { min-height: var(--acc-peek); padding-top:.5rem; padding-bottom:.5rem; box-shadow:none; }
+  .accordion-button { min-height: var(--acc-peek); box-shadow:none; }
 }
 
 /* 只有最後一張卡片用漸層 */
@@ -217,6 +208,18 @@ $radius-xs: .25rem;
     );
   background-image: var(--bs-gradient);
   overflow: hidden;
+}
+
+/* ★修正：展開狀態樣式，移到頂層，避免寫成後代而失效 */
+#accordionFlushExample.acc-open {
+  .accordion-item {
+    height: auto !important;            /* 展開不固定高 */
+    background-image: none !important;  /* 展開取消漸層 */
+    background-color: #fff !important;  /* 展開純白 */
+  }
+  .accordion-item + .accordion-item {
+    margin-top: 8px !important;         /* 展開的卡片間距 8px */
+  }
 }
 
 

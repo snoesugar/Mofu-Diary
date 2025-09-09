@@ -1,15 +1,16 @@
+<!--myday-diary-cards.ejs  -->
 <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
-  <div class="accordion-item rounded-top-m rounded-bottom-xs">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed fs-11 text-primary-700 fw-medium pt-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+  <div class="accordion-item rounded-top-m rounded-bottom-xs py-4 px-5">
+    <h2 class="accordion-header mb-2">
+      <button class="accordion-button collapsed fs-11 text-primary-700 fw-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         日常生活
       </button>
     </h2>
     <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body py-0">
+      <div class="accordion-body p-0">
         <!-- ★ 改 textarea；加 data-section 與類名 -->
         <textarea
-          class="form-control rounded-3 text-primary-700 diary-textarea"
+          class="form-control rounded-3 text-primary-700 diary-textarea shadow-mini"
           data-section="daily"
           placeholder="請輸入文字"></textarea>
         <!-- ★ 儲存後會把文字插在這裡 -->
@@ -17,17 +18,17 @@
       </div>
     </div>
   </div>
-  <div class="accordion-item rounded-top-m rounded-bottom-xs">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed fs-11 text-primary-700 fw-medium pt-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+  <div class="accordion-item rounded-top-m rounded-bottom-xs py-4 px-5">
+    <h2 class="accordion-header mb-2">
+      <button class="accordion-button collapsed fs-11 text-primary-700 fw-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
         感謝的事
       </button>
     </h2>
     <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body py-0">
+      <div class="accordion-body p-0">
         <!-- ★ 改 textarea；加 data-section 與類名 -->
         <textarea
-          class="form-control rounded-3 text-primary-700 diary-textarea"
+          class="form-control rounded-3 text-primary-700 diary-textarea shadow-mini"
           data-section="daily"
           placeholder="請輸入文字"></textarea>
         <!-- ★ 儲存後會把文字插在這裡 -->
@@ -35,17 +36,17 @@
       </div>
     </div>
   </div>
-  <div class="accordion-item rounded-top-m rounded-bottom-xs">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed fs-11 text-primary-700 fw-medium pt-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+  <div class="accordion-item rounded-top-m rounded-bottom-xs py-4 px-5">
+    <h2 class="accordion-header mb-2">
+      <button class="accordion-button collapsed fs-11 text-primary-700 fw-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
         其他
       </button>
     </h2>
     <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body py-0"> 
+      <div class="accordion-body p-0"> 
         <!-- ★ 改 textarea；加 data-section 與類名 -->
         <textarea
-          class="form-control rounded-3 text-primary-700 diary-textarea"
+          class="form-control rounded-3 text-primary-700 diary-textarea shadow-mini"
           data-section="daily"
           placeholder="請輸入文字"></textarea>
         <!-- ★ 儲存後會把文字插在這裡 -->
@@ -57,7 +58,7 @@
 
 
 <script>
-/* ★ 日記：點任一卡片後，全數展開/收合；按「儲存」把內容塞回 HTML */
+/* ★修正版：點任一標題，全數展開/收合；展開時加 .acc-open */
 (function(){
   const $  = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
@@ -65,35 +66,41 @@
   const accRoot = document.getElementById('accordionFlushExample');
   if (!accRoot) return;
 
-  // 建立所有 collapse 實例（不自動 toggle）
-  const instances = $$('#accordionFlushExample .accordion-collapse')
-    .map(el => window.bootstrap?.Collapse.getOrCreateInstance(el, { toggle: false }));
+  const Bootstrap = window.bootstrap;
+  const items = $$('#accordionFlushExample .accordion-collapse');
+  const instances = items.map(el => Bootstrap?.Collapse?.getOrCreateInstance(el, { toggle:false }) || null);
+
+  const isAllShown = () => items.every(el => el.classList.contains('show'));
 
   function setAll(open){
-    instances.forEach(inst => open ? inst.show() : inst.hide());
-    accRoot.classList.toggle('acc-open', open); // ★ 展開態 class，給 SCSS 用
+    if (instances.some(Boolean)) {
+      instances.forEach(inst => open ? inst.show() : inst.hide());
+    } else {
+      /* ★Fallback：即使沒載入 Bootstrap JS 也能運作 */
+      items.forEach(el => {
+        el.classList.toggle('show', open);
+        el.style.height = open ? 'auto' : '';
+      });
+      $$('#accordionFlushExample .accordion-button').forEach(btn => {
+        btn.classList.toggle('collapsed', !open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+    accRoot.classList.toggle('acc-open', open);
   }
 
-  function syncFlag(){
-    const allShown = $$('#accordionFlushExample .accordion-collapse')
-      .every(el => el.classList.contains('show'));
-    accRoot.classList.toggle('acc-open', allShown);
-  }
-
-  // ★ 點任一 header：群組切換（阻止單一折疊預設行為）
+  /* 點任一 header → 群組切換 */
   accRoot.addEventListener('click', (e) => {
     const btn = e.target.closest('.accordion-button');
     if (!btn) return;
     e.preventDefault();
     e.stopPropagation();
-    const allShown = $$('#accordionFlushExample .accordion-collapse')
-      .every(el => el.classList.contains('show'));
-    setAll(!allShown);
+    setAll(!isAllShown());
   });
 
-  // 保險：同步旗標
-  accRoot.addEventListener('shown.bs.collapse', syncFlag);
-  accRoot.addEventListener('hidden.bs.collapse', syncFlag);
+  /* 同步旗標（有載 Bootstrap 時生效） */
+  accRoot.addEventListener('shown.bs.collapse', () => accRoot.classList.toggle('acc-open', isAllShown()));
+  accRoot.addEventListener('hidden.bs.collapse', () => accRoot.classList.toggle('acc-open', isAllShown()));
 
   // ★ 保留你的儲存功能
   const saveBtn = document.getElementById('saveDiaryBtn');
