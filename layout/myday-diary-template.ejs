@@ -1,0 +1,120 @@
+<p class="fs-12 text-primary-700 mb-0">你可以在這裡設定日記主題</p> <!--p的通用樣式可能錯了-->
+<p class="fs-12 text-primary-700 mb-2">書寫可以幫助你釋放情緒與思緒 好好結束一天</p><!--p的通用樣式可能錯了-->
+<div id="topicContainer" class="d-flex flex-wrap gap-3 mb-3">
+  <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">日常生活</button>
+  <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">感謝的事</button>
+  <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">今日成就</button>
+  <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">重要的事</button>
+  <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">很棒的事</button>
+  <button type="button" class="fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1" data-bs-toggle="button">其他</button>
+  <button type="button" 
+    class="fs-12 p-3 btn topic-btn topic-btn-custom text-primary-500 border-primary-500 border border-1 rounded-1" 
+    data-bs-toggle="modal"
+    data-bs-target="#topicCustomModal">
+    ＋ 自訂
+  </button> 
+</div>
+<a class="d-flex align-items-center text-primary-700" href="settingTemplate.html">
+  <p class="fs-12 mb-0">前往設定</p>
+  <p class="fs-12 fw-bold mb-0">筆記模板</p>
+</a>
+
+<!-- 自訂主題 Modal -->
+<div class="modal fade" id="topicCustomModal" 
+  tabindex="-1" aria-labelledby="topicCustomModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-neutral-0 rounded-s border-0 p-0">
+      <div class="modal-body px-4 py-3">
+        <h5 class="fs-11 text-primary-700 text-start" id="topicCustomModalLabel">自訂日記主題</h5>
+        <div class="d-flex mb-2 bg-neutral-0">
+          <input id="topicCustomInput" type="text" 
+            class="form-control rounded-3 px-6 py-3 me-2" 
+            maxlength="5" placeholder="最多 5 字">
+          <button type="button" 
+          class="btn rounded-3 btn-primary-700 text-neutral-0 py-3 px-5 text-nowrap" 
+          id="topicCustomConfirm" disabled>確認</button>
+        </div>
+        <div class="form-text text-neutral-400 text-start">上限
+          <span id="topicCustomCount">0</span>/ 5字
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ★ 只在 <aside> 內操作，確保資料回填到抽屜區塊
+  const panel     = document.getElementById('relaxPanel');
+  const container = panel?.querySelector('#topicContainer');
+  if (!container) return; // ★ 防呆：找不到容器就不要往下跑
+
+  const modalEl   = document.getElementById('topicCustomModal');
+  const inputEl   = document.getElementById('topicCustomInput');
+  const countEl   = document.getElementById('topicCustomCount');
+  const confirmEl = document.getElementById('topicCustomConfirm');
+  if (!modalEl || !inputEl || !countEl || !confirmEl) return; // ★ 防呆
+
+  // ★ 把 Modal 節點掛到 body，避開抽屜的 z-index / pointer-events 影響
+  if (modalEl.parentElement !== document.body) document.body.appendChild(modalEl);
+
+  // ★ 安全建立 Modal 實例（依賴 main.js 暴露的 window.bootstrap）
+  const bsModal = window.bootstrap?.Modal.getOrCreateInstance(modalEl, {
+    backdrop: true,
+    keyboard: true,
+    focus: true
+  });
+
+  // 顯示時重置
+  modalEl.addEventListener('shown.bs.modal', () => {
+    inputEl.value = '';
+    countEl.textContent = '0';
+    confirmEl.disabled = true;
+    inputEl.focus();
+  });
+
+  // ★ 剩餘字數即時更新
+  inputEl.addEventListener('input', () => {
+    const val = inputEl.value.trim();
+    countEl.textContent = val.length;
+    confirmEl.disabled = (val.length === 0);
+  });
+
+  // Enter 送出
+  inputEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !confirmEl.disabled) confirmEl.click();
+  });
+
+  // ★ 確認 → 產生新按鈕，插在「＋ 自訂」前；關閉後保持抽屜展開
+  confirmEl.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const text = inputEl.value.trim();
+    if (!text) return;
+
+    // 每次都重新找「＋ 自訂」錨點，避免第一次後取到舊節點
+    const anchor = container.querySelector('.topic-btn-custom')
+                || container.querySelector('[data-bs-target="#topicCustomModal"]');
+    if (!anchor) { bsModal?.hide(); return; }
+
+    // 防重複
+    const exists = Array.from(container.querySelectorAll('.topic-btn, .topic-btn-custom'))
+                  .some(b => b.textContent.trim() === text);
+    if (exists) { bsModal?.hide(); return; }
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1';
+    btn.setAttribute('data-bs-toggle', 'button');
+    btn.textContent = text;
+
+    container.insertBefore(btn, anchor); // 插在自訂前
+    bsModal?.hide();
+
+    // ★ 回到抽屜展開狀態並重算位置（你的抽屜程式在 resize 會重算）
+    panel?.classList.add('is-open');
+    window.dispatchEvent(new Event('resize'));
+  });
+});
+</script>

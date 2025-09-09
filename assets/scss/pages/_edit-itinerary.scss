@@ -22,3 +22,16 @@
     border-color: #D2A14E !important;
   }
 }
+
+/* ★ 覆寫 z-index，永遠蓋過 relax-panel(z-index:9999) */
+:root { --modal-z: 12010; }
+.modal-backdrop { z-index: calc(var(--modal-z) - 1) !important; }
+.modal          { z-index: var(--modal-z) !important; }
+
+
+/* 只影響這顆 Modal；清掉任何背景圖/漸層，讓 bg-neutral-0 的底色生效 */
+#topicCustomModal .modal-content.bg-neutral-0 {
+  background-image: none !important;  /* 移除背景圖 */
+  --bs-gradient: none !important;     /* 若有用到 BS 的漸層變數，關掉 */
+  /* 不動 background-color，交給 .bg-neutral-0 */
+}

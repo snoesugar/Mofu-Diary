@@ -1,0 +1,96 @@
+
+<div class="text-primary-600 pe-4">
+  <h3 class="fs-11">今日心情</h3>
+  <div class="dropdown" id="iconPicker">
+    <button id="iconBtn" type="button"
+            class="btn border-1 border-neutral-100 bg-neutral-0 p-4 rounded-3 d-inline-flex align-items-center gap-2"
+            data-bs-toggle="dropdown"
+            data-bs-display="static"
+            aria-expanded="false">
+      <span class="icon-slot" aria-hidden="true">
+        <!-- 初始 SVG -->
+        <svg width="30" height="30" viewBox="14 14 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24.0024 18.0034C24.5547 18.0034 25.0024 18.4511 25.0024 19.0034V22.9985H28.9966C29.5488 22.9987 29.9966 23.4463 29.9966 23.9985C29.9966 24.5507 29.5488 24.9984 28.9966 24.9985H25.0024V28.9966C25.0024 29.5489 24.5547 29.9966 24.0024 29.9966C23.4503 29.9964 23.0024 29.5488 23.0024 28.9966V24.9985H19.0034C18.4511 24.9985 18.0034 24.5508 18.0034 23.9985C18.0034 23.4463 18.4511 22.9985 19.0034 22.9985H23.0024V19.0034C23.0024 18.4512 23.4503 18.0036 24.0024 18.0034Z" 
+        fill="#BC8035"/>
+        </svg>
+      </span>
+    </button>
+  
+    <div class="dropdown-menu p-2 shadow icon-option" style="min-width:60px;">
+      <div class="d-flex">
+        <button type="button"
+          class="icon-option border-0 bg-neutral-0 d-inline-flex align-items-center p-1 me-2"
+          data-key="cat_happy"
+          data-label="cat_happy"
+          aria-label="cat_happy"
+          >
+          <img height="40" width="40" src="/assets/images/overview/cat_happy.png" alt="cat_happy">
+        </button>
+        <button type="button"
+          class="icon-option border-0 bg-neutral-0 d-inline-flex align-items-center p-1 me-2"
+          data-key="cat_angry"
+          data-label="cat_angry"
+          aria-label="cat_angry"
+          >
+          <img height="40" width="40" src="/assets/images/overview/cat_angry.png" alt="cat_angry">
+        </button>
+        <button type="button"
+          class="icon-option border-0 bg-neutral-0 d-inline-flex align-items-center p-1 me-2"
+          data-key="cat_cry"
+          data-label="cat_cry"
+          aria-label="cat_cry"
+          >
+          <img height="40" width="40" src="/assets/images/overview/cat_cry.png" alt="cat_cry">
+        </button>
+        <button type="button"
+          class="icon-option border-0 bg-neutral-0 d-inline-flex align-items-center p-1 me-2"
+          data-key="cat_dizziness"
+          data-label="cat_dizziness"
+          aria-label="cat_dizziness"
+          >
+          <img height="40" width="40" src="/assets/images/overview/cat_dizziness.png" alt="cat_dizziness">
+        </button>
+        <button type="button"
+          class="icon-option border-0 bg-neutral-0 d-inline-flex align-items-center p-1"
+          data-key="cat_calm"
+          data-label="cat_calm"
+          aria-label="cat_calm"
+          >
+          <img height="40" width="40" src="/assets/images/overview/cat_calm.png" alt="cat_calm">
+        </button>
+      </div>
+    </div>
+    <!-- SVG 模板 -->
+    <template id="icon-cat_happy">
+      <img height="30" width="30" src="/assets/images/overview/cat_happy.png" alt="cat_happy">
+    </template>
+    <template id="icon-cat_angry">
+      <img height="30" width="30" src="/assets/images/overview/cat_angry.png" alt="cat_angry">
+    </template>
+    <template id="icon-cat_cry">
+        <img height="30" width="30" src="/assets/images/overview/cat_cry.png" alt="cat_cry">
+    </template>
+    <template id="icon-cat_dizziness">
+        <img height="30" width="30" src="/assets/images/overview/cat_dizziness.png" alt="cat_dizziness">
+    </template>
+    <template id="icon-cat_calm">
+        <img height="30" width="30" src="/assets/images/overview/cat_calm.png" alt="cat_calm">
+    </template>
+  </div>
+</div>
+
+<script>
+      //今日心情更換圖示js
+  document.addEventListener('click', (e) => {
+   const opt = e.target.closest('#iconPicker .icon-option');
+   if (!opt) return
+   const key  = opt.dataset.key;
+   const tpl  = document.getElementById(`icon-${key}`);
+   const slot = document.querySelector('#iconBtn .icon-slot');
+   const btn  = document.getElementById('iconBtn')
+   if (tpl && slot) {
+     slot.innerHTML = tpl.innerHTML;  // 回填 SVG
+     btn.setAttribute('aria-label', `目前圖示：${opt.dataset.label || ''}`);
+   }
+  });
+</script>
