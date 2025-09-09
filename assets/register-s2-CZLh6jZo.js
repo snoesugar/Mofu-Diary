@@ -1,1 +1,0 @@
-import"./main-CfeUYfKY.js";const s=document.querySelector("#togglePassword"),t=document.querySelector("#password"),e=document.querySelector("#toggleIcon");s.addEventListener("click",function(){const o=t.getAttribute("type")==="password"?"text":"password";t.setAttribute("type",o),e.classList.toggle("bi-eye"),e.classList.toggle("bi-eye-slash")});
