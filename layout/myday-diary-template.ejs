@@ -1,3 +1,4 @@
+<!--myday-diary-template.ejs  -->
 <p class="fs-12 text-primary-700 mb-0">你可以在這裡設定日記主題</p> <!--p的通用樣式可能錯了-->
 <p class="fs-12 text-primary-700 mb-2">書寫可以幫助你釋放情緒與思緒 好好結束一天</p><!--p的通用樣式可能錯了-->
 <div id="topicContainer" class="d-flex flex-wrap gap-3 mb-3">
@@ -44,76 +45,99 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // ★ 只在 <aside> 內操作，確保資料回填到抽屜區塊
-  const panel     = document.getElementById('relaxPanel');
-  const container = panel?.querySelector('#topicContainer');
-  if (!container) return; // ★ 防呆：找不到容器就不要往下跑
+  // 允許沒有 topicContainer 時仍能新增卡片
+  const container = document.getElementById('topicContainer');
 
   const modalEl   = document.getElementById('topicCustomModal');
   const inputEl   = document.getElementById('topicCustomInput');
   const countEl   = document.getElementById('topicCustomCount');
   const confirmEl = document.getElementById('topicCustomConfirm');
-  if (!modalEl || !inputEl || !countEl || !confirmEl) return; // ★ 防呆
+  if (!modalEl || !inputEl || !countEl || !confirmEl) return;
 
-  // ★ 把 Modal 節點掛到 body，避開抽屜的 z-index / pointer-events 影響
+  // Modal 掛到 body，避免抽屜層級影響
   if (modalEl.parentElement !== document.body) document.body.appendChild(modalEl);
 
-  // ★ 安全建立 Modal 實例（依賴 main.js 暴露的 window.bootstrap）
   const bsModal = window.bootstrap?.Modal.getOrCreateInstance(modalEl, {
-    backdrop: true,
-    keyboard: true,
-    focus: true
+    backdrop:true, keyboard:true, focus:true
   });
 
-  // 顯示時重置
+  // —— 新增：slugify 與建立卡片 —— //
+  function slugify(s){
+    return s.toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu,'-')
+      .replace(/^-+|-+$/g,'')
+      .slice(0,24);
+  }
+  function createDiaryCard(title){
+    const accRoot = document.getElementById('accordionFlushExample');
+    if (!accRoot) return;
+    const uid = 'flush-' + slugify(title || 'custom') + '-' + Date.now().toString(36).slice(-4);
+
+    const item = document.createElement('div');
+    item.className = 'accordion-item rounded-top-m rounded-bottom-xs pb-4 pt-0 px-5';
+    item.innerHTML = `
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed fs-11 text-primary-700 fw-medium p-0"
+                type="button" data-bs-toggle="collapse"
+                data-bs-target="#${uid}" aria-controls="${uid}" aria-expanded="false">
+          ${title}
+        </button>
+      </h2>
+      <div id="${uid}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body p-0">
+          <textarea class="form-control rounded-3 text-primary-700 diary-textarea shadow-mini"
+                    data-section="daily" placeholder="請輸入文字"></textarea>
+          <div class="saved-list mt-2"></div>
+        </div>
+      </div>`;
+    // 追加到最後，讓它成為新的 :last-child → 收折時吃漸層
+    accRoot.appendChild(item);
+    // 通知群組控制刷新
+    accRoot.dispatchEvent(new Event('accordion:updated'));
+  }
+  // —— 新增結束 —— //
+
   modalEl.addEventListener('shown.bs.modal', () => {
     inputEl.value = '';
     countEl.textContent = '0';
     confirmEl.disabled = true;
     inputEl.focus();
   });
-
-  // ★ 剩餘字數即時更新
   inputEl.addEventListener('input', () => {
-    const val = inputEl.value.trim();
-    countEl.textContent = val.length;
-    confirmEl.disabled = (val.length === 0);
+    const v = inputEl.value.trim();
+    countEl.textContent = v.length;
+    confirmEl.disabled = (v.length === 0);
   });
-
-  // Enter 送出
   inputEl.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !confirmEl.disabled) confirmEl.click();
   });
 
-  // ★ 確認 → 產生新按鈕，插在「＋ 自訂」前；關閉後保持抽屜展開
   confirmEl.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
+    e.preventDefault(); e.stopPropagation();
     const text = inputEl.value.trim();
     if (!text) return;
 
-    // 每次都重新找「＋ 自訂」錨點，避免第一次後取到舊節點
-    const anchor = container.querySelector('.topic-btn-custom')
+    // 有主題容器才新增按鈕；沒有就略過，不中止流程
+    if (container) {
+      const anchor = container.querySelector('.topic-btn-custom')
                 || container.querySelector('[data-bs-target="#topicCustomModal"]');
-    if (!anchor) { bsModal?.hide(); return; }
+      const exists = Array.from(container.querySelectorAll('.topic-btn, .topic-btn-custom'))
+                    .some(b => b.textContent.trim() === text);
+      if (!exists && anchor) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1';
+        btn.setAttribute('data-bs-toggle', 'button');
+        btn.textContent = text;
+        container.insertBefore(btn, anchor);
+      }
+    }
 
-    // 防重複
-    const exists = Array.from(container.querySelectorAll('.topic-btn, .topic-btn-custom'))
-                  .some(b => b.textContent.trim() === text);
-    if (exists) { bsModal?.hide(); return; }
+    // ☆ 關鍵：同步在預覽區新增一張卡片（成為新的最外層）
+    createDiaryCard(text);
 
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'fs-12 p-3 btn topic-btn text-primary-500 border-primary-500 border border-1 rounded-1';
-    btn.setAttribute('data-bs-toggle', 'button');
-    btn.textContent = text;
-
-    container.insertBefore(btn, anchor); // 插在自訂前
     bsModal?.hide();
-
-    // ★ 回到抽屜展開狀態並重算位置（你的抽屜程式在 resize 會重算）
-    panel?.classList.add('is-open');
+    document.getElementById('relaxPanel')?.classList.add('is-open');
     window.dispatchEvent(new Event('resize'));
   });
 });
