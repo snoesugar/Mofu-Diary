@@ -8,6 +8,6 @@
 
     if (countdownNum <= 0) {
         clearInterval(timer); // 停止計時器
-        window.location.href = "breathing-exercises-2.html"; // 跳轉到下一頁
+        window.location.href = "https://snoesugar.github.io/Mofu-Diary/breathing-exercises-2.html"; // 跳轉到下一頁
     }
     }, 1000); // 每 1 秒執行一次

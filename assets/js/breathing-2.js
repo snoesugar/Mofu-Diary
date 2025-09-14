@@ -16,7 +16,7 @@
       if (minutes === 0) {
         clearInterval(countdown);
         // 時間到 → 跳到下一頁
-        window.location.href = "breathing-exercises-3.html";
+        window.location.href = "https://snoesugar.github.io/Mofu-Diary/breathing-exercises-3.html";
         return;
       }
       minutes--;
