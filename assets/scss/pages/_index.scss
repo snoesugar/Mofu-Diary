@@ -89,7 +89,7 @@
   position: fixed;
   left: 0; right: 0; bottom: 0;
   top: var(--panel-top);                 /* ▲ 由 JS 控制 */
-  z-index: 9999;                         /* ▲ 壓最上層 */
+  z-index: 1;                         
   display: flex; flex-direction: column; align-items: center;
   min-height: 0;            /* 讓子層可正確收縮（避免 Safari 撐開） */
   pointer-events: none;                 /* 先把事件交給內部 */
@@ -239,3 +239,24 @@ $radius-xs: .25rem;
   color: var(--bs-primary-700, #1e3050);
   margin-bottom: .5rem;
 } 
+
+
+/*z-index整理 
+_footer.scss的bottom-nav(footer區塊)
+--> 1030
+_footer-breating.scss的bottom-sheet(footer區塊裡的呼吸抽屜功能)
+--> 2000
+_index.scss的relax-panel(index的我的放鬆旅程抽屜功能、edit-itinerary的編輯行程抽屜功能)
+--> 1
+_index.scss的breathing-exercises-edit.ejs的bottom-sheet-new(edit-itinerary的編輯行程內的新增/編輯呼吸屜功能)
+--> 2
+
+_edit-itinerary的modal及modal-backdrop(edit-itinerary的編輯行程內的自訂+彈出視窗用(myday-diary-template.ejs))
+--> 2010
+
+_settingAccount的loginAccount的span
+--> 1
+_settingNewbieGuide的full-screen-page
+--> 1
+
+*/

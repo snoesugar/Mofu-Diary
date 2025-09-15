@@ -5,7 +5,7 @@
 
 //按鈕按住變色
 .topic-btn {
-    max-width: 74px;
+  max-width: 74px;
   flex: 0 0 74px; 
   // 按住時也變色
   &:active {
@@ -23,8 +23,25 @@
   }
 }
 
-/* ★ 覆寫 z-index，永遠蓋過 relax-panel(z-index:9999) */
-:root { --modal-z: 12010; }
+.week-btn {
+  // 按住時也變色
+  &:active {
+    background-color: #816E4D !important;
+    color: #fff !important;
+    border-color: #816E4D !important;
+  }
+
+  // 切換後保持
+  &.active,
+  &.active:focus {
+    background-color: #816E4D !important;
+    color: #fff !important;
+    border-color: #816E4D !important;
+  }
+}
+
+/* ★ 覆寫 z-index，永遠蓋過 relax-panel(z-index:2000)*/
+:root { --modal-z: 2010; }
 .modal-backdrop { z-index: calc(var(--modal-z) - 1) !important; }
 .modal          { z-index: var(--modal-z) !important; }
 
@@ -35,3 +52,61 @@
   --bs-gradient: none !important;     /* 若有用到 BS 的漸層變數，關掉 */
   /* 不動 background-color，交給 .bg-neutral-0 */
 }
+
+//在breathing-exercisess-edit.ejs使用
+
+/* 上拉選單的外框 */
+.bottom-sheet-new{
+  /* 位置/尺寸 */
+  position: fixed;
+  left: 0; right: 0; bottom: -100%;    /* 收合＝完全看不到 */
+  max-width: 393px; margin: 0 auto;
+  width: 100%;
+  height: var(--sheet-h, 657px);        /* ← 內容高度：JS 會寫入，預設 657px */
+  z-index: 2;
+
+  /* 外觀/排版 */
+  display: grid;
+  grid-template-rows: auto 1fr auto;    /* header / content / footer */
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -8px 24px rgba(0,0,0,.12);
+  padding-bottom: env(safe-area-inset-bottom);
+  transition: bottom .28s ease;         /* ✓ 沿用你原本 bottom 動畫 */
+}
+
+/* 展開：整塊上來貼齊底部 */
+.bottom-sheet-new.is-open{ bottom: 0; }
+
+/* 內容要能捲，避免被 footer 吃掉 */
+.bottom-sheet-new .sheet-content{
+  padding: 0 16px 16px;
+  min-height: 0;      /* ★ Grid 內 1fr 必加，否則會把 footer 擠出視窗 */
+  overflow: auto;     /* ★ 內容捲動在中段 */
+}
+
+/* CTA 底部留安全區，並加一點漸層 */
+.bottom-sheet-new .sheet-footer{
+  padding: 12px 16px calc(env(safe-area-inset-bottom) + 32px);
+  background: linear-gradient(transparent, rgba(255,255,255,.96) 24px);
+}
+
+/* 背景遮罩（點擊可關閉） 未使用sheet-backdrop  (選用)*/
+.sheet-backdrop{
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.35);
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: calc(var(--sheet-z) - 1);
+}
+.sheet-backdrop.show{ opacity: 1; pointer-events: auto; }
+
+/* btn-close 不要叉叉（Bootstrap 預設用背景圖，這裡拿掉） */
+.bottom-sheet-new .btn-close{
+  background-image: none !important;
+  opacity: 1;
+  width: 40px; height: 24px; /* 保留可點區域 */
+}
+
+/* 圖片列：置中顯示，左右超出即裁切（不破版） */
+.gallery-row img{ flex: 0 0 auto; } /* 不要被壓縮 */
