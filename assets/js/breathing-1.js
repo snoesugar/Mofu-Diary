@@ -11,3 +11,14 @@
         window.location.href = "https://snoesugar.github.io/Mofu-Diary/breathing-exercises-2.html"; // 跳轉到下一頁
     }
     }, 1000); // 每 1 秒執行一次
+
+function setup(){
+    createCanvas(windowWidth, windowHeight);
+}
+function draw(){
+    background(150);
+    noStroke();
+    for(let i = 0; i<14000; i++){
+        rect(random(width), random(height), 2, 2);
+    }
+}   
