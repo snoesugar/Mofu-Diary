@@ -36,6 +36,51 @@
   /* 不動 background-color，交給 .bg-neutral-0 */
 }
 
+//在breathing-exercisess.ejs使用
+
+/* 上拉選單的外框 */
+.bottom-sheet-breathing{
+  /* 位置/尺寸 */
+  position: fixed;
+  left: 0; right: 0; bottom: -100%;    /* 收合＝完全看不到 */
+  max-width: 393px; margin: 0 auto;
+  width: 100%;
+  height: var(--sheet-h, 489px);        /* ← 內容高度：JS 會寫入，預設 489px */
+  z-index: 2;
+
+  /* 外觀/排版 */
+  display: grid;
+  grid-template-rows: auto 1fr auto;    /* header / content / footer */
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -8px 24px rgba(0,0,0,.12);
+  padding-bottom: env(safe-area-inset-bottom);
+  transition: bottom .28s ease;         /* ✓ 沿用你原本 bottom 動畫 */
+}
+
+/* 展開：整塊上來貼齊底部 */
+.bottom-sheet-breathing.is-open{ bottom: 0; }
+
+/* 內容要能捲，避免被 footer 吃掉 */
+.bottom-sheet-breathing .sheet-content{
+  padding: 0 16px 16px;
+  min-height: 0;      /* ★ Grid 內 1fr 必加，否則會把 footer 擠出視窗 */
+  overflow: auto;     /* ★ 內容捲動在中段 */
+}
+
+/* CTA 底部留安全區，並加一點漸層 */
+.bottom-sheet-breathing .sheet-footer{
+  padding: 12px 16px calc(env(safe-area-inset-bottom) + 32px);
+  background: linear-gradient(transparent, rgba(255,255,255,.96) 24px);
+}
+
+/* btn-close 不要叉叉（Bootstrap 預設用背景圖，這裡拿掉） */
+.bottom-sheet-breathing .btn-close{
+  background-image: none !important;
+  opacity: 1;
+  width: 40px; height: 24px; /* 保留可點區域 */
+}
+
 //在breathing-exercisess-edit.ejs使用
 
 /* 上拉選單的外框 */
@@ -80,7 +125,7 @@
   background: rgba(0,0,0,.35);
   opacity: 0; pointer-events: none;
   transition: opacity .2s ease;
-  z-index: calc(var(--sheet-z) - 1);
+  z-index: calc(var(--sheet-z));
 }
 .sheet-backdrop.show{ opacity: 1; pointer-events: auto; }
 
