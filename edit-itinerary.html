@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>edit-itinerary編輯行程</title>
-    <script type="module" crossorigin src="/Mofu-Diary/assets/main-DwwWBI4g.js"></script>
-    <link rel="stylesheet" crossorigin href="/Mofu-Diary/assets/main-Dx4kT_Uu.css">
+    <script type="module" crossorigin src="/Mofu-Diary/assets/main-CfYEHox9.js"></script>
+    <link rel="stylesheet" crossorigin href="/Mofu-Diary/assets/main-9slOzLV2.css">
   </head>
   <body>
 
@@ -283,14 +283,14 @@
         <p class="mb-0 fs-11 text-primary-700">分鐘</p>
       </div>  
     </div>
-    <a href="javascript:void(0)" id="breath-edit-Btn" class="js-breath-edit-trigger">
+    <a href="javascript:void(0)" id="breath-edit-Btn" class="js-breath-edit-trigger"><!--js-breath-edit-trigger共用兩顆觸發鈕 → 共用同一抽屜-->
       <svg class="bg-primary-50 btn border border-1 p-0 rounded-2 border-primary-200" width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M11.4286 36.5714H13.8514L31.7714 18.6743L29.3257 16.2286L11.4286 34.1714V36.5714ZM9.71429 40C9.2419 40 8.8381 39.8324 8.50286 39.4971C8.16762 39.1619 8 38.7581 8 38.2857V34.1458C8 33.6905 8.08747 33.253 8.2624 32.8334C8.43733 32.4134 8.6851 32.0442 9.00571 31.7257L31.7714 8.98286C32.1061 8.66956 32.4754 8.42743 32.8795 8.25646C33.2837 8.08549 33.7138 8 34.1701 8C34.6263 8 35.0682 8.08762 35.4958 8.26286C35.9234 8.4381 36.3048 8.69333 36.64 9.02857L39.0171 11.4286C39.3524 11.7486 39.6 12.1181 39.76 12.5371C39.92 12.9562 40 13.3832 40 13.8181C40 14.2822 39.9217 14.7191 39.765 15.1287C39.6084 15.5383 39.3591 15.9125 39.0171 16.2514L16.2743 38.9943C15.957 39.3149 15.5893 39.5627 15.1712 39.7376C14.7528 39.9125 14.3128 40 13.8514 40H9.71429ZM30.5371 17.4629L29.3257 16.2286L31.7714 18.6743L30.5371 17.4629Z" fill="#BC8035"/>
       </svg>
     </a>
   </div>
 </div>
-<div class="d-flex btn border-1 border-neutral-100 bg-neutral-0 p-3 rounded-3 w-100">
+<div class="d-flex btn border-1 border-neutral-100 bg-neutral-0 p-3 rounded-3 w-100" data-role="add-card"><!--【新增 data-role】-->
   <div class="p-0 d-flex justify-content-between align-items-center text-primary-700">
     <a href="javascript:void(0)" id="breath-edit-Btn" class="btn p-2 d-flex align-items-center js-breath-edit-trigger">
       <svg class="bg-primary-50 btn border border-1 p-0 rounded-1 border-primary-200" width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -301,67 +301,74 @@
   </div>
 </div>
 
-  <!-- 上拉選單 (一開始收折) -->
+  <!-- 2) 抽屜：圖片列改「可滑動 Snap」；dots 用現有三顆【修改】 -->
 <div class="bottom-sheet-new" id="breath-edit" data-sheet-h="657">
   <div class="">
     <button type="button" class="btn-close" id="breath-edit-Close" aria-label="Close"></button>
   </div>
   
     <h6 class="fs-9 text-primary-700 text-center mb-4">設定呼吸練習目標</h6>
-    <div class="d-flex gap-2 justify-content-center overflow-hidden gallery-row">
-      <img src="/Mofu-Diary/assets/breathnoise-D8l_2_oy.png" alt="呼吸圖片2" class="">
-      <img src="/Mofu-Diary/assets/breathCard-tcyKfBJ5.png" alt="呼吸圖片1" class="">
-      <img src="/Mofu-Diary/assets/breathnoise-D8l_2_oy.png" alt="呼吸圖片2" class="">
+    <div class="gallery-row gap-2">
+      <img src="/Mofu-Diary/assets/breathnoise-D8l_2_oy.png" alt="呼吸圖片1" class="slide">
+      <img src="/Mofu-Diary/assets/breathCard-tcyKfBJ5.png" alt="呼吸圖片2" class="slide">
+      <img src="/Mofu-Diary/assets/breathnoise-D8l_2_oy.png" alt="呼吸圖片3" class="slide">
     </div>
-    <!-- 上方紅框：三個點點 -->
-    <div class="dots d-flex justify-content-center align-items-center mb-4 mt-4">
-      <span class="dot small"></span>
-      <span class="dot big mx-2"></span>
-      <span class="dot small"></span>
+    <!-- dots：會自動切換粗細 -->
+    <div class="dots d-flex justify-content-center align-items-center mb-2 mt-2">
+      <span class="dot" data-dot="0"></span>
+      <span class="dot" data-dot="1"></span>
+      <span class="dot" data-dot="2"></span>
     </div>
   <div class="px-4">
+    <!-- 會跟著切換的資訊【保持結構，只更新文字】 -->
     <div class="d-flex flex-column justify-content-center align-items-center">
-      <h5 class="fw-bold text-primary-700 fs-9 mb-3">平衡呼吸法</h5>
-      <span class="text-primary-700 fs-12 border border-neutral-100 rounded-m px-2 py-1 mb-3">呼吸頻率 1:1</span>
-      <p class="text-primary-700 fs-12 m-0">日常練習適用</p>
-      <p class="text-primary-700 fs-12">平衡自律神經與預防壓力</p>
+      <h5 id="breath-title" class="fw-bold text-primary-700 fs-9 mb-3">平衡呼吸法</h5>
+      <span id="breath-ratio" class="text-primary-700 fs-12 border border-neutral-100 rounded-m px-2 py-1 mb-3">呼吸頻率 1:1</span>
+      <p id="breath-sub1" class="text-primary-700 fs-12 m-0">日常練習適用</p>
+      <p id="breath-sub2" class="text-primary-700 fs-12">平衡自律神經與預防壓力</p>
     </div>
-    <!--練習時長 -->
+    <!-- 3) 每日練習時長：刻度可拖曳/點擊，數字即時變【修改：加 id】 -->
     <div class="text-center py-3 px-2 shadow-sm mb-4 rounded-3">
-      <p class=" d-flex align-items-center justify-content-center"><span class="fw-medium fs-12  text-primary-700">練習時長</span> <span class="highlight fw-10 text-primary-700 fw-bold px-6px">3</span> <span  class="fw-medium fs-12  text-primary-700">分鐘</span></p>
-      <div class="ticks d-flex justify-content-center align-items-center">
-        <!-- 用小刻度表示 -->
-        <span class="tick"></span>
-        <span class="tick"></span>
-        <span class="tick"></span>
-        <span class="tick"></span>
-        <span class="tick active"></span>
-        <span class="tick"></span>
-        <span class="tick"></span>
-        <span class="tick"></span>
-        <span class="tick"></span>
+      <p class="d-flex align-items-center justify-content-center">
+        <span class="fw-medium fs-12  text-primary-700">練習時長</span>
+        <span id="minuteVal" class="highlight fw-10 text-primary-700 fw-bold px-6px">3</span>
+        <span  class="fw-medium fs-12  text-primary-700">分鐘</span>
+      </p>
+      <div id="ticks" class="ticks d-flex justify-content-center align-items-center">
+        <!-- 9 段刻度（1~9 分）-->
+        <span class="tick" data-min="1"></span>
+        <span class="tick" data-min="2"></span>
+        <span class="tick" data-min="3"></span>
+        <span class="tick" data-min="4"></span>
+        <span class="tick" data-min="5"></span>
+        <span class="tick" data-min="6"></span>
+        <span class="tick" data-min="7"></span>
+        <span class="tick" data-min="8"></span>
+        <span class="tick" data-min="9"></span>
       </div>
     </div>
+    <!-- 4) 每週練習頻率：支援多選 / 每天 互斥【修改：加 data 屬性】 -->
     <div class="py-3 px-2 shadow-sm text-center rounded-3">
       <div class="row justify-content-center">
         <p class="fw-medium fs-12 text-primary-700 mb-3">
           每週練習頻率
         </p>
-        <div class="col-8 d-flex flex-wrap justify-content-center gap-1 mb-3">
-          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" >週<span>一</span></button>
-          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" >週<span>二</span></button>
-          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" >週<span>三</span></button>
-          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" >週<span>四</span></button>
-          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" >週<span>五</span></button>
-          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" >週<span>六</span></button>
-          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" >週<span>日</span></button>
-          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" ><span>每天</span></button>
+        <div id="weekPicker" class="col-8 d-flex flex-wrap justify-content-center gap-1">
+          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" data-day="一">週<span>一</span></button>
+          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" data-day="二" >週<span>二</span></button>
+          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" data-day="三" >週<span>三</span></button>
+          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" data-day="四" >週<span>四</span></button>
+          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" data-day="五" >週<span>五</span></button>
+          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" data-day="六" >週<span>六</span></button>
+          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" data-day="日" >週<span>日</span></button>
+          <button type="button" class="fs-12 py-2 px-3 btn week-btn text-primary-700 border-primary-700 border border-1 rounded-pill" data-bs-toggle="button" data-everyday="true"><span>每天</span></button>
         </div>  
       </div>
     </div>
   </div>
   <div class="sheet-footer text-center">
-      <a href="../pages/edit-itinerary.html" 
+      <a href=""
+      id="breath-save"
       class="text-decoration-none border border-primary-700 text-primary-700 fs-11 fw-medium d-block w-100 btn-py-13-5 rounded-pill">
       完成</a>
   </div>
@@ -369,13 +376,14 @@
 
 <script>
 (() => {
-  const triggers = document.querySelectorAll('.js-breath-edit-trigger, #breath-edit-Btn'); // 多鈕支持
+  // === 抽屜 ===
+  const triggers = document.querySelectorAll('.js-breath-edit-trigger, #breath-edit-Btn');
   const sheet    = document.getElementById('breath-edit');
   const btnX     = document.getElementById('breath-edit-Close');
-  if(!sheet || (!triggers.length && !btnX)) return;
+  const saveBtn  = document.getElementById('breath-save');
+  if(!sheet) return;
 
   let backdrop = null;
-
   function ensureMounted(){
     if(sheet.parentElement !== document.body) document.body.appendChild(sheet);
     if(!backdrop){
@@ -385,20 +393,11 @@
       document.body.appendChild(backdrop);
     }
   }
-
   function setHeight(){
     const want = parseInt(sheet.dataset.sheetH || '657', 10);
-    const vh   = window.innerHeight;
-    const gap  = 8;                          // 需要保留的視窗底部緩衝
-    const h    = Math.min(want, vh - gap);   // 小螢幕自動壓到 vh-8
-    sheet.style.setProperty('--sheet-h', h + 'px');
+    const vh = window.innerHeight, gap = 8;
+    sheet.style.setProperty('--sheet-h', Math.min(want, vh - gap) + 'px');
   }
-
-  // 初始狀態
-  sheet.style.display = 'none';
-  sheet.classList.remove('is-open');
-  sheet.setAttribute('aria-hidden','true');
-
   function openSheet(e){
     e?.preventDefault?.();
     ensureMounted();
@@ -409,36 +408,243 @@
       sheet.classList.add('is-open');
       sheet.setAttribute('aria-hidden','false');
       document.body.classList.add('no-scroll');
+      // 開啟時把滑動圖列定位到目前 index
+      snapTo(activeIndex, true);
     });
   }
-
   function closeSheet(){
     sheet.classList.remove('is-open');
     sheet.setAttribute('aria-hidden','true');
     backdrop && backdrop.classList.remove('show');
     document.body.classList.remove('no-scroll');
   }
-
-  // 動畫結束後真正隱藏（避免中斷過場）
   sheet.addEventListener('transitionend', (e) => {
     if(e.propertyName === 'bottom' && !sheet.classList.contains('is-open')){
       sheet.style.display = 'none';
     }
   });
-
-  // 綁定多個觸發鈕
   triggers.forEach(el => el.addEventListener('click', openSheet, {passive:false}));
-  // 關閉鈕（保留無叉叉外觀，但仍可點）
   btnX && btnX.addEventListener('click', closeSheet, {passive:true});
-  // 按 ESC 關閉
   window.addEventListener('keydown', (e) => {
     if(e.key === 'Escape' && sheet.classList.contains('is-open')) closeSheet();
   }, {passive:true});
-
-  // 螢幕變動時，展開狀態下重算高度
   const remeasure = () => sheet.classList.contains('is-open') && setHeight();
   window.addEventListener('resize', remeasure, {passive:true});
   window.addEventListener('orientationchange', () => setTimeout(remeasure, 50), {passive:true});
+
+  // === 滑動圖片（scroll-snap） + dots + 文案同步 ===
+  const row   = sheet.querySelector('.gallery-row');
+  const slides= Array.from(row.querySelectorAll('.slide'));
+  const dots  = Array.from(sheet.querySelectorAll('.dot'));
+  const title = sheet.querySelector('#breath-title');
+  const ratio = sheet.querySelector('#breath-ratio');
+  const sub1  = sheet.querySelector('#breath-sub1');
+  const sub2  = sheet.querySelector('#breath-sub2');
+
+  // 三個版本文案（除標題外其它沿用）
+  const meta = [
+    { title: '平衡呼吸法',  ratio: '呼吸頻率 1:1', sub1: '日常練習適用', sub2: '平衡自律神經與預防壓力' },
+    { title: '平衡呼吸法2', ratio: '呼吸頻率 1:1', sub1: '日常練習適用', sub2: '平衡自律神經與預防壓力' },
+    { title: '平衡呼吸法3', ratio: '呼吸頻率 1:1', sub1: '日常練習適用', sub2: '平衡自律神經與預防壓力' }
+  ];
+
+  let activeIndex = 0; // 0~2
+  function applyMeta(i){
+    const m = meta[i] || meta[0];
+    title.textContent = m.title;
+    ratio.textContent = m.ratio;
+    sub1.textContent  = m.sub1;
+    sub2.textContent  = m.sub2;
+    dots.forEach((d,idx)=>d.classList.toggle('is-active', idx===i));
+  }
+
+  // 讓指定索引置中（考慮 slide 寬與容器寬）
+  function snapTo(i, instant=false){
+    const el = slides[i];
+    if(!el) return;
+    const left = el.offsetLeft - (row.clientWidth - el.clientWidth)/2;
+    row.scrollTo({ left, behavior: instant ? 'auto' : 'smooth' });
+  }
+
+  // 依「離容器視窗中心最近」計算目前索引
+function getNearestIndex(){
+  const viewportCenter = row.scrollLeft + row.clientWidth/2;
+  let nearest = 0, best = Infinity;
+  slides.forEach((el, idx) => {
+    const elCenter = el.offsetLeft + el.clientWidth/2;
+    const d = Math.abs(elCenter - viewportCenter);
+    if(d < best){ best = d; nearest = idx; }
+  });
+  return nearest;
+}
+
+// scroll 時更新 activeIndex + dots + 文案
+let ticking = false;
+row.addEventListener('scroll', () => {
+  if(ticking) return; ticking = true;
+  requestAnimationFrame(()=>{
+    const i = getNearestIndex();
+    if(i !== activeIndex){
+      activeIndex = i;
+      applyMeta(activeIndex);
+    }
+    ticking = false;
+  });
+}, {passive:true});
+
+// 拖曳橫向滾動
+let isDrag = false, startX = 0, startLeft = 0;
+row.addEventListener('pointerdown', (e)=>{
+  isDrag = true;
+  row.classList.add('dragging');
+  row.setPointerCapture(e.pointerId);
+  startX = e.clientX;
+  startLeft = row.scrollLeft;
+});
+row.addEventListener('pointermove', (e)=>{
+  if(!isDrag) return;
+  const dx = e.clientX - startX;
+  row.scrollLeft = startLeft - dx;
+});
+const endDrag = (e)=>{
+  if(!isDrag) return;
+  isDrag = false;
+  row.classList.remove('dragging');
+  row.releasePointerCapture?.(e.pointerId);
+  // 放開後自動貼最近一張
+  activeIndex = getNearestIndex();
+  snapTo(activeIndex);
+  applyMeta(activeIndex);
+};
+row.addEventListener('pointerup', endDrag);
+row.addEventListener('pointercancel', endDrag);
+
+  // === 刻度（1~9 分）點擊/拖曳 改數值 + 視覺流動 ===
+  const ticksWrap = document.getElementById('ticks');
+  const ticks     = Array.from(ticksWrap.querySelectorAll('.tick'));
+  const minuteEl  = document.getElementById('minuteVal');
+  let minute = 3;
+
+  function setMinute(m, animate=true){
+    minute = Math.max(1, Math.min(9, m|0));
+    minuteEl.textContent = String(minute);
+    ticks.forEach(t => t.classList.toggle('active', Number(t.dataset.min) === minute));
+    if(!animate) ticksWrap.classList.add('scrubbing'); else ticksWrap.classList.remove('scrubbing');
+  }
+  setMinute(minute, false);
+  ticksWrap.addEventListener('click', (e)=>{
+    const t = e.target.closest('.tick'); if(!t) return;
+    setMinute(Number(t.dataset.min));
+  });
+  // 拖曳
+  let dragging=false;
+  const onMove = (clientX) => {
+    const rect = ticksWrap.getBoundingClientRect();
+    const ratio = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+    const m = 1 + Math.round(ratio * 8);
+    setMinute(m, false);
+  };
+  ticksWrap.addEventListener('pointerdown', (e)=>{
+    dragging=true; ticksWrap.setPointerCapture(e.pointerId); ticksWrap.classList.add('scrubbing'); onMove(e.clientX);
+  });
+  ticksWrap.addEventListener('pointermove', (e)=> dragging && onMove(e.clientX));
+  ticksWrap.addEventListener('pointerup',   (e)=>{ dragging=false; ticksWrap.releasePointerCapture(e.pointerId); ticksWrap.classList.remove('scrubbing'); });
+  ticksWrap.addEventListener('pointercancel', ()=>{ dragging=false; ticksWrap.classList.remove('scrubbing'); });
+
+  // === 每週頻率：多選；「每天」與單日互斥 ===
+  const weekPicker = document.getElementById('weekPicker');
+  function getDaysLabel(){
+    const dayBtns = Array.from(weekPicker.querySelectorAll('[data-day].active'));
+    const every   = weekPicker.querySelector('[data-everyday="true"]').classList.contains('active');
+    if(every || dayBtns.length===7) return '每天';
+    const text = dayBtns.map(b => b.dataset.day).join('');
+    return text ? ('週' + text) : '每天';
+  }
+  // 互斥規則
+  weekPicker.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.week-btn'); if(!btn) return;
+    const isEvery = btn.hasAttribute('data-everyday');
+    if(isEvery){
+      // 按「每天」→ 取消其他日
+      Array.from(weekPicker.querySelectorAll('[data-day].active')).forEach(b=>b.classList.remove('active'));
+    }else{
+      // 按單日 → 取消「每天」
+      weekPicker.querySelector('[data-everyday="true"]')?.classList.remove('active');
+    }
+  });
+
+  // === 完成：生成新的呼吸練習卡片（插在「新增呼吸練習」卡片之前） ===
+  function buildDaysMiniLabel(){
+    const lbl = getDaysLabel();
+    if(lbl==='每天') return lbl;
+    // e.g. 週一二三 → 顯示「週一二」…（你可依需求簡化/展開）
+    return lbl;
+  }
+  function createCardHTML(titleText, daysText, minutes){
+    return `
+<div class="d-flex justify-content-between btn border-1 border-neutral-100 bg-neutral-0 p-3 rounded-3 w-100 mb-2">
+  <div class="d-flex justify-content-between align-items-center text-primary-700">
+    <svg 
+    width="48" height="49" 
+    viewBox="0 0 48 49" 
+    fill="none" xmlns="http://www.w3.org/2000/svg"><!--fill stroke 改 currentColor 才能在scss裡改色-->
+    <mask id="path-1-outside-1_2658_32976" maskUnits="userSpaceOnUse" x="7" y="8.13818" width="34" height="32" fill="black">
+    <rect fill="white" x="7" y="8.13818" width="34" height="32"/>
+    <path d="M38.7302 21.582C39.3445 19.0314 39.5106 16.3276 39.2153 13.751C38.8884 10.894 38.0132 9.34857 36.6133 9.16156C36.4921 9.14598 36.3655 9.13818 36.2337 9.13818C34.5149 9.13818 32.3558 10.5329 30.8479 11.7017C30.1862 12.216 29.5061 12.8835 28.905 13.4705L28.8101 13.5614C27.1756 13.0965 25.4937 12.8601 23.8092 12.8601C23.2503 12.8601 22.6861 12.8861 22.1352 12.9407C21.165 13.0316 20.1606 13.2186 19.1457 13.4991C18.5947 12.9666 17.8856 12.3043 17.1132 11.7043C15.6105 10.5329 13.4541 9.13818 11.73 9.13818C11.6008 9.13818 11.4716 9.14598 11.3504 9.16156C9.24928 9.44467 8.8723 12.6861 8.74839 13.751C8.45314 16.325 8.62186 19.0392 9.23873 21.6053C8.21588 23.7637 7.81517 26.1013 8.07879 28.3714C8.43205 31.4102 9.96633 34.2076 12.3969 36.249C15.1281 38.5451 19.3539 39.8619 23.9911 39.8619C29.1976 39.8619 33.9165 38.1659 36.6133 35.327C40.1907 31.5635 40.9974 26.3065 38.7302 21.582ZM33.7029 35.6854C31.3119 37.3243 27.7793 38.2646 24.0148 38.2646C20.4427 38.2646 17.042 37.41 14.6852 35.9192C12.5446 34.566 10.9127 32.5608 10.1746 30.3869C11.2554 30.0103 12.4048 29.8674 13.4962 29.7557L13.5358 29.7505L13.5727 29.735C13.9049 29.5947 14.0999 29.2648 14.0551 28.9142C14.0103 28.561 13.7467 28.296 13.3802 28.2389C13.2906 28.2259 13.1878 28.2181 13.0586 28.2181C12.7845 28.2181 12.4602 28.2493 12.2256 28.2727L12.1439 28.2805C11.3187 28.3636 10.5173 28.548 9.75807 28.8311C9.6368 28.2103 9.62099 27.5818 9.63417 27.0909H9.64998C9.77389 27.0909 9.90043 27.0909 10.0243 27.0857C10.1456 27.0857 10.2669 27.0805 10.3881 27.0805C10.4936 27.0805 10.5964 27.0805 10.7018 27.0883C11.0366 27.1039 11.3925 27.1662 11.7352 27.2259C12.0595 27.2831 12.3943 27.3402 12.7186 27.361C12.7713 27.3636 12.824 27.3662 12.8741 27.3662C13.1983 27.3662 13.4277 27.2857 13.5753 27.1169C13.7098 26.961 13.7599 26.7506 13.7177 26.4909C13.6307 25.9039 12.8214 25.7662 12.3389 25.6831L12.2071 25.6598C11.44 25.5169 10.6755 25.4779 9.9347 25.439C9.86616 25.4364 9.80025 25.4312 9.73171 25.4286C9.92679 24.291 10.2906 23.1637 10.8126 22.0703C11.1263 22.0962 11.4426 22.1092 11.7537 22.1092C16.3671 22.1092 20.3267 19.408 21.6026 15.3847C21.6237 15.3224 21.6554 15.1873 21.6896 15.0367C21.7186 14.9146 21.7661 14.712 21.7977 14.5978C22.0297 14.5484 22.6334 14.4809 22.8311 14.4679C23.1027 14.4523 23.3821 14.4445 23.6642 14.4445C25.9788 14.4445 28.4147 14.9354 30.3497 15.7899C34.6177 17.6782 37.6204 21.3586 38.2531 25.4494C38.203 25.4494 38.1529 25.4494 38.1028 25.4494C37.3383 25.4494 36.6397 25.5039 35.9701 25.613C34.7522 25.8156 34.5571 25.9896 34.4833 26.0546C34.2539 26.2649 34.1827 26.5974 34.3014 26.9039C34.4174 27.1974 34.6783 27.3818 34.9842 27.3818H35.0079L35.0316 27.3766C36.1652 27.1688 37.1617 27.0701 38.0738 27.0701C38.1766 27.0701 38.2794 27.0701 38.3823 27.0753C38.3796 27.5948 38.3533 28.2103 38.2557 28.8311C37.6731 28.6259 37.0457 28.4337 36.3603 28.3324C36.1151 28.296 35.4929 28.2077 35 28.2077C34.8154 28.2077 34.6678 28.2181 34.5465 28.2441C34.2012 28.3142 33.956 28.6025 33.9376 28.961C33.9191 29.322 34.1326 29.6337 34.4727 29.7428L34.4965 29.7505L34.7495 29.7791C35.63 29.8778 36.5395 29.9817 37.3805 30.2466C37.4728 30.2778 37.6678 30.3479 37.8128 30.4051C37.0615 32.5063 35.6089 34.3738 33.7029 35.6802V35.6854ZM16.4699 14.525C16.4699 14.525 16.4541 14.5043 16.4435 14.4965C15.6764 13.7147 14.7485 13.0394 13.9602 12.6887C13.4251 12.4524 12.9927 12.3355 12.6342 12.3355C11.5059 12.3355 11.2475 13.4679 11.0946 14.5302C10.9075 15.8367 10.8996 17.2366 11.0735 18.6963C10.8547 19.0028 10.6597 19.2729 10.4725 19.5171C10.4593 19.4262 10.4435 19.3353 10.4303 19.2444C10.3987 19.0392 10.367 18.8444 10.3459 18.647C10.1693 16.9302 10.222 15.0185 10.4883 13.2653C10.8231 11.1122 11.3609 10.7771 11.5744 10.7355C11.6324 10.7251 11.6957 10.7174 11.7642 10.7174C12.4444 10.7174 13.4462 11.2784 13.8732 11.5199C14.9831 12.1381 16.0956 12.9692 17.353 14.1173L16.4646 14.525H16.4699ZM37.6177 18.647C37.5967 18.8418 37.5677 19.034 37.536 19.2288C37.5228 19.3119 37.5097 19.3976 37.4965 19.4833C37.4543 19.4262 37.4121 19.3664 37.3699 19.3067C37.2645 19.1742 37.1564 19.0444 37.0615 18.9327L36.8928 18.6963C37.0668 17.234 37.0589 15.8341 36.8691 14.5302C36.7162 13.4679 36.4578 12.3355 35.3295 12.3355C34.971 12.3355 34.5386 12.4498 34.0035 12.6887C33.2179 13.0394 32.2899 13.7147 31.5254 14.4913C31.5149 14.5017 31.5043 14.512 31.4964 14.525L30.608 14.1173C31.8655 12.9692 32.978 12.1407 34.0852 11.5199C34.5518 11.2602 35.5219 10.7174 36.1968 10.7174C36.2654 10.7174 36.3313 10.7226 36.3893 10.7355C36.8401 10.8264 37.246 11.7719 37.4728 13.2653C37.7416 15.0159 37.7944 16.9276 37.6177 18.647ZM32.5957 26.8156C32.7697 27.1272 32.7249 27.5454 32.6247 27.8363C32.2161 29.0103 31.0562 29.7661 29.6695 29.7661C28.2829 29.7661 27.0939 29.0155 26.6563 27.8545C26.5429 27.5558 26.4823 27.1246 26.6537 26.813C26.7538 26.6286 26.9199 26.5065 27.1361 26.4571C27.2231 26.4364 27.3075 26.4286 27.3839 26.4286C27.9243 26.4286 28.0957 26.8831 28.2222 27.2156C28.2855 27.3818 28.3488 27.5532 28.4463 27.6675C28.7284 27.9999 29.1554 28.1896 29.6221 28.1896C30.1915 28.1896 30.6924 27.9168 30.9586 27.4623C31.0034 27.3844 31.0404 27.2831 31.0799 27.174C31.188 26.8779 31.3514 26.4286 31.876 26.4286C31.9499 26.4286 32.0289 26.439 32.1107 26.4571C32.3242 26.5065 32.4929 26.6286 32.5957 26.813V26.8156ZM21.5183 26.9272C21.7134 27.4727 21.2705 28.2571 21.0253 28.5506C20.3715 29.3376 19.4199 29.7895 18.4181 29.7895C17.3346 29.7895 16.3618 29.27 15.7529 28.3662C15.5314 28.0389 15.2599 27.3454 15.4655 26.8753C15.5367 26.7169 15.6896 26.5143 16.0297 26.4571C16.1035 26.4442 16.1747 26.439 16.2379 26.439C16.7994 26.439 16.9365 26.8753 17.0262 27.1662C17.0578 27.2649 17.0868 27.3558 17.1237 27.4337C17.3636 27.8987 17.8856 28.187 18.4866 28.187C19.0877 28.187 19.5569 27.9246 19.7995 27.4883C19.8416 27.413 19.8759 27.3117 19.9128 27.2026C20.0156 26.8987 20.1685 26.4364 20.7169 26.4364C20.7854 26.4364 20.8592 26.4442 20.9357 26.4597C21.3048 26.5351 21.455 26.7558 21.5183 26.9298V26.9272ZM25.4568 33.8569C25.4568 34.8751 24.803 35.6984 23.999 35.6984C23.1949 35.6984 22.5411 34.8751 22.5411 33.8569C22.5411 32.8388 23.1949 32.0154 23.999 32.0154C24.803 32.0154 25.4568 32.8388 25.4568 33.8569Z"/>
+    <path d="M22.7995 30.3673C22.2248 29.8031 22.0798 28.6567 23.0394 28.4108C23.5508 28.2814 25.0192 28.2685 25.4568 28.5506C26.1528 28.9957 25.7995 30.0619 25.2486 30.4786C25.0614 30.6183 24.6633 30.8279 24.6633 30.8279C23.8399 30.9781 23.4612 30.7684 23.4612 30.7684C23.4612 30.7684 22.9761 30.5381 22.8021 30.3673H22.7995Z"/>
+    </mask>
+    <path d="M38.7302 21.582C39.3445 19.0314 39.5106 16.3276 39.2153 13.751C38.8884 10.894 38.0132 9.34857 36.6133 9.16156C36.4921 9.14598 36.3655 9.13818 36.2337 9.13818C34.5149 9.13818 32.3558 10.5329 30.8479 11.7017C30.1862 12.216 29.5061 12.8835 28.905 13.4705L28.8101 13.5614C27.1756 13.0965 25.4937 12.8601 23.8092 12.8601C23.2503 12.8601 22.6861 12.8861 22.1352 12.9407C21.165 13.0316 20.1606 13.2186 19.1457 13.4991C18.5947 12.9666 17.8856 12.3043 17.1132 11.7043C15.6105 10.5329 13.4541 9.13818 11.73 9.13818C11.6008 9.13818 11.4716 9.14598 11.3504 9.16156C9.24928 9.44467 8.8723 12.6861 8.74839 13.751C8.45314 16.325 8.62186 19.0392 9.23873 21.6053C8.21588 23.7637 7.81517 26.1013 8.07879 28.3714C8.43205 31.4102 9.96633 34.2076 12.3969 36.249C15.1281 38.5451 19.3539 39.8619 23.9911 39.8619C29.1976 39.8619 33.9165 38.1659 36.6133 35.327C40.1907 31.5635 40.9974 26.3065 38.7302 21.582ZM33.7029 35.6854C31.3119 37.3243 27.7793 38.2646 24.0148 38.2646C20.4427 38.2646 17.042 37.41 14.6852 35.9192C12.5446 34.566 10.9127 32.5608 10.1746 30.3869C11.2554 30.0103 12.4048 29.8674 13.4962 29.7557L13.5358 29.7505L13.5727 29.735C13.9049 29.5947 14.0999 29.2648 14.0551 28.9142C14.0103 28.561 13.7467 28.296 13.3802 28.2389C13.2906 28.2259 13.1878 28.2181 13.0586 28.2181C12.7845 28.2181 12.4602 28.2493 12.2256 28.2727L12.1439 28.2805C11.3187 28.3636 10.5173 28.548 9.75807 28.8311C9.6368 28.2103 9.62099 27.5818 9.63417 27.0909H9.64998C9.77389 27.0909 9.90043 27.0909 10.0243 27.0857C10.1456 27.0857 10.2669 27.0805 10.3881 27.0805C10.4936 27.0805 10.5964 27.0805 10.7018 27.0883C11.0366 27.1039 11.3925 27.1662 11.7352 27.2259C12.0595 27.2831 12.3943 27.3402 12.7186 27.361C12.7713 27.3636 12.824 27.3662 12.8741 27.3662C13.1983 27.3662 13.4277 27.2857 13.5753 27.1169C13.7098 26.961 13.7599 26.7506 13.7177 26.4909C13.6307 25.9039 12.8214 25.7662 12.3389 25.6831L12.2071 25.6598C11.44 25.5169 10.6755 25.4779 9.9347 25.439C9.86616 25.4364 9.80025 25.4312 9.73171 25.4286C9.92679 24.291 10.2906 23.1637 10.8126 22.0703C11.1263 22.0962 11.4426 22.1092 11.7537 22.1092C16.3671 22.1092 20.3267 19.408 21.6026 15.3847C21.6237 15.3224 21.6554 15.1873 21.6896 15.0367C21.7186 14.9146 21.7661 14.712 21.7977 14.5978C22.0297 14.5484 22.6334 14.4809 22.8311 14.4679C23.1027 14.4523 23.3821 14.4445 23.6642 14.4445C25.9788 14.4445 28.4147 14.9354 30.3497 15.7899C34.6177 17.6782 37.6204 21.3586 38.2531 25.4494C38.203 25.4494 38.1529 25.4494 38.1028 25.4494C37.3383 25.4494 36.6397 25.5039 35.9701 25.613C34.7522 25.8156 34.5571 25.9896 34.4833 26.0546C34.2539 26.2649 34.1827 26.5974 34.3014 26.9039C34.4174 27.1974 34.6783 27.3818 34.9842 27.3818H35.0079L35.0316 27.3766C36.1652 27.1688 37.1617 27.0701 38.0738 27.0701C38.1766 27.0701 38.2794 27.0701 38.3823 27.0753C38.3796 27.5948 38.3533 28.2103 38.2557 28.8311C37.6731 28.6259 37.0457 28.4337 36.3603 28.3324C36.1151 28.296 35.4929 28.2077 35 28.2077C34.8154 28.2077 34.6678 28.2181 34.5465 28.2441C34.2012 28.3142 33.956 28.6025 33.9376 28.961C33.9191 29.322 34.1326 29.6337 34.4727 29.7428L34.4965 29.7505L34.7495 29.7791C35.63 29.8778 36.5395 29.9817 37.3805 30.2466C37.4728 30.2778 37.6678 30.3479 37.8128 30.4051C37.0615 32.5063 35.6089 34.3738 33.7029 35.6802V35.6854ZM16.4699 14.525C16.4699 14.525 16.4541 14.5043 16.4435 14.4965C15.6764 13.7147 14.7485 13.0394 13.9602 12.6887C13.4251 12.4524 12.9927 12.3355 12.6342 12.3355C11.5059 12.3355 11.2475 13.4679 11.0946 14.5302C10.9075 15.8367 10.8996 17.2366 11.0735 18.6963C10.8547 19.0028 10.6597 19.2729 10.4725 19.5171C10.4593 19.4262 10.4435 19.3353 10.4303 19.2444C10.3987 19.0392 10.367 18.8444 10.3459 18.647C10.1693 16.9302 10.222 15.0185 10.4883 13.2653C10.8231 11.1122 11.3609 10.7771 11.5744 10.7355C11.6324 10.7251 11.6957 10.7174 11.7642 10.7174C12.4444 10.7174 13.4462 11.2784 13.8732 11.5199C14.9831 12.1381 16.0956 12.9692 17.353 14.1173L16.4646 14.525H16.4699ZM37.6177 18.647C37.5967 18.8418 37.5677 19.034 37.536 19.2288C37.5228 19.3119 37.5097 19.3976 37.4965 19.4833C37.4543 19.4262 37.4121 19.3664 37.3699 19.3067C37.2645 19.1742 37.1564 19.0444 37.0615 18.9327L36.8928 18.6963C37.0668 17.234 37.0589 15.8341 36.8691 14.5302C36.7162 13.4679 36.4578 12.3355 35.3295 12.3355C34.971 12.3355 34.5386 12.4498 34.0035 12.6887C33.2179 13.0394 32.2899 13.7147 31.5254 14.4913C31.5149 14.5017 31.5043 14.512 31.4964 14.525L30.608 14.1173C31.8655 12.9692 32.978 12.1407 34.0852 11.5199C34.5518 11.2602 35.5219 10.7174 36.1968 10.7174C36.2654 10.7174 36.3313 10.7226 36.3893 10.7355C36.8401 10.8264 37.246 11.7719 37.4728 13.2653C37.7416 15.0159 37.7944 16.9276 37.6177 18.647ZM32.5957 26.8156C32.7697 27.1272 32.7249 27.5454 32.6247 27.8363C32.2161 29.0103 31.0562 29.7661 29.6695 29.7661C28.2829 29.7661 27.0939 29.0155 26.6563 27.8545C26.5429 27.5558 26.4823 27.1246 26.6537 26.813C26.7538 26.6286 26.9199 26.5065 27.1361 26.4571C27.2231 26.4364 27.3075 26.4286 27.3839 26.4286C27.9243 26.4286 28.0957 26.8831 28.2222 27.2156C28.2855 27.3818 28.3488 27.5532 28.4463 27.6675C28.7284 27.9999 29.1554 28.1896 29.6221 28.1896C30.1915 28.1896 30.6924 27.9168 30.9586 27.4623C31.0034 27.3844 31.0404 27.2831 31.0799 27.174C31.188 26.8779 31.3514 26.4286 31.876 26.4286C31.9499 26.4286 32.0289 26.439 32.1107 26.4571C32.3242 26.5065 32.4929 26.6286 32.5957 26.813V26.8156ZM21.5183 26.9272C21.7134 27.4727 21.2705 28.2571 21.0253 28.5506C20.3715 29.3376 19.4199 29.7895 18.4181 29.7895C17.3346 29.7895 16.3618 29.27 15.7529 28.3662C15.5314 28.0389 15.2599 27.3454 15.4655 26.8753C15.5367 26.7169 15.6896 26.5143 16.0297 26.4571C16.1035 26.4442 16.1747 26.439 16.2379 26.439C16.7994 26.439 16.9365 26.8753 17.0262 27.1662C17.0578 27.2649 17.0868 27.3558 17.1237 27.4337C17.3636 27.8987 17.8856 28.187 18.4866 28.187C19.0877 28.187 19.5569 27.9246 19.7995 27.4883C19.8416 27.413 19.8759 27.3117 19.9128 27.2026C20.0156 26.8987 20.1685 26.4364 20.7169 26.4364C20.7854 26.4364 20.8592 26.4442 20.9357 26.4597C21.3048 26.5351 21.455 26.7558 21.5183 26.9298V26.9272ZM25.4568 33.8569C25.4568 34.8751 24.803 35.6984 23.999 35.6984C23.1949 35.6984 22.5411 34.8751 22.5411 33.8569C22.5411 32.8388 23.1949 32.0154 23.999 32.0154C24.803 32.0154 25.4568 32.8388 25.4568 33.8569Z" fill="currentColor"/>
+    <path d="M22.7995 30.3673C22.2248 29.8031 22.0798 28.6567 23.0394 28.4108C23.5508 28.2814 25.0192 28.2685 25.4568 28.5506C26.1528 28.9957 25.7995 30.0619 25.2486 30.4786C25.0614 30.6183 24.6633 30.8279 24.6633 30.8279C23.8399 30.9781 23.4612 30.7684 23.4612 30.7684C23.4612 30.7684 22.9761 30.5381 22.8021 30.3673H22.7995Z" fill="currentColor"/>
+    <path d="M38.7302 21.582C39.3445 19.0314 39.5106 16.3276 39.2153 13.751C38.8884 10.894 38.0132 9.34857 36.6133 9.16156C36.4921 9.14598 36.3655 9.13818 36.2337 9.13818C34.5149 9.13818 32.3558 10.5329 30.8479 11.7017C30.1862 12.216 29.5061 12.8835 28.905 13.4705L28.8101 13.5614C27.1756 13.0965 25.4937 12.8601 23.8092 12.8601C23.2503 12.8601 22.6861 12.8861 22.1352 12.9407C21.165 13.0316 20.1606 13.2186 19.1457 13.4991C18.5947 12.9666 17.8856 12.3043 17.1132 11.7043C15.6105 10.5329 13.4541 9.13818 11.73 9.13818C11.6008 9.13818 11.4716 9.14598 11.3504 9.16156C9.24928 9.44467 8.8723 12.6861 8.74839 13.751C8.45314 16.325 8.62186 19.0392 9.23873 21.6053C8.21588 23.7637 7.81517 26.1013 8.07879 28.3714C8.43205 31.4102 9.96633 34.2076 12.3969 36.249C15.1281 38.5451 19.3539 39.8619 23.9911 39.8619C29.1976 39.8619 33.9165 38.1659 36.6133 35.327C40.1907 31.5635 40.9974 26.3065 38.7302 21.582ZM33.7029 35.6854C31.3119 37.3243 27.7793 38.2646 24.0148 38.2646C20.4427 38.2646 17.042 37.41 14.6852 35.9192C12.5446 34.566 10.9127 32.5608 10.1746 30.3869C11.2554 30.0103 12.4048 29.8674 13.4962 29.7557L13.5358 29.7505L13.5727 29.735C13.9049 29.5947 14.0999 29.2648 14.0551 28.9142C14.0103 28.561 13.7467 28.296 13.3802 28.2389C13.2906 28.2259 13.1878 28.2181 13.0586 28.2181C12.7845 28.2181 12.4602 28.2493 12.2256 28.2727L12.1439 28.2805C11.3187 28.3636 10.5173 28.548 9.75807 28.8311C9.6368 28.2103 9.62099 27.5818 9.63417 27.0909H9.64998C9.77389 27.0909 9.90043 27.0909 10.0243 27.0857C10.1456 27.0857 10.2669 27.0805 10.3881 27.0805C10.4936 27.0805 10.5964 27.0805 10.7018 27.0883C11.0366 27.1039 11.3925 27.1662 11.7352 27.2259C12.0595 27.2831 12.3943 27.3402 12.7186 27.361C12.7713 27.3636 12.824 27.3662 12.8741 27.3662C13.1983 27.3662 13.4277 27.2857 13.5753 27.1169C13.7098 26.961 13.7599 26.7506 13.7177 26.4909C13.6307 25.9039 12.8214 25.7662 12.3389 25.6831L12.2071 25.6598C11.44 25.5169 10.6755 25.4779 9.9347 25.439C9.86616 25.4364 9.80025 25.4312 9.73171 25.4286C9.92679 24.291 10.2906 23.1637 10.8126 22.0703C11.1263 22.0962 11.4426 22.1092 11.7537 22.1092C16.3671 22.1092 20.3267 19.408 21.6026 15.3847C21.6237 15.3224 21.6554 15.1873 21.6896 15.0367C21.7186 14.9146 21.7661 14.712 21.7977 14.5978C22.0297 14.5484 22.6334 14.4809 22.8311 14.4679C23.1027 14.4523 23.3821 14.4445 23.6642 14.4445C25.9788 14.4445 28.4147 14.9354 30.3497 15.7899C34.6177 17.6782 37.6204 21.3586 38.2531 25.4494C38.203 25.4494 38.1529 25.4494 38.1028 25.4494C37.3383 25.4494 36.6397 25.5039 35.9701 25.613C34.7522 25.8156 34.5571 25.9896 34.4833 26.0546C34.2539 26.2649 34.1827 26.5974 34.3014 26.9039C34.4174 27.1974 34.6783 27.3818 34.9842 27.3818H35.0079L35.0316 27.3766C36.1652 27.1688 37.1617 27.0701 38.0738 27.0701C38.1766 27.0701 38.2794 27.0701 38.3823 27.0753C38.3796 27.5948 38.3533 28.2103 38.2557 28.8311C37.6731 28.6259 37.0457 28.4337 36.3603 28.3324C36.1151 28.296 35.4929 28.2077 35 28.2077C34.8154 28.2077 34.6678 28.2181 34.5465 28.2441C34.2012 28.3142 33.956 28.6025 33.9376 28.961C33.9191 29.322 34.1326 29.6337 34.4727 29.7428L34.4965 29.7505L34.7495 29.7791C35.63 29.8778 36.5395 29.9817 37.3805 30.2466C37.4728 30.2778 37.6678 30.3479 37.8128 30.4051C37.0615 32.5063 35.6089 34.3738 33.7029 35.6802V35.6854ZM16.4699 14.525C16.4699 14.525 16.4541 14.5043 16.4435 14.4965C15.6764 13.7147 14.7485 13.0394 13.9602 12.6887C13.4251 12.4524 12.9927 12.3355 12.6342 12.3355C11.5059 12.3355 11.2475 13.4679 11.0946 14.5302C10.9075 15.8367 10.8996 17.2366 11.0735 18.6963C10.8547 19.0028 10.6597 19.2729 10.4725 19.5171C10.4593 19.4262 10.4435 19.3353 10.4303 19.2444C10.3987 19.0392 10.367 18.8444 10.3459 18.647C10.1693 16.9302 10.222 15.0185 10.4883 13.2653C10.8231 11.1122 11.3609 10.7771 11.5744 10.7355C11.6324 10.7251 11.6957 10.7174 11.7642 10.7174C12.4444 10.7174 13.4462 11.2784 13.8732 11.5199C14.9831 12.1381 16.0956 12.9692 17.353 14.1173L16.4646 14.525H16.4699ZM37.6177 18.647C37.5967 18.8418 37.5677 19.034 37.536 19.2288C37.5228 19.3119 37.5097 19.3976 37.4965 19.4833C37.4543 19.4262 37.4121 19.3664 37.3699 19.3067C37.2645 19.1742 37.1564 19.0444 37.0615 18.9327L36.8928 18.6963C37.0668 17.234 37.0589 15.8341 36.8691 14.5302C36.7162 13.4679 36.4578 12.3355 35.3295 12.3355C34.971 12.3355 34.5386 12.4498 34.0035 12.6887C33.2179 13.0394 32.2899 13.7147 31.5254 14.4913C31.5149 14.5017 31.5043 14.512 31.4964 14.525L30.608 14.1173C31.8655 12.9692 32.978 12.1407 34.0852 11.5199C34.5518 11.2602 35.5219 10.7174 36.1968 10.7174C36.2654 10.7174 36.3313 10.7226 36.3893 10.7355C36.8401 10.8264 37.246 11.7719 37.4728 13.2653C37.7416 15.0159 37.7944 16.9276 37.6177 18.647ZM32.5957 26.8156C32.7697 27.1272 32.7249 27.5454 32.6247 27.8363C32.2161 29.0103 31.0562 29.7661 29.6695 29.7661C28.2829 29.7661 27.0939 29.0155 26.6563 27.8545C26.5429 27.5558 26.4823 27.1246 26.6537 26.813C26.7538 26.6286 26.9199 26.5065 27.1361 26.4571C27.2231 26.4364 27.3075 26.4286 27.3839 26.4286C27.9243 26.4286 28.0957 26.8831 28.2222 27.2156C28.2855 27.3818 28.3488 27.5532 28.4463 27.6675C28.7284 27.9999 29.1554 28.1896 29.6221 28.1896C30.1915 28.1896 30.6924 27.9168 30.9586 27.4623C31.0034 27.3844 31.0404 27.2831 31.0799 27.174C31.188 26.8779 31.3514 26.4286 31.876 26.4286C31.9499 26.4286 32.0289 26.439 32.1107 26.4571C32.3242 26.5065 32.4929 26.6286 32.5957 26.813V26.8156ZM21.5183 26.9272C21.7134 27.4727 21.2705 28.2571 21.0253 28.5506C20.3715 29.3376 19.4199 29.7895 18.4181 29.7895C17.3346 29.7895 16.3618 29.27 15.7529 28.3662C15.5314 28.0389 15.2599 27.3454 15.4655 26.8753C15.5367 26.7169 15.6896 26.5143 16.0297 26.4571C16.1035 26.4442 16.1747 26.439 16.2379 26.439C16.7994 26.439 16.9365 26.8753 17.0262 27.1662C17.0578 27.2649 17.0868 27.3558 17.1237 27.4337C17.3636 27.8987 17.8856 28.187 18.4866 28.187C19.0877 28.187 19.5569 27.9246 19.7995 27.4883C19.8416 27.413 19.8759 27.3117 19.9128 27.2026C20.0156 26.8987 20.1685 26.4364 20.7169 26.4364C20.7854 26.4364 20.8592 26.4442 20.9357 26.4597C21.3048 26.5351 21.455 26.7558 21.5183 26.9298V26.9272ZM25.4568 33.8569C25.4568 34.8751 24.803 35.6984 23.999 35.6984C23.1949 35.6984 22.5411 34.8751 22.5411 33.8569C22.5411 32.8388 23.1949 32.0154 23.999 32.0154C24.803 32.0154 25.4568 32.8388 25.4568 33.8569Z" stroke="currentColor" stroke-width="0.2" mask="url(#path-1-outside-1_2658_32976)"/>
+    <path d="M22.7995 30.3673C22.2248 29.8031 22.0798 28.6567 23.0394 28.4108C23.5508 28.2814 25.0192 28.2685 25.4568 28.5506C26.1528 28.9957 25.7995 30.0619 25.2486 30.4786C25.0614 30.6183 24.6633 30.8279 24.6633 30.8279C23.8399 30.9781 23.4612 30.7684 23.4612 30.7684C23.4612 30.7684 22.9761 30.5381 22.8021 30.3673H22.7995Z" stroke="currentColor" stroke-width="0.2" mask="url(#path-1-outside-1_2658_32976)"/>
+    </svg>
+    <h6 class="mb-0 ms-2 fs-11">${titleText}</h6>
+  </div>
+  <div class="d-flex align-items-center">
+    <div class="d-flex flex-column align-items-end me-2">
+      <p class="mb-0 fs-11 text-primary-600">${daysText}</p>
+      <div class="d-flex">
+        <p class="mb-0 fs-11 text-primary-700">練習</p>
+        <p class="mb-0 fs-11 text-primary-600">${minutes}</p>
+        <p class="mb-0 fs-11 text-primary-700">分鐘</p>
+      </div>
+    </div>
+    <a href="javascript:void(0)" class="js-breath-edit-trigger">
+      <svg class="bg-primary-50 btn border border-1 p-0 rounded-2 border-primary-200" width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.4286 36.5714H13.8514L31.7714 18.6743L29.3257 16.2286L11.4286 34.1714V36.5714ZM9.71429 40C9.2419 40 8.8381 39.8324 8.50286 39.4971C8.16762 39.1619 8 38.7581 8 38.2857V34.1458C8 33.6905 8.08747 33.253 8.2624 32.8334C8.43733 32.4134 8.6851 32.0442 9.00571 31.7257L31.7714 8.98286C32.1061 8.66956 32.4754 8.42743 32.8795 8.25646C33.2837 8.08549 33.7138 8 34.1701 8C34.6263 8 35.0682 8.08762 35.4958 8.26286C35.9234 8.4381 36.3048 8.69333 36.64 9.02857L39.0171 11.4286C39.3524 11.7486 39.6 12.1181 39.76 12.5371C39.92 12.9562 40 13.3832 40 13.8181C40 14.2822 39.9217 14.7191 39.765 15.1287C39.6084 15.5383 39.3591 15.9125 39.0171 16.2514L16.2743 38.9943C15.957 39.3149 15.5893 39.5627 15.1712 39.7376C14.7528 39.9125 14.3128 40 13.8514 40H9.71429ZM30.5371 17.4629L29.3257 16.2286L31.7714 18.6743L30.5371 17.4629Z" fill="#BC8035"/>
+      </svg>
+    </a>
+  </div>
+</div>`;
+  }
+
+  saveBtn?.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const daysText = buildDaysMiniLabel();
+    const titleText = ['平衡呼吸1','平衡呼吸2','平衡呼吸3'][activeIndex] || '平衡呼吸1';
+
+    const newCardHTML = createCardHTML(titleText, daysText, minute);
+    const wrapper = document.querySelector('[data-role="add-card"]')?.parentElement || document.body;
+    const addCard = document.querySelector('[data-role="add-card"]');
+
+    const temp = document.createElement('div');
+    temp.innerHTML = newCardHTML.trim();
+    const newCard = temp.firstElementChild;
+
+    // 插在「新增呼吸練習」卡之前
+    if(addCard && addCard.parentElement){
+      addCard.parentElement.insertBefore(newCard, addCard);
+    }else{
+      wrapper.appendChild(newCard);
+    }
+
+    // 讓新卡上的編輯鈕也能開抽屜
+    newCard.querySelectorAll('.js-breath-edit-trigger').forEach(el => {
+      el.addEventListener('click', openSheet, {passive:false});
+    });
+
+    closeSheet();
+  });
 })();
 </script>          </div>     
           <div class="mb-5 p-2 border border-1 border-primary-700 border-dotted rounded-3">
