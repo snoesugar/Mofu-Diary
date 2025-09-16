@@ -107,6 +107,19 @@
                             color: #000000;
                             font-size: 20px;
                             line-height: 24px;
+                            grid-auto-rows: 51px;
+                            .air-datepicker-cell.-day-.-current-{
+                                color: $primary-600;
+                            }
+                            .air-datepicker-cell.-selected-.-focus-{
+                                background: $primary-50;
+                                border-radius: 50%;
+                            }
+                            .air-datepicker-cell.-selected-{
+                                color: $primary-600;
+                                font-size: 1.5rem;
+                                font-weight: 500;
+                            }
                         }
                     }
                 }
