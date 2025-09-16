@@ -23,23 +23,6 @@
   }
 }
 
-.week-btn {
-  // 按住時也變色
-  &:active {
-    background-color: #816E4D !important;
-    color: #fff !important;
-    border-color: #816E4D !important;
-  }
-
-  // 切換後保持
-  &.active,
-  &.active:focus {
-    background-color: #816E4D !important;
-    color: #fff !important;
-    border-color: #816E4D !important;
-  }
-}
-
 /* ★ 覆寫 z-index，永遠蓋過 relax-panel(z-index:2000)*/
 :root { --modal-z: 2010; }
 .modal-backdrop { z-index: calc(var(--modal-z) - 1) !important; }
@@ -108,5 +91,74 @@
   width: 40px; height: 24px; /* 保留可點區域 */
 }
 
-/* 圖片列：置中顯示，左右超出即裁切（不破版） */
-.gallery-row img{ flex: 0 0 auto; } /* 不要被壓縮 */
+/*【新增】滑動圖列：一頁一張、超出裁切、不破版 */
+.gallery-row{
+  display:flex;
+  overflow-x:auto;        /* 水平滾動 */
+  overflow-y:visible;     /* 避免下緣被切到 */
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type:x mandatory;
+  scroll-padding: 24px;   /* snap 內間距 */
+  // gap: 12px;
+  padding: 0 24px;        /* 兩側留白，讓中間張有左右 peek */
+  width: 100%;
+  max-width: 393px;
+  margin: 0 auto;
+  border-radius: 12px;
+  scrollbar-width: none;
+}
+
+.gallery-row::-webkit-scrollbar{ display:none; }
+
+/* ★ 不裁切、維持比例、可 peek */
+.gallery-row .slide{
+  flex: 0 0 auto;         /* 不被壓縮，也不是 100% */
+  width: 275px;
+  height: 121px;
+  object-fit: contain;    /* 不裁切，完整顯示 */
+  object-position: center;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  user-select: none;
+  pointer-events: none;   /* 事件給容器做拖曳 */
+}
+
+/* 拖曳時的指標（像抓取） */
+.gallery-row { cursor: grab; }
+.gallery-row.dragging { cursor: grabbing; }
+
+/* dots：被滑到時變粗 */
+.dots .dot{
+  display:inline-block; width:4px; height:4px; border-radius:999px;
+  background: var(--bs-primary-300); margin: 0 6px; transition: all .18s ease;
+}
+.dots .dot.is-active{
+  width: 6px; height: 6px; background: var(--bs-primary-700);
+}
+
+/* 刻度：可點/拖，帶流動感 */
+.ticks{ gap: 10px; position: relative; }
+.ticks .tick{
+  display:inline-block; width:8px; height:8px; border-radius:50%;
+  background: var(--bs-neutral-300);
+  transition: transform .15s ease, background .15s ease;
+}
+.ticks .tick.active{ transform: scale(1.35); background: var(--bs-primary-600); }
+.ticks.scrubbing .tick{ transition: none; } /* 拖曳時更順暢 */
+
+.week-btn {
+  // 按住時也變色
+  &:active {
+    background-color: #816E4D !important;
+    color: #fff !important;
+    border-color: #816E4D !important;
+  }
+
+  // 切換後保持
+  &.active,
+  &.active:focus {
+    background-color: #816E4D !important;
+    color: #fff !important;
+    border-color: #816E4D !important;
+  }
+}
