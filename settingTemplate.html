@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>寫作範本</title>
-  <script type="module" crossorigin src="/Mofu-Diary/assets/main-CGqA-fs3.js"></script>
-  <link rel="stylesheet" crossorigin href="/Mofu-Diary/assets/main-CG8Q7UL0.css">
+  <script type="module" crossorigin src="/Mofu-Diary/assets/main-CClXd0rl.js"></script>
+  <link rel="stylesheet" crossorigin href="/Mofu-Diary/assets/main-CLsvgqNc.css">
 </head>
 <body>
         
@@ -105,8 +105,9 @@
     </li>
     <li>
       <a href="https://snoesugar.github.io/Mofu-Diary/login.html">註冊頁</a>
+       <!-- <a href="../pages/login.html">註冊頁</a> -->
     </li>
-        <!-- 上拉選單 (一開始隱藏) -->
+          <!-- 上拉選單 (一開始隱藏) -->
     <div class="bottom-sheet" id="breathSheet">
       <div class="sheet-header">
         <button type="button" class="btn-close" id="breathClose" aria-label="Close"><img src="data:image/svg+xml,%3csvg%20width='12'%20height='12'%20viewBox='0%200%2012%2012'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M10.2937%200.29441C10.6842%20-0.0961836%2011.3173%20-0.0961837%2011.7078%200.29441C12.0979%200.68495%2012.0979%201.31796%2011.7078%201.70847L7.41287%206.00339L11.7%2010.2915C12.0901%2010.682%2012.0901%2011.315%2011.7%2011.7055C11.3095%2012.0961%2010.6764%2012.0961%2010.2859%2011.7055L5.99978%207.41746L1.71365%2011.7055C1.3232%2012.0961%200.690042%2012.0961%200.299588%2011.7055C-0.0905491%2011.315%20-0.090633%2010.682%200.299588%2010.2915L4.58572%206.00339L0.291775%201.70847C-0.0985827%201.31792%20-0.0985384%200.684988%200.291775%200.29441C0.682236%20-0.0961775%201.31538%20-0.0961775%201.70584%200.29441L5.99978%204.58933L10.2937%200.29441Z'%20fill='%23BC8035'/%3e%3c/svg%3e" alt=""></button>
@@ -140,24 +141,62 @@
             <span class="tick"></span>
           </div>
         </div>  
-        <a href="https://snoesugar.github.io/Mofu-Diary/breathing-exercises-1.html" class="text-decoration-none border  border-primary-700 text-primary-700 fs-11 fw-medium d-block w-100 btn-py-13-5 rounded-pill">開始呼吸</a> 
+        <a href="https://snoesugar.github.io/Mofu-Diary/breathing-exercises-1.html" class="text-decoration-none border  border-primary-700 text-primary-700 fs-11 fw-medium d-block btn-py-13-5 w-100 rounded-pill ">開始呼吸</a> 
       </div>
     </div>
   </ul>
+
 </div>
+
 <script>
-    // JS 控制展開收合
+
+document.addEventListener('DOMContentLoaded', function() {
   const breathBtn = document.getElementById('breathBtn');
   const breathSheet = document.getElementById('breathSheet');
   const breathClose = document.getElementById('breathClose');
+  const bottomNav = document.querySelector('.bottom-nav');
 
-  breathBtn.addEventListener('click', () => {
-    breathSheet.classList.toggle('active'); // 點擊切換顯示/隱藏
+  // 在 click 事件中使用 setTimeout 確保高度被正確計算
+  breathBtn.addEventListener('click', function() {
+    // 先讓選單出現，但高度未定
+    breathSheet.classList.add('active');
+
+    // 使用 setTimeout 延遲執行，給瀏覽器時間渲染 DOM
+    setTimeout(() => {
+      // 獲取底部導覽列的高度
+      const bottomNavHeight = bottomNav.offsetHeight;
+      
+      // 計算所有內容的總高度
+      // 這裡我們取得 scrollHeight，這是元素內容的實際高度，包括被裁切的部分
+      const contentHeight = breathSheet.scrollHeight;
+      
+      // 獲取可用的螢幕高度
+      const viewportHeight = window.innerHeight;
+      const availableHeight = viewportHeight - bottomNavHeight;
+
+      // 判斷並設定高度
+      if (contentHeight <= availableHeight) {
+        // 如果內容高度小於可用空間，則設定為內容高度，不捲動
+        breathSheet.style.height = `${contentHeight}px`;
+        breathSheet.style.overflowY = 'hidden';
+      } else {
+        // 如果內容高度大於可用空間，則設定為可用高度，並啟用捲動
+        breathSheet.style.height = `${availableHeight}px`;
+        breathSheet.style.overflowY = 'auto';
+      }
+    }, 0); // 延遲 0 毫秒，將任務推到事件循環隊列的末尾，確保 DOM 已渲染
   });
+
   // 點擊 X 關閉
-  breathClose.addEventListener('click', () => {
+  breathClose.addEventListener('click', function() {
+    // 隱藏選單
     breathSheet.classList.remove('active');
+    
+    // 移除 inline 樣式，讓 CSS 規則重新生效
+    breathSheet.style.height = '';
+    breathSheet.style.overflowY = '';
   });
+});
 </script>
     <!--保持footer維持primary-->
     <script>
