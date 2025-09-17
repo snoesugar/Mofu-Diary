@@ -119,6 +119,9 @@
     const panel = document.getElementById('relaxPanel');
     const OPEN_GAP = 8; // 問候區塊底下預留的間距（可微調）
 
+    // ★ 新增：收合露出比例（可用 data-peek 覆寫）20250917
+    // const DEFAULT_PEEK_RATIO = 140 / 794;   // ≈0.0655  用來手動調整RWD版型問題
+
     function px(n){ return Math.round(n) + 'px'; }
 
     function measure(){
@@ -127,14 +130,23 @@
       const head  = panel?.querySelector('.scene-footer');
       if(!scene || !greet || !head || !panel) return;
 
+      // const vh    = Math.max(window.innerHeight, document.documentElement.clientHeight || 0); // ★ 新增收合露出比例 20250917
       const headH = Math.round(head.offsetHeight || 52);
       root.style.setProperty('--panel-head-h', px(headH));
 
       const sb = scene.getBoundingClientRect();
       const gb = greet.getBoundingClientRect();
 
+      // ★ 新增：以比例算出 peek 高度，至少要能露出整個頭
+      // const ratio = parseFloat(panel.dataset.peek || DEFAULT_PEEK_RATIO) || DEFAULT_PEEK_RATIO;
+      // let peekH   = Math.max(headH, Math.round(vh * ratio));
+      // peekH       = Math.min(peekH, Math.round(sb.height)); // 防止超過背景高
+      // root.style.setProperty('--panel-peek-h', px(peekH));  // （可選）供除錯/樣式使用
+
       // ▲ 收合：抽屜 top = 背景頂 + 背景高 - 抽屜頭高
-      const collapsedTop = Math.round(sb.top + sb.height - headH);
+       const collapsedTop = Math.round(sb.top + sb.height - headH);
+      // ★ 修改：用 peekH 取代原本的 headH
+      // const collapsedTop = Math.round(sb.top + sb.height - peekH);
 
       // ▲ 展開：抽屜 top = 問候區塊底 + gap
       const openTop = Math.max(0, Math.round(gb.bottom + OPEN_GAP));
@@ -163,6 +175,17 @@
       measure();      // ← 切換時重算（若 header 高度有變動）
       applyState();
     });
+
+    panel.classList.add('is-open');           // ★ 新增：預設展開
+    measure();                                 // ★ 新增：立即計算一次
+    applyState();                              // ★ 新增：立即套用一次
+
+    // 初始 / 變更時重算（保留）
+    ['load','resize','orientationchange'].forEach(evt =>
+      window.addEventListener(evt, () => {
+        if(panel.classList.contains('is-open')) measure();
+      }, {passive:true})
+    );
   })();
 </script>
   </body>

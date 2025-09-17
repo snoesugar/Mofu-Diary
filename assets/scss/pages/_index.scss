@@ -33,6 +33,7 @@
   position: relative;
   
   // margin: 0 auto;
+  //margin-top: -90px;    用來手動調整RWD版型問題 -90為小尺吋手機版
   background-image: url('/assets/images/bg/bg1.png');
   background-repeat:no-repeat;
   // background-position:center -90px;
@@ -41,7 +42,7 @@
 }
 
 .mt-top {
-  margin-top: 60px;
+  margin-top: 60px; //  用來手動調整RWD版型問題 100為小尺吋手機版
 }
 
 /* ZZZ 位置： inset（391/262/178/115） */
@@ -223,6 +224,77 @@ $radius-xs: .25rem;
   }
 }
 
+/* === add-photos：底層定位（Bottom Sheet 基礎） === */
+.add-photos{
+  position: fixed;
+  left: 0; right: 0; bottom: -100%;    /* 收合先藏在視窗外 */
+  max-width: 393px; margin: 0 auto;
+  width: 100%;
+  height: var(--sheet-h, 489px);
+  z-index: 2005;                        /* 高於 relax-panel / footer sheet */
+  display: grid;
+  grid-template-rows: auto 1fr auto;    /* header / grid / footer */
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -8px 24px rgba(0,0,0,.12);
+  padding-bottom: env(safe-area-inset-bottom);
+  transition: bottom .28s ease;
+}
+.add-photos.is-open{ bottom: 0; }
+
+/* grid：3 欄、8px 間距、左右滿版無 padding */
+.add-photos .ap-grid{
+  list-style: none; margin: 0; padding: 8px 0 0 0; /* ★ 原本 8px 0 88px 0 → 改為 0 底 padding */
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  overflow: auto; min-height: 0;
+}
+.add-photos .ap-grid li{ position: relative; }
+.add-photos .ap-grid img{
+  display: block; width: 100%; height: auto;
+}
+
+/* ★ 覆蓋 CTA：置中疊在最後一列上方（中心在中間那張） */
+.add-photos .ap-cta-overlay{
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  bottom: calc(env(safe-area-inset-bottom) + 46px);
+  width: 260px; height: 40px; line-height: 1; /* 你指定的尺吋 */
+  z-index: 2; /* 蓋在圖片上 */
+  /* 可視需要加上陰影提升辨識度 */
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+/* 選取態：框線 + 右上角順序徽章 */
+.add-photos .ap-grid li.selected img{ outline: 2px solid var(--bs-primary-600, #BC8035); }
+.add-photos .ap-grid .sel-badge{
+  position: absolute; top: -1px; right: -1px; width: 22px; height: 22px;
+  border-bottom-left-radius: 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: #fff; background: var(--bs-primary-600, #BC8035);
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+}
+
+.add-photos #add-photos-save[disabled]{ opacity: .5; pointer-events: none; }
+
+/* 遮罩（若專案未全域定義） */
+.sheet-backdrop{
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.35);
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 2004;                  /* 比抽屜低一層 */
+}
+.sheet-backdrop.show{ opacity: 1; pointer-events: auto; }
+
+/* 上層：回填縮圖列（3 欄、8px 間距、有左右 padding） */
+#uploaded-thumbs{
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+}
+#uploaded-thumbs img{
+  width: 100%; height: auto; display: block; border-radius: 4px;
+}
+
+/* 保證有 hidden 屬性就真的隱藏（覆蓋 .d-flex !important） */
+[hidden] { display: none !important; }
 
 // 儲存筆記內容
 .diary-textarea {
@@ -250,7 +322,10 @@ _index.scss的relax-panel(index的我的放鬆旅程抽屜功能、edit-itinerar
 --> 1
 _index.scss的breathing-exercises-edit.ejs的bottom-sheet-new(edit-itinerary的編輯行程內的新增/編輯呼吸屜功能)
 --> 2
-
+_index.scss的add-photos(新增照片抽屜)
+--> 2005
+_index.scss的sheet-backdrop(新增照片抽屜的遮罩)
+--> 2004
 _edit-itinerary的modal及modal-backdrop(edit-itinerary的編輯行程內的自訂+彈出視窗用(myday-diary-template.ejs))
 --> 2010
 
