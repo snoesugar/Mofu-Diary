@@ -41,8 +41,9 @@
     </li>
     <li>
       <a href="https://snoesugar.github.io/Mofu-Diary/login.html">註冊頁</a>
+       <!-- <a href="../pages/login.html">註冊頁</a> -->
     </li>
-        <!-- 上拉選單 (一開始隱藏) -->
+          <!-- 上拉選單 (一開始隱藏) -->
     <div class="bottom-sheet" id="breathSheet">
       <div class="sheet-header">
         <button type="button" class="btn-close" id="breathClose" aria-label="Close"><img src="../assets/images/place/cancel.svg" alt=""></button>
@@ -76,22 +77,60 @@
             <span class="tick"></span>
           </div>
         </div>  
-        <a href="https://snoesugar.github.io/Mofu-Diary/breathing-exercises-1.html" class="text-decoration-none border  border-primary-700 text-primary-700 fs-11 fw-medium d-block w-100 btn-py-13-5 rounded-pill">開始呼吸</a> 
+        <a href="https://snoesugar.github.io/Mofu-Diary/breathing-exercises-1.html" class="text-decoration-none border  border-primary-700 text-primary-700 fs-11 fw-medium d-block btn-py-13-5 w-100 rounded-pill ">開始呼吸</a> 
       </div>
     </div>
   </ul>
+
 </div>
+
 <script>
-    // JS 控制展開收合
+
+document.addEventListener('DOMContentLoaded', function() {
   const breathBtn = document.getElementById('breathBtn');
   const breathSheet = document.getElementById('breathSheet');
   const breathClose = document.getElementById('breathClose');
+  const bottomNav = document.querySelector('.bottom-nav');
 
-  breathBtn.addEventListener('click', () => {
-    breathSheet.classList.toggle('active'); // 點擊切換顯示/隱藏
+  // 在 click 事件中使用 setTimeout 確保高度被正確計算
+  breathBtn.addEventListener('click', function() {
+    // 先讓選單出現，但高度未定
+    breathSheet.classList.add('active');
+
+    // 使用 setTimeout 延遲執行，給瀏覽器時間渲染 DOM
+    setTimeout(() => {
+      // 獲取底部導覽列的高度
+      const bottomNavHeight = bottomNav.offsetHeight;
+      
+      // 計算所有內容的總高度
+      // 這裡我們取得 scrollHeight，這是元素內容的實際高度，包括被裁切的部分
+      const contentHeight = breathSheet.scrollHeight;
+      
+      // 獲取可用的螢幕高度
+      const viewportHeight = window.innerHeight;
+      const availableHeight = viewportHeight - bottomNavHeight;
+
+      // 判斷並設定高度
+      if (contentHeight <= availableHeight) {
+        // 如果內容高度小於可用空間，則設定為內容高度，不捲動
+        breathSheet.style.height = `${contentHeight}px`;
+        breathSheet.style.overflowY = 'hidden';
+      } else {
+        // 如果內容高度大於可用空間，則設定為可用高度，並啟用捲動
+        breathSheet.style.height = `${availableHeight}px`;
+        breathSheet.style.overflowY = 'auto';
+      }
+    }, 0); // 延遲 0 毫秒，將任務推到事件循環隊列的末尾，確保 DOM 已渲染
   });
+
   // 點擊 X 關閉
-  breathClose.addEventListener('click', () => {
+  breathClose.addEventListener('click', function() {
+    // 隱藏選單
     breathSheet.classList.remove('active');
+    
+    // 移除 inline 樣式，讓 CSS 規則重新生效
+    breathSheet.style.height = '';
+    breathSheet.style.overflowY = '';
   });
+});
 </script>
