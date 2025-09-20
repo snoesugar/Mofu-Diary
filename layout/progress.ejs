@@ -1,0 +1,113 @@
+<!--progress.ejs  -->
+<!--進度條0-->
+<div class="task-card position-relative px-4 py-2 me-4 rounded-2 d-flex align-items-start flex-grow-1 border border-1 border-white"
+ data-step="0">
+  <div class="flex-grow-1 pe-6">
+    <div class="fs-13 fw-medium text-primary-500">已完成 0 / 4</div>
+    <div class="progress progress-thin mt-1 rounded-pill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="progress-bar rounded-pill" style="width:0%"></div><!--width:0%改動可改進度條百分比-->
+    </div>
+  </div>
+  <div class="icon-badge position-absolute top-50 end-0 translate-middle-y me-2 d-flex align-items-center justify-content-center">
+    <svg class="icon_cat_can" width="22" height="22" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25.8766 10.2833H23.1347V9.83751C23.1347 9.07959 23.7288 8.5 24.5056 8.5C25.2825 8.5 25.8766 9.07959 25.8766 9.83751V10.2833ZM38.2039 33.2433H10.785V18.0849H38.2039V33.2433ZM9.88219 14.7417H39.1291C39.9059 14.7417 40.5 14.1175 40.5 13.4042C40.5 12.6463 39.9059 12.0667 39.1291 12.0667H9.88219C9.10532 12.0667 8.51125 12.6463 8.51125 13.4042C8.51125 14.1175 9.10532 14.7417 9.88219 14.7417ZM39.1178 36.5H9.87095C9.09408 36.5 8.5 37.0796 8.5 37.8375C8.5 38.5508 9.09408 39.175 9.87095 39.175H39.1178C39.8947 39.175 40.4888 38.5508 40.4888 37.8375C40.4888 37.0796 39.8947 36.5 39.1178 36.5Z" 
+    fill="currentColor" stroke="currentColor"/><!--fill stroke 改 currentColor 才能在scss裡改色-->
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9853 26.166C33.9853 25.9431 33.8939 25.6756 33.7111 25.5419C31.8375 23.8031 29.2327 22.7777 26.4908 22.7777C24.0688 22.7777 21.7382 23.5802 19.9102 25.0069L16.8485 22.3764C16.4829 22.0643 15.8888 22.1089 15.5689 22.4656C15.249 22.8223 15.2947 23.4018 15.6603 23.7139L18.5393 26.166L15.6603 28.6181C15.2947 28.9302 15.249 29.5098 15.5689 29.8665C15.7517 30.0894 16.0259 30.1786 16.2544 30.1786C16.4829 30.1786 16.6657 30.0894 16.8485 29.9556L19.9102 27.3252C21.6925 28.7519 24.0688 29.5544 26.4908 29.5544C29.187 29.5544 31.8375 28.5736 33.7111 26.7902C33.8939 26.6565 33.9853 26.389 33.9853 26.166ZM26.5365 27.771C24.6171 27.771 22.8349 27.1915 21.3726 26.166C22.7892 25.1406 24.6171 24.561 26.5365 24.561C28.4558 24.561 30.238 25.1406 31.7004 26.166C30.238 27.1915 28.4101 27.771 26.5365 27.771Z" fill="white"/>
+    </svg>
+  </div>
+</div>
+<!--進度條25-->
+<div class="task-card position-relative px-4 py-2 me-4 rounded-2 d-flex align-items-start flex-grow-1 border border-1 border-white"
+ data-step="25" hidden>
+  <div class="flex-grow-1 pe-6">
+    <div class="fs-13 fw-medium text-primary-500">已完成 1 / 4</div>
+    <div class="progress progress-thin mt-1 rounded-pill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
+      <div class="progress-bar rounded-pill" style="width:25%"></div><!--width:0%改動可改進度條百分比-->
+    </div>
+  </div>
+  <div class="icon-badge position-absolute top-50 end-0 translate-middle-y me-2 d-flex align-items-center justify-content-center">
+    <svg class="icon_cat_can" width="22" height="22" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25.8766 10.2833H23.1347V9.83751C23.1347 9.07959 23.7288 8.5 24.5056 8.5C25.2825 8.5 25.8766 9.07959 25.8766 9.83751V10.2833ZM38.2039 33.2433H10.785V18.0849H38.2039V33.2433ZM9.88219 14.7417H39.1291C39.9059 14.7417 40.5 14.1175 40.5 13.4042C40.5 12.6463 39.9059 12.0667 39.1291 12.0667H9.88219C9.10532 12.0667 8.51125 12.6463 8.51125 13.4042C8.51125 14.1175 9.10532 14.7417 9.88219 14.7417ZM39.1178 36.5H9.87095C9.09408 36.5 8.5 37.0796 8.5 37.8375C8.5 38.5508 9.09408 39.175 9.87095 39.175H39.1178C39.8947 39.175 40.4888 38.5508 40.4888 37.8375C40.4888 37.0796 39.8947 36.5 39.1178 36.5Z" 
+    fill="currentColor" stroke="currentColor"/><!--fill stroke 改 currentColor 才能在scss裡改色-->
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9853 26.166C33.9853 25.9431 33.8939 25.6756 33.7111 25.5419C31.8375 23.8031 29.2327 22.7777 26.4908 22.7777C24.0688 22.7777 21.7382 23.5802 19.9102 25.0069L16.8485 22.3764C16.4829 22.0643 15.8888 22.1089 15.5689 22.4656C15.249 22.8223 15.2947 23.4018 15.6603 23.7139L18.5393 26.166L15.6603 28.6181C15.2947 28.9302 15.249 29.5098 15.5689 29.8665C15.7517 30.0894 16.0259 30.1786 16.2544 30.1786C16.4829 30.1786 16.6657 30.0894 16.8485 29.9556L19.9102 27.3252C21.6925 28.7519 24.0688 29.5544 26.4908 29.5544C29.187 29.5544 31.8375 28.5736 33.7111 26.7902C33.8939 26.6565 33.9853 26.389 33.9853 26.166ZM26.5365 27.771C24.6171 27.771 22.8349 27.1915 21.3726 26.166C22.7892 25.1406 24.6171 24.561 26.5365 24.561C28.4558 24.561 30.238 25.1406 31.7004 26.166C30.238 27.1915 28.4101 27.771 26.5365 27.771Z" fill="white"/>
+    </svg>
+  </div>
+</div>
+<!--進度條50-->
+<div class="task-card position-relative px-4 py-2 me-4 rounded-2 d-flex align-items-start flex-grow-1 border border-1 border-white"
+ data-step="50" hidden>
+  <div class="flex-grow-1 pe-6">
+    <div class="fs-13 fw-medium text-primary-500">已完成 2 / 4</div>
+    <div class="progress progress-thin mt-1 rounded-pill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <div class="progress-bar rounded-pill" style="width:50%"></div><!--width:0%改動可改進度條百分比-->
+    </div>
+  </div>
+  <div class="icon-badge position-absolute top-50 end-0 translate-middle-y me-2 d-flex align-items-center justify-content-center">
+    <svg class="icon_cat_can" width="22" height="22" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25.8766 10.2833H23.1347V9.83751C23.1347 9.07959 23.7288 8.5 24.5056 8.5C25.2825 8.5 25.8766 9.07959 25.8766 9.83751V10.2833ZM38.2039 33.2433H10.785V18.0849H38.2039V33.2433ZM9.88219 14.7417H39.1291C39.9059 14.7417 40.5 14.1175 40.5 13.4042C40.5 12.6463 39.9059 12.0667 39.1291 12.0667H9.88219C9.10532 12.0667 8.51125 12.6463 8.51125 13.4042C8.51125 14.1175 9.10532 14.7417 9.88219 14.7417ZM39.1178 36.5H9.87095C9.09408 36.5 8.5 37.0796 8.5 37.8375C8.5 38.5508 9.09408 39.175 9.87095 39.175H39.1178C39.8947 39.175 40.4888 38.5508 40.4888 37.8375C40.4888 37.0796 39.8947 36.5 39.1178 36.5Z" 
+    fill="currentColor" stroke="currentColor"/><!--fill stroke 改 currentColor 才能在scss裡改色-->
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9853 26.166C33.9853 25.9431 33.8939 25.6756 33.7111 25.5419C31.8375 23.8031 29.2327 22.7777 26.4908 22.7777C24.0688 22.7777 21.7382 23.5802 19.9102 25.0069L16.8485 22.3764C16.4829 22.0643 15.8888 22.1089 15.5689 22.4656C15.249 22.8223 15.2947 23.4018 15.6603 23.7139L18.5393 26.166L15.6603 28.6181C15.2947 28.9302 15.249 29.5098 15.5689 29.8665C15.7517 30.0894 16.0259 30.1786 16.2544 30.1786C16.4829 30.1786 16.6657 30.0894 16.8485 29.9556L19.9102 27.3252C21.6925 28.7519 24.0688 29.5544 26.4908 29.5544C29.187 29.5544 31.8375 28.5736 33.7111 26.7902C33.8939 26.6565 33.9853 26.389 33.9853 26.166ZM26.5365 27.771C24.6171 27.771 22.8349 27.1915 21.3726 26.166C22.7892 25.1406 24.6171 24.561 26.5365 24.561C28.4558 24.561 30.238 25.1406 31.7004 26.166C30.238 27.1915 28.4101 27.771 26.5365 27.771Z" fill="white"/>
+    </svg>
+  </div>
+</div>
+<!--進度條75-->
+<div class="task-card position-relative px-4 py-2 me-4 rounded-2 d-flex align-items-start flex-grow-1 border border-1 border-white"
+ data-step="75" hidden>
+  <div class="flex-grow-1 pe-6">
+    <div class="fs-13 fw-medium text-primary-500">已完成 3 / 4</div>
+    <div class="progress progress-thin mt-1 rounded-pill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
+      <div class="progress-bar rounded-pill" style="width:75%"></div><!--width:0%改動可改進度條百分比-->
+    </div>
+  </div>
+  <div class="icon-badge position-absolute top-50 end-0 translate-middle-y me-2 d-flex align-items-center justify-content-center">
+    <svg class="icon_cat_can" width="22" height="22" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25.8766 10.2833H23.1347V9.83751C23.1347 9.07959 23.7288 8.5 24.5056 8.5C25.2825 8.5 25.8766 9.07959 25.8766 9.83751V10.2833ZM38.2039 33.2433H10.785V18.0849H38.2039V33.2433ZM9.88219 14.7417H39.1291C39.9059 14.7417 40.5 14.1175 40.5 13.4042C40.5 12.6463 39.9059 12.0667 39.1291 12.0667H9.88219C9.10532 12.0667 8.51125 12.6463 8.51125 13.4042C8.51125 14.1175 9.10532 14.7417 9.88219 14.7417ZM39.1178 36.5H9.87095C9.09408 36.5 8.5 37.0796 8.5 37.8375C8.5 38.5508 9.09408 39.175 9.87095 39.175H39.1178C39.8947 39.175 40.4888 38.5508 40.4888 37.8375C40.4888 37.0796 39.8947 36.5 39.1178 36.5Z" 
+    fill="currentColor" stroke="currentColor"/><!--fill stroke 改 currentColor 才能在scss裡改色-->
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9853 26.166C33.9853 25.9431 33.8939 25.6756 33.7111 25.5419C31.8375 23.8031 29.2327 22.7777 26.4908 22.7777C24.0688 22.7777 21.7382 23.5802 19.9102 25.0069L16.8485 22.3764C16.4829 22.0643 15.8888 22.1089 15.5689 22.4656C15.249 22.8223 15.2947 23.4018 15.6603 23.7139L18.5393 26.166L15.6603 28.6181C15.2947 28.9302 15.249 29.5098 15.5689 29.8665C15.7517 30.0894 16.0259 30.1786 16.2544 30.1786C16.4829 30.1786 16.6657 30.0894 16.8485 29.9556L19.9102 27.3252C21.6925 28.7519 24.0688 29.5544 26.4908 29.5544C29.187 29.5544 31.8375 28.5736 33.7111 26.7902C33.8939 26.6565 33.9853 26.389 33.9853 26.166ZM26.5365 27.771C24.6171 27.771 22.8349 27.1915 21.3726 26.166C22.7892 25.1406 24.6171 24.561 26.5365 24.561C28.4558 24.561 30.238 25.1406 31.7004 26.166C30.238 27.1915 28.4101 27.771 26.5365 27.771Z" fill="white"/>
+    </svg>
+  </div>
+</div>
+
+<!--進度條100-->
+<div class="task-card position-relative px-4 py-2 me-4 rounded-2 d-flex align-items-start flex-grow-1 border border-1 border-white"
+ data-step="100" hidden>
+  <div class="flex-grow-1 pe-6">
+    <div class="fs-13 fw-medium text-primary-500">已完成 4 / 4</div>
+    <div class="progress progress-thin mt-1 rounded-pill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
+      <div class="progress-bar rounded-pill" style="width:100%"></div><!--width:0%改動可改進度條百分比-->
+    </div>
+  </div>
+  <div class="icon-badge js-reward position-absolute top-50 end-0 translate-middle-y me-2 d-flex align-items-center justify-content-center">
+    <div class="position-relative">
+        <svg class="icon_cat_can-max" width="22" height="22" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25.8766 10.2833H23.1347V9.83751C23.1347 9.07959 23.7288 8.5 24.5056 8.5C25.2825 8.5 25.8766 9.07959 25.8766 9.83751V10.2833ZM38.2039 33.2433H10.785V18.0849H38.2039V33.2433ZM9.88219 14.7417H39.1291C39.9059 14.7417 40.5 14.1175 40.5 13.4042C40.5 12.6463 39.9059 12.0667 39.1291 12.0667H9.88219C9.10532 12.0667 8.51125 12.6463 8.51125 13.4042C8.51125 14.1175 9.10532 14.7417 9.88219 14.7417ZM39.1178 36.5H9.87095C9.09408 36.5 8.5 37.0796 8.5 37.8375C8.5 38.5508 9.09408 39.175 9.87095 39.175H39.1178C39.8947 39.175 40.4888 38.5508 40.4888 37.8375C40.4888 37.0796 39.8947 36.5 39.1178 36.5Z" 
+        fill="currentColor" stroke="currentColor"/><!--fill stroke 改 currentColor 才能在scss裡改色-->
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9853 26.166C33.9853 25.9431 33.8939 25.6756 33.7111 25.5419C31.8375 23.8031 29.2327 22.7777 26.4908 22.7777C24.0688 22.7777 21.7382 23.5802 19.9102 25.0069L16.8485 22.3764C16.4829 22.0643 15.8888 22.1089 15.5689 22.4656C15.249 22.8223 15.2947 23.4018 15.6603 23.7139L18.5393 26.166L15.6603 28.6181C15.2947 28.9302 15.249 29.5098 15.5689 29.8665C15.7517 30.0894 16.0259 30.1786 16.2544 30.1786C16.4829 30.1786 16.6657 30.0894 16.8485 29.9556L19.9102 27.3252C21.6925 28.7519 24.0688 29.5544 26.4908 29.5544C29.187 29.5544 31.8375 28.5736 33.7111 26.7902C33.8939 26.6565 33.9853 26.389 33.9853 26.166ZM26.5365 27.771C24.6171 27.771 22.8349 27.1915 21.3726 26.166C22.7892 25.1406 24.6171 24.561 26.5365 24.561C28.4558 24.561 30.238 25.1406 31.7004 26.166C30.238 27.1915 28.4101 27.771 26.5365 27.771Z" fill="white"/>
+        </svg>
+    </div>
+    <span 
+    class="position-absolute top-0 start-100 p-1 bg-alert-300 border border-light rounded-circle"
+    style="width:.5rem;height:.5rem;transform:translate(-75%,-30%);">
+    <span class="visually-hidden">New alerts</span>
+    </span>
+  </div>
+</div>
+
+    <!-- 完成任務Modal (用overivew-diary _overview-diary星雪糖的修改的)-->
+<div class="modal fade" id="diary-tasks" tabindex="-1" aria-labelledby="diary-saveLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="border-0 bg-neutral-0 custom-modal-tasks rounded-s custom-yellow-tasks d-flex flex-column">
+      <button type="button" class="btn-close m-4" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="text-center">
+        <p class="fs-11 text-primary-600 fw-bold mb-3">完成今日任務</p>
+        <img class="mb-3" src="../assets/images/icons/icon_cat_can_open.png" alt="cat_can_open">
+        <p class="fs-11 text-primary-600 fw-bold mb-2">恭喜獲得 1 個罐罐</p>
+        <svg width="30" height="30" viewBox="0 0 30 30" class="mb-2" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15Z" fill="#86B42E"/>
+        <path d="M9 14.7632L13.1379 19.5L21 10.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <button type="button" class="btn btn-primary mb-3 mx-5" onclick="location.href='index.html'">回首頁</button>
+    </div>
+  </div>
+</div>

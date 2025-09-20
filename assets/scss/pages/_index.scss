@@ -12,15 +12,7 @@
 // /* ▲ Bootstrap container 會有左右 padding，會干擾 393×685 百分比定位 */
 // .container.bg-scene{ padding-left:0; padding-right:0; }
 
-/* 四邊距形成「209×158」的槽位 */
-.cat-slot {
-  position: absolute;
-  top: 59.3%;
-  left: 15%;
-  width: 53.2%;
-  height: 23.1%;
 
-}
 
 /* 讓內容不被固定底列遮住 */
 .has-bottom-pad { padding-bottom: calc(108px + env(safe-area-inset-bottom)); }
@@ -68,10 +60,17 @@
 }
 
 /* 進度卡樣式 */
-.task-card { 
-  background-color: rgba($primary-50, 0.33);
-  box-shadow: 0 1px 2px rgba(0,0,0,.04); 
+.task-card {
+  /* 刪：background-color: rgba($primary-50, 0.33); */
+  background:
+    /* 上層：主色薄膜，輕度透 */
+    linear-gradient(rgba($primary-50, .33), rgba($primary-50, .33)),
+    /* 下層：淺底，中度透，主導視覺 */
+    linear-gradient(rgba($primary-300,  .75), rgba($primary-300,  .75));
+  background-clip: padding-box, padding-box;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
 }
+
 .progress-thin { 
   height: 6px; --bs-progress-bg: #{$primary-50}; 
 }
@@ -135,6 +134,11 @@ html.panel-open footer { pointer-events:none; }
 
 .icon_cat_can {
   color: $neutral-500;  /* 因為 fill="currentColor" stroke="currentColor" */
+  // color: #{$neutral-500};  /* 因為 fill="currentColor" stroke="currentColor" */
+}
+
+.icon_cat_can-max {
+  color: $primary-600;  /* 因為 fill="currentColor" stroke="currentColor" */
   // color: #{$neutral-500};  /* 因為 fill="currentColor" stroke="currentColor" */
 }
 
@@ -311,6 +315,43 @@ $radius-xs: .25rem;
   color: var(--bs-primary-700, #1e3050);
   margin-bottom: .5rem;
 } 
+
+/*save視窗背景*/
+.custom-modal-save {
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+  width: 323px;
+  margin: 0 auto;
+}
+
+/*save視窗背景*/
+.custom-yellow-save {
+  background-image: 
+    url("/assets/images/overview/Ellipse 9.png"), /* 左上角圖片 */
+    url("/assets/images/overview/Ellipse 8.png"); /* 右下角圖片 */
+  
+  background-repeat: no-repeat, no-repeat;         /* 分別設定不重複 */
+  background-position: top left, bottom right;     /* 分別設定位置 */
+  background-size: auto, auto;                     /* 分別設定大小，可改成 cover/contain */
+}
+
+/*tasks視窗背景*/
+.custom-modal-tasks {
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+  width: 346px;
+  margin: 0 auto;
+}
+
+/*tasks視窗背景*/
+.custom-yellow-tasks {
+  background-image: 
+    url("/assets/images/overview/Ellipse\ 8-big.png"); /* 右下角圖片 */
+  
+  background-repeat: no-repeat, no-repeat;         /* 分別設定不重複 */
+  background-position: top left, bottom right;     /* 分別設定位置 */
+  background-size: auto, auto;                     /* 分別設定大小，可改成 cover/contain */
+}
+
+
 
 
 /*z-index整理 
