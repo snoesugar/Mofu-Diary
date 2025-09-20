@@ -12,7 +12,6 @@
   <div class="row">
     <div class="col-12 d-flex flex-column ">
       <!-- 頂部：問候 -->
-      <!-- <div class="d-flex justify-content-between align-items-start my-2"> -->
       <div id="greet" class="d-flex justify-content-between align-items-start mt-top">
         <div>
           <h1 class="text-primary-700 fw-bold fs-6 mb-1">Hi, Sarah</h1>
@@ -22,46 +21,43 @@
       </div>
       <!-- 場景：背景圖 + 貓 + ZZZ -->
       <div class="mx-auto">
-        <!-- ZZZ 泡泡：依你提供位置 -->
         <div class="speech p-1 px-2 d-inline-block bg-neutral-0 rounded-top-xs rounded-bottom-right-xs shadow-sm">
           <p class="fs-12 text-primary-600 mb-0 ">ZZZ.......</p>
         </div>
-
-        <!-- 貓槽位：百分比等比縮放，不跑版 -->
         <div class="cat-slot">
           <img src="../assets/images/cat/action_cat_sleep2.png" alt="action_cat_sleep2">
         </div>
       </div>
+    </div>
   </div>
 </div>
+
 <aside id="relaxPanel" class="relax-panel">
   <div class="scene-footer d-flex align-items-start">
-    <!-- 原本的小卡：tag-btn、.task-card 保持不動 -->
-    <!-- ... 你的原始 .scene-footer 內容 ... -->
-    <button class="tag-btn d-flex align-items-center">
-      <img src="../assets/images/icons/icon_calendar_date.png" alt="icon_calendar_date" class="" width="20" height="20">
-      <span class="fs-9 text-primary-600 fw-bold">編輯放鬆行程</span>
+    <!-- 觸發鍵（補 aria） -->
+    <button class="tag-btn d-flex align-items-center" type="button" aria-expanded="true" aria-controls="relaxPanel">
+      <img src="../assets/images/icons/icon_calendar_date.png" alt="icon_calendar_date" width="20" height="20">
+      <span class="fs-9 text-primary-600 fw-bold ms-1">編輯放鬆行程</span>
     </button>
-  
+
     <div class="task-card position-relative px-4 py-2 me-4 rounded-2 d-flex align-items-start flex-grow-1">
       <div class="flex-grow-1 pe-6">
-        <div class="fs-13 fw-medium text-primary-500">已完成 2 / 4</div>
-        <div class="progress progress-thin mt-1 rounded-pill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
-          <div class="progress-bar rounded-pill" style="width:50%"></div><!--width:0%改動可改進度條百分比-->
+        <div class="fs-13 fw-medium text-primary-500">已完成 0 / 4</div>
+        <div class="progress progress-thin mt-1 rounded-pill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <div class="progress-bar rounded-pill" style="width:0%"></div>
         </div>
       </div>
       <div class="icon-badge position-absolute top-50 end-0 translate-middle-y me-2 d-flex align-items-center justify-content-center">
         <svg class="icon_cat_can" width="22" height="22" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M25.8766 10.2833H23.1347V9.83751C23.1347 9.07959 23.7288 8.5 24.5056 8.5C25.2825 8.5 25.8766 9.07959 25.8766 9.83751V10.2833ZM38.2039 33.2433H10.785V18.0849H38.2039V33.2433ZM9.88219 14.7417H39.1291C39.9059 14.7417 40.5 14.1175 40.5 13.4042C40.5 12.6463 39.9059 12.0667 39.1291 12.0667H9.88219C9.10532 12.0667 8.51125 12.6463 8.51125 13.4042C8.51125 14.1175 9.10532 14.7417 9.88219 14.7417ZM39.1178 36.5H9.87095C9.09408 36.5 8.5 37.0796 8.5 37.8375C8.5 38.5508 9.09408 39.175 9.87095 39.175H39.1178C39.8947 39.175 40.4888 38.5508 40.4888 37.8375C40.4888 37.0796 39.8947 36.5 39.1178 36.5Z" 
-        fill="currentColor" stroke="currentColor"/><!--fill stroke 改 currentColor 才能在scss裡改色-->
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9853 26.166C33.9853 25.9431 33.8939 25.6756 33.7111 25.5419C31.8375 23.8031 29.2327 22.7777 26.4908 22.7777C24.0688 22.7777 21.7382 23.5802 19.9102 25.0069L16.8485 22.3764C16.4829 22.0643 15.8888 22.1089 15.5689 22.4656C15.249 22.8223 15.2947 23.4018 15.6603 23.7139L18.5393 26.166L15.6603 28.6181C15.2947 28.9302 15.249 29.5098 15.5689 29.8665C15.7517 30.0894 16.0259 30.1786 16.2544 30.1786C16.4829 30.1786 16.6657 30.0894 16.8485 29.9556L19.9102 27.3252C21.6925 28.7519 24.0688 29.5544 26.4908 29.5544C29.187 29.5544 31.8375 28.5736 33.7111 26.7902C33.8939 26.6565 33.9853 26.389 33.9853 26.166ZM26.5365 27.771C24.6171 27.771 22.8349 27.1915 21.3726 26.166C22.7892 25.1406 24.6171 24.561 26.5365 24.561C28.4558 24.561 30.238 25.1406 31.7004 26.166C30.238 27.1915 28.4101 27.771 26.5365 27.771Z" fill="white"/>
+          <path d="M25.8766 10.2833H23.1347V9.83751C23.1347 9.07959 23.7288 8.5 24.5056 8.5C25.2825 8.5 25.8766 9.07959 25.8766 9.83751V10.2833ZM38.2039 33.2433H10.785V18.0849H38.2039V33.2433ZM9.88219 14.7417H39.1291C39.9059 14.7417 40.5 14.1175 40.5 13.4042C40.5 12.6463 39.9059 12.0667 39.1291 12.0667H9.88219C9.10532 12.0667 8.51125 12.6463 8.51125 13.4042C8.51125 14.1175 9.10532 14.7417 9.88219 14.7417ZM39.1178 36.5H9.87095C9.09408 36.5 8.5 37.0796 8.5 37.8375C8.5 38.5508 9.09408 39.175 9.87095 39.175H39.1178C39.8947 39.175 40.4888 38.5508 40.4888 37.8375C40.4888 37.0796 39.8947 36.5 39.1178 36.5Z" fill="currentColor" stroke="currentColor"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9853 26.166C33.9853 25.9431 33.8939 25.6756 33.7111 25.5419C31.8375 23.8031 29.2327 22.7777 26.4908 22.7777C24.0688 22.7777 21.7382 23.5802 19.9102 25.0069L16.8485 22.3764C16.4829 22.0643 15.8888 22.1089 15.5689 22.4656C15.249 22.8223 15.2947 23.4018 15.6603 23.7139L18.5393 26.166L15.6603 28.6181C15.2947 28.9302 15.249 29.5098 15.5689 29.8665C15.7517 30.0894 16.0259 30.1786 16.2544 30.1786C16.4829 30.1786 16.6657 30.0894 16.8485 29.9556L19.9102 27.3252C21.6925 28.7519 24.0688 29.5544 26.4908 29.5544C29.187 29.5544 31.8375 28.5736 33.7111 26.7902C33.8939 26.6565 33.9853 26.389 33.9853 26.166ZM26.5365 27.771C24.6171 27.771 22.8349 27.1915 21.3726 26.166C22.7892 25.1406 24.6171 24.561 26.5365 24.561C28.4558 24.561 30.238 25.1406 31.7004 26.166C30.238 27.1915 28.4101 27.771 26.5365 27.771Z" fill="white"/>
         </svg>
       </div>
     </div>
   </div>
-  <!-- 抽屜內容（在卡片下方，可放清單等；會自己捲動） -->
+
+  <!-- 抽屜內容 -->
   <div class="scene-body">
-    <!-- 「編輯行程」詳細內容 -->
     <div class="container has-bottom-pad body page-wrapper">
       <div class="row">
         <div class="col-12 d-flex flex-column">
@@ -80,7 +76,7 @@
             <h3 class="fs-11 text-primary-600 mb-2">預覽</h3>
             <%- include('./layout/myday-diary-cards'); -%>
             <div class="border-1 border-neutral-100 bg-primary-100 p-3 rounded-3 d-flex justify-content-center align-items-center">
-              <button class="btn p-0 d-flex align-items-center">
+              <button class="btn border-0 p-0 d-flex align-items-center" type="button" disabled>
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M24 32.8206C26.0103 32.8206 27.7128 32.1232 29.1077 30.7283C30.5026 29.3334 31.2 27.6309 31.2 25.6206C31.2 23.6103 30.5026 21.9078 29.1077 20.5129C27.7128 19.118 26.0103 18.4206 24 18.4206C21.9897 18.4206 20.2872 19.118 18.8923 20.5129C17.4974 21.9078 16.8 23.6103 16.8 25.6206C16.8 27.6309 17.4974 29.3334 18.8923 30.7283C20.2872 32.1232 21.9897 32.8206 24 32.8206ZM23.9918 29.7437C22.8349 29.7437 21.8598 29.3471 21.0667 28.5539C20.2735 27.7608 19.8769 26.7857 19.8769 25.6288C19.8769 24.4722 20.2735 23.4944 21.0667 22.6955C21.8598 21.8968 22.8349 21.4975 23.9918 21.4975C25.1484 21.4975 26.1262 21.8968 26.9251 22.6955C27.7238 23.4944 28.1231 24.4722 28.1231 25.6288C28.1231 26.7857 27.7238 27.7608 26.9251 28.5539C26.1262 29.3471 25.1484 29.7437 23.9918 29.7437ZM11.0769 38.3591C10.2307 38.3591 9.50632 38.0578 8.90379 37.4553C8.30126 36.8527 8 36.1284 8 35.2821V15.9796C8 15.1334 8.30126 14.409 8.90379 13.8064C9.50632 13.2039 10.2307 12.9027 11.0769 12.9027H16.2462L18.2769 10.6668C18.5625 10.3511 18.9064 10.1013 19.3087 9.91722C19.711 9.73315 20.1329 9.64111 20.5744 9.64111H27.4256C27.8671 9.64111 28.289 9.73315 28.6913 9.91722C29.0936 10.1013 29.4375 10.3511 29.7231 10.6668L31.7538 12.9027H36.9231C37.7693 12.9027 38.4937 13.2039 39.0962 13.8064C39.6987 14.409 40 15.1334 40 15.9796V35.2821C40 36.1284 39.6987 36.8527 39.0962 37.4553C38.4937 38.0578 37.7693 38.3591 36.9231 38.3591H11.0769Z" fill="#BC8035"/>
                 </svg>
@@ -91,102 +87,94 @@
           </div>
 
           <a class="btn text-neutral-0 bg-primary-500 mb-2 rounded-5" href="index.html">完成</a>
-          <a class="btn text-alert-300 border-1 border-alert-300 rounded-5 mb-6" href="index.html">
-              取消編輯
-          </a>
+          <a class="btn text-alert-300 border-1 border-alert-300 rounded-5 mb-6" href="index.html">取消編輯</a>
         </div>
-      </div><!--row-->
+      </div>
     </div>
     <%- include('./layout/footer'); -%>
   </div>
 </aside>
-    
 
 <script type="module" src="../main.js"></script>
-<!--保持footer維持primary-->
+
+<!-- 底部導覽：第二個 active -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // 找到底部的「總覽」按鈕 (第一個)
-    const navBtns = document.querySelectorAll(".btn-nav-bottom");
-    if (navBtns.length > 0) {
-      navBtns[1].classList.add("active");  // 讓第一個變 active
-    }
+document.addEventListener("DOMContentLoaded", function () {
+  const navBtns = document.querySelectorAll(".btn-nav-bottom");
+  if (navBtns.length > 1) {
+    navBtns[1].classList.add("active");  // 第二個
+  }
+});
+</script>
+
+<!-- relaxPanel：統一計算（展開預設 on） -->
+<script>
+(() => {
+  const root  = document.documentElement;
+  const panel = document.getElementById('relaxPanel');
+  const OPEN_GAP = 8;
+  if (!panel) return;
+
+  // 統一 DOM 參照，避免重複宣告
+  const sceneEl      = document.querySelector('.bg-scene');
+  const greetEl      = document.getElementById('greet');
+  const sceneFooterEl= panel.querySelector('.scene-footer');
+
+  const px = n => Math.round(n) + 'px';
+
+  function applyState(){
+    const isOpen = panel.classList.contains('is-open');
+    const t = isOpen ? panel.dataset.openTop : panel.dataset.collapsedTop;
+    document.documentElement.classList.toggle('panel-open', isOpen);
+    if(t) root.style.setProperty('--panel-top', px(+t));
+  }
+
+  function measure(){
+    const scene = document.querySelector('.bg-scene');
+    const greet = document.getElementById('greet');
+    const head  = panel.querySelector('.scene-footer');
+    if(!scene || !greet || !head) return;
+
+    const headH = Math.round(head.offsetHeight || 52);
+    root.style.setProperty('--panel-head-h', px(headH));
+
+    const sb = scene.getBoundingClientRect();
+    const gb = greet.getBoundingClientRect();
+
+    const collapsedTop = Math.round(sb.top + sb.height - headH);
+    const openTop      = Math.max(0, Math.round(gb.bottom + OPEN_GAP));
+
+    panel.dataset.collapsedTop = collapsedTop;
+    panel.dataset.openTop = openTop;
+
+    applyState();
+  }
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.tag-btn');
+    if(!btn) return;
+    const isOpen = panel.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    measure();
   });
 
-  /* ▲ 進出場位置計算：收合=只露 52px 頭，展開=停在問候區塊底下 */
-  (function(){
-    const root  = document.documentElement;
-    const panel = document.getElementById('relaxPanel');
-    const OPEN_GAP = 8; // 問候區塊底下預留的間距（可微調）
+  panel.classList.add('is-open');
+  panel.querySelector('.tag-btn')?.setAttribute('aria-expanded','true');
+  measure();
 
-    // ★ 新增：收合露出比例（可用 data-peek 覆寫）20250917
-    // const DEFAULT_PEEK_RATIO = 140 / 794;   // ≈0.0655  用來手動調整RWD版型問題
+  const onScroll = () => panel.classList.contains('is-open') && measure();
+  ['resize','orientationchange','scroll'].forEach(evt => window.addEventListener(evt, onScroll, {passive:true}));
 
-    function px(n){ return Math.round(n) + 'px'; }
-
-    function measure(){
-      const scene = document.querySelector('.bg-scene');
-      const greet = document.getElementById('greet');
-      const head  = panel?.querySelector('.scene-footer');
-      if(!scene || !greet || !head || !panel) return;
-
-      // const vh    = Math.max(window.innerHeight, document.documentElement.clientHeight || 0); // ★ 新增收合露出比例 20250917
-      const headH = Math.round(head.offsetHeight || 52);
-      root.style.setProperty('--panel-head-h', px(headH));
-
-      const sb = scene.getBoundingClientRect();
-      const gb = greet.getBoundingClientRect();
-
-      // ★ 新增：以比例算出 peek 高度，至少要能露出整個頭
-      // const ratio = parseFloat(panel.dataset.peek || DEFAULT_PEEK_RATIO) || DEFAULT_PEEK_RATIO;
-      // let peekH   = Math.max(headH, Math.round(vh * ratio));
-      // peekH       = Math.min(peekH, Math.round(sb.height)); // 防止超過背景高
-      // root.style.setProperty('--panel-peek-h', px(peekH));  // （可選）供除錯/樣式使用
-
-      // ▲ 收合：抽屜 top = 背景頂 + 背景高 - 抽屜頭高
-       const collapsedTop = Math.round(sb.top + sb.height - headH);
-      // ★ 修改：用 peekH 取代原本的 headH
-      // const collapsedTop = Math.round(sb.top + sb.height - peekH);
-
-      // ▲ 展開：抽屜 top = 問候區塊底 + gap
-      const openTop = Math.max(0, Math.round(gb.bottom + OPEN_GAP));
-
-      panel.dataset.collapsedTop = collapsedTop;
-      panel.dataset.openTop = openTop;
-
-      // 依目前狀態套用
-      const isOpen = panel.classList.contains('is-open');
-      root.style.setProperty('--panel-top', px(isOpen ? openTop : collapsedTop));
-    }
-
-    const applyState = () => {
-      const t = panel.classList.contains('is-open') ? panel.dataset.openTop : panel.dataset.collapsedTop;
-      document.documentElement.classList.toggle('panel-open', panel.classList.contains('is-open'));
-      if(t) root.style.setProperty('--panel-top', px(+t));
-    };
-
-    // 初始 / 變更時重算
-    ['DOMContentLoaded','load','resize'].forEach(evt => window.addEventListener(evt, measure));
-
-    // ▲ 點擊抽屜頭切換
-    document.addEventListener('click', (e) => {
-      if(!e.target.closest('.tag-btn')) return;
-      panel.classList.toggle('is-open');
-      measure();      // ← 切換時重算（若 header 高度有變動）
-      applyState();
-    });
-
-    panel.classList.add('is-open');           // ★ 新增：預設展開
-    measure();                                 // ★ 新增：立即計算一次
-    applyState();                              // ★ 新增：立即套用一次
-
-    // 初始 / 變更時重算（保留）
-    ['load','resize','orientationchange'].forEach(evt =>
-      window.addEventListener(evt, () => {
-        if(panel.classList.contains('is-open')) measure();
-      }, {passive:true})
-    );
-  })();
+  const ro = new ResizeObserver(measure);
+  const sceneFooter = panel.querySelector('.scene-footer');
+  const greet = document.getElementById('greet');
+  const scene = document.querySelector('.bg-scene');
+  sceneFooter && ro.observe(sceneFooter);
+  greet && ro.observe(greet);
+  scene && ro.observe(scene);
+})();
 </script>
-  </body>
+
+<!-- 其餘互動（心情/能量/呼吸/日記等）保持 include 內的腳本；不要再插入 breathBtn/breathClose 複本 -->
+</body>
 </html>
