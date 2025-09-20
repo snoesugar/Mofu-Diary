@@ -1,1 +1,0 @@
-import"./main-lvWSBb1O.js";let t=3;const e=document.getElementById("countdown"),n=setInterval(()=>{t--,e.textContent=t,t<=0&&(clearInterval(n),window.location.href="https://snoesugar.github.io/Mofu-Diary/breathing-exercises-2.html")},1e3);
