@@ -18,7 +18,7 @@
 .has-bottom-pad { padding-bottom: calc(108px + env(safe-area-inset-bottom)); }
 
 /* 背景容器：等比縮放，基準為 393×685 */
-.bg-scene{ background-image: var(--bg-scene-img); }
+// .bg-scene{ background-image: var(--bg-scene-img); }
 .bg-scene {
   width: 100%;
   max-width: 393px;
@@ -27,7 +27,7 @@
   
   // margin: 0 auto;
   //margin-top: -90px;    用來手動調整RWD版型問題 -90為小尺吋手機版
-  // background-image: url('/assets/images/bg/bg1.png');
+  background-image: url('/assets/images/bg/bg1.png');
   
   background-repeat:no-repeat;
   // background-position:center -90px;
@@ -349,10 +349,10 @@ $radius-xs: .25rem;
 
 /*save視窗背景*/
 .custom-yellow-save {
-  // background-image: 
-  //   url('/assets/images/overview/Ellipse9.png'), /* 左上角圖片 */
-  //   url('/assets/images/overview/Ellipse8.png'); /* 右下角圖片 */
-  background-image: var(--save-bg-img)!important;    /* ← 改用變數（兩張圖用逗號） */
+  background-image: 
+    url('/assets/images/overview/Ellipse9.png'), /* 左上角圖片 */
+    url('/assets/images/overview/Ellipse8.png')!important; /* 右下角圖片 */
+  // background-image: var(--save-bg-img)!important;    /* ← 改用變數（兩張圖用逗號） */
 
   
   background-repeat: no-repeat, no-repeat!important;         /* 分別設定不重複 */
@@ -370,8 +370,8 @@ $radius-xs: .25rem;
 /* tasks 視窗背景：右下角圖片「貼底貼右」 */
 .custom-yellow-tasks {
   /* 路徑改成相對路徑，避免在 GitHub Pages 根目錄跑錯 */
-  // background-image: url('/assets/images/overview/Ellipse8-big.png');
-  background-image: var(--tasks-bg-img)!important;   /* ← 改用變數 */
+  background-image: url('/assets/images/overview/Ellipse8-big.png')!important;
+  // background-image: var(--tasks-bg-img)!important;   /* ← 改用變數 */
   background-repeat: no-repeat!important;
   background-position: right bottom!important;      /* 單一背景就給單一位置 */
   background-origin: border-box;          /* 以邊框盒為定位基準，忽略內距 p-5 */
