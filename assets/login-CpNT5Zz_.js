@@ -1,0 +1,1 @@
+import"./main-wzwQeZpd.js";const e=document.getElementById("logo"),t=document.getElementById("loginPage");setTimeout(()=>{e.style.opacity=0,setTimeout(()=>{e.style.display="none",t.style.display="flex",setTimeout(()=>{t.style.opacity=1},50)},3e3)},3e3);
