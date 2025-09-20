@@ -18,6 +18,7 @@
 .has-bottom-pad { padding-bottom: calc(108px + env(safe-area-inset-bottom)); }
 
 /* 背景容器：等比縮放，基準為 393×685 */
+.bg-scene{ background-image: var(--bg-scene-img); }
 .bg-scene {
   width: 100%;
   max-width: 393px;
@@ -26,7 +27,8 @@
   
   // margin: 0 auto;
   //margin-top: -90px;    用來手動調整RWD版型問題 -90為小尺吋手機版
-  background-image: url('/assets/images/bg/bg1.png');
+  // background-image: url('/assets/images/bg/bg1.png');
+  
   background-repeat:no-repeat;
   // background-position:center -90px;
   background-position:center;

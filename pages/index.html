@@ -159,20 +159,6 @@ role="dialog" aria-modal="true" aria-labelledby="ap-title">
 
 <script type="module" src="../main.js"></script>
 
-<script type="module">
-  // 透過 Vite 解析資產，build 後自動帶 hash 與 base 路徑
-  import bg1     from '../assets/images/bg/bg1.png';
-  import e9      from '../assets/images/overview/Ellipse9.png';
-  import e8      from '../assets/images/overview/Ellipse8.png';
-  import e8big   from '../assets/images/overview/Ellipse8-big.png';
-
-  const root = document.documentElement;
-  root.style.setProperty('--bg-scene-img', `url("${bg1}")`);
-  // 兩張圖要逗號串起來，讓一個變數吃整個 background-image 值
-  root.style.setProperty('--save-bg-img',  `url("${e9}"), url("${e8}")`);
-  root.style.setProperty('--tasks-bg-img', `url("${e8big}")`);
-</script>
-
 <!-- 底部導覽：第二個 active -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
