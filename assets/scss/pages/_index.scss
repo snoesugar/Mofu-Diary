@@ -44,6 +44,13 @@
   padding: 7.5px 6.5px;
 }
 
+/* ZZZ 位置： inset（391/262/178/115） */
+.speech-happy {
+  position: absolute;
+  inset: 45.55% 5% 49.99% 57.7%; /* top(312/685) right(20/393)  bottom(342/685) left(227/393) */
+  padding: 7.5px 6.5px;
+}
+
 /* 貓的槽位：把 px 轉百分比，RWD 不跑位 */
 .cat-slot {
   position: absolute;
@@ -56,6 +63,21 @@
 .cat-slot img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+}
+
+/* happy貓的槽位：把 px 轉百分比，RWD 不跑位 */
+.cat-slot-happy {
+  position: absolute;
+  /* 由 393×685 換算 */
+  top: 52%;    /* 357 / 685 */
+  left: 15.01%;   /* 59 / 393 */
+  width: 53.19%;  /* 209 / 393 */
+  height: 23.07%; /* 158 / 685 */
+}
+.cat-slot-happy img {
+  width: 120%;
+  height: 120%;
   object-fit: contain;
 }
 
@@ -341,14 +363,15 @@ $radius-xs: .25rem;
   margin: 0 auto;
 }
 
-/*tasks視窗背景*/
+/* tasks 視窗背景：右下角圖片「貼底貼右」 */
 .custom-yellow-tasks {
-  background-image: 
-    url("/assets/images/overview/Ellipse\ 8-big.png"); /* 右下角圖片 */
-  
-  background-repeat: no-repeat, no-repeat;         /* 分別設定不重複 */
-  background-position: top left, bottom right;     /* 分別設定位置 */
-  background-size: auto, auto;                     /* 分別設定大小，可改成 cover/contain */
+  /* 路徑改成相對路徑，避免在 GitHub Pages 根目錄跑錯 */
+  background-image: url("../assets/images/overview/Ellipse 8-big.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;      /* 單一背景就給單一位置 */
+  background-origin: border-box;          /* 以邊框盒為定位基準，忽略內距 p-5 */
+  background-clip: border-box;            /* 背景畫到邊框盒，避免被裁掉 */
+  background-size: auto;                  /* 需要固定尺寸可改成 93px 87px 等 */
 }
 
 

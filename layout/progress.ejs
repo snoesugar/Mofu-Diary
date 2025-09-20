@@ -73,7 +73,7 @@
  data-step="100" hidden>
   <div class="flex-grow-1 pe-6">
     <div class="fs-13 fw-medium text-primary-500">已完成 4 / 4</div>
-    <div class="progress progress-thin mt-1 rounded-pill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
+    <div class="progress progress-thin mt-1 rounded-pill" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
       <div class="progress-bar rounded-pill" style="width:100%"></div><!--width:0%改動可改進度條百分比-->
     </div>
   </div>
@@ -93,21 +93,42 @@
   </div>
 </div>
 
-    <!-- 完成任務Modal (用overivew-diary _overview-diary星雪糖的修改的)-->
-<div class="modal fade" id="diary-tasks" tabindex="-1" aria-labelledby="diary-saveLabel" aria-hidden="true">
+<!-- 完成任務 Modal -->
+<div class="modal fade" id="diary-tasks" tabindex="-1" aria-labelledby="diary-tasks-title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="border-0 bg-neutral-0 custom-modal-tasks rounded-s custom-yellow-tasks d-flex flex-column">
-      <button type="button" class="btn-close m-4" data-bs-dismiss="modal" aria-label="Close"></button>
-      <div class="text-center">
-        <p class="fs-11 text-primary-600 fw-bold mb-3">完成今日任務</p>
-        <img class="mb-3" src="../assets/images/icons/icon_cat_can_open.png" alt="cat_can_open">
-        <p class="fs-11 text-primary-600 fw-bold mb-2">恭喜獲得 1 個罐罐</p>
-        <svg width="30" height="30" viewBox="0 0 30 30" class="mb-2" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15Z" fill="#86B42E"/>
-        <path d="M9 14.7632L13.1379 19.5L21 10.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <div class="modal-content border-0 bg-neutral-0 custom-modal-tasks rounded-s custom-yellow-tasks">
+      <!-- 左上角關閉 -->
+      <button type="button"
+        class="btn-close position-absolute top-0 start-0"
+        data-bs-dismiss="modal" aria-label="Close"
+        style="z-index:2;width:2.5rem;height:2.5rem;padding:.75rem;"></button>
+
+      <div class="modal-body p-5 text-center">
+        <p id="diary-tasks-title" class="fs-7 text-primary-600 fw-bold mb-3">完成今日任務</p>
+        <img class="mb-3" src="../assets/images/icons/icon_cat_can_open-big.png" alt="cat_can_open-big" width="93" height="87" style="width:93px;height:87px;object-fit:contain;">
+        <p class="fs-9 text-primary-600 fw-bold mb-2">恭喜獲得 1 個罐罐</p>
+        <p class="fs-11 text-primary-700 fw-bold mb-2">太強了！明天也繼續紀錄吧！</p>
+        <a class="btn btn-primary py-3 px-6 fs-12" href="growth-record.html">查看等級</a>
       </div>
-      <button type="button" class="btn btn-primary mb-3 mx-5" onclick="location.href='index.html'">回首頁</button>
     </div>
   </div>
 </div>
+
+<script>
+(() => {
+  const dlg = document.getElementById('diary-tasks');
+  const x = dlg?.querySelector('[data-bs-dismiss="modal"]');
+  if (!dlg || !x) return;
+
+  if (!(window.bootstrap && window.bootstrap.Modal)) {
+    // 後備：手動關閉並清理 backdrop / body 狀態
+    x.addEventListener('click', () => {
+      dlg.classList.remove('show');
+      dlg.style.display = 'none';
+      dlg.setAttribute('aria-hidden','true');
+      document.body.classList.remove('modal-open');
+      document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+    }, { passive: true });
+  }
+})();
+</script>
