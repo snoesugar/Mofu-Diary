@@ -348,8 +348,9 @@ $radius-xs: .25rem;
 /*save視窗背景*/
 .custom-yellow-save {
   background-image: 
-    url("/assets/images/overview/Ellipse9.png"), /* 左上角圖片 */
-    url("/assets/images/overview/Ellipse8.png"); /* 右下角圖片 */
+    url('/assets/images/overview/Ellipse9.png'), /* 左上角圖片 */
+    url('/assets/images/overview/Ellipse8.png'); /* 右下角圖片 */
+
   
   background-repeat: no-repeat, no-repeat;         /* 分別設定不重複 */
   background-position: top left, bottom right;     /* 分別設定位置 */
@@ -366,7 +367,7 @@ $radius-xs: .25rem;
 /* tasks 視窗背景：右下角圖片「貼底貼右」 */
 .custom-yellow-tasks {
   /* 路徑改成相對路徑，避免在 GitHub Pages 根目錄跑錯 */
-  background-image: url("/assets/images/overview/Ellipse8-big.png");
+  background-image: url('/assets/images/overview/Ellipse8-big.png');
   background-repeat: no-repeat;
   background-position: right bottom;      /* 單一背景就給單一位置 */
   background-origin: border-box;          /* 以邊框盒為定位基準，忽略內距 p-5 */
