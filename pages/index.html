@@ -19,13 +19,23 @@
         </div>
         <a href="https://snoesugar.github.io/Mofu-Diary/growth-record.html"><img src="../assets/images/icons/icon_pet.png" alt="icon_pet"></a>
       </div>
-      <!-- 場景：背景圖 + 貓 + ZZZ -->
-      <div class="mx-auto">
+      <!-- 0% 用 -->
+      <div class="scene-sleepy mx-auto">
         <div class="speech p-1 px-2 d-inline-block bg-neutral-0 rounded-top-xs rounded-bottom-right-xs shadow-sm">
-          <p class="fs-12 text-primary-600 mb-0 ">ZZZ.......</p>
+          <p class="fs-12 text-primary-600 mb-0">ZZZ.......</p>
         </div>
         <div class="cat-slot">
           <img src="../assets/images/cat/action_cat_sleep2.png" alt="action_cat_sleep2">
+        </div>
+      </div>
+
+      <!-- 25/50/75/100 與「任務完成」用 -->
+      <div class="scene-happy mx-auto-happy d-none">
+        <div class="speech-happy p-1 px-2 d-inline-block bg-neutral-0 rounded-top-xs rounded-bottom-right-xs shadow-sm">
+          <p class="fs-12 text-primary-600 mb-0">你開心，Mofu 也開心！</p>
+        </div>
+        <div class="cat-slot-happy">
+          <img src="../assets/images/cat/action_cat_fighting.png" alt="action_cat_fighting">
         </div>
       </div>
     </div>
@@ -95,9 +105,9 @@
 </aside>
 
 <!-- 完成日記編輯Modal -->
-<div class="modal fade" id="diary-save" tabindex="-1" aria-labelledby="diary-saveLabel" aria-hidden="true">
+<div class="modal fade" id="diary-save" tabindex="-1" aria-labelledby="diary-saveLabel" aria-hidden="true" data-bs-focus="false">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="border-0 bg-neutral-0 custom-modal-save rounded-s custom-yellow-save d-flex flex-column">
+    <div class="modal-content border-0 bg-neutral-0 custom-modal-save rounded-s custom-yellow-save d-flex flex-column">
       <button type="button" class="btn-close m-4" data-bs-dismiss="modal" aria-label="Close"></button>
       <div class="text-center">
         <img src="/assets/images/save/saved_successfully.png" class="mb-2 mt-n8" alt="saved_successfully">
@@ -389,5 +399,125 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+<script>
+/* ===== Mofu Diary: no persistence, refresh resets; reward after modal ===== */
+(() => {
+  const $  = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+
+  const wrap  = $('#progressWrap');
+  const saveM = $('#diary-save');
+  if (!wrap || !saveM) return;
+
+  const doneCard  = $('#taskDoneCard');     // 「今日任務已完成」
+  const goHomeBtn = $('#goHomeAfterSave');
+
+  // 狀態僅存在於記憶體：刷新重置
+  const state = { p: 0, rewardSeen: false }; // p: 0..4
+
+  function render(){
+    const p = state.p, pct = p*25;
+    // 隱藏全部 step 卡
+    const steps = $$('.task-card[data-step]', wrap);
+    steps.forEach(c => c.hidden = true);
+
+    if (p < 4) {
+      const active = steps.find(c => +c.getAttribute('data-step') === pct);
+      if (active) {
+        active.hidden = false;
+        active.querySelector('.fs-13.fw-medium')?.replaceChildren(`已完成 ${p} / 4`);
+        active.querySelector('.progress[role="progressbar"]')?.setAttribute('aria-valuenow', String(pct));
+        const bar = active.querySelector('.progress-bar'); if (bar) bar.style.width = pct + '%';
+      }
+      if (doneCard) doneCard.hidden = true;
+    } else {
+      // p === 4：先顯示 100% 卡，點獎勵後才換完成卡
+      if (!state.rewardSeen) {
+        const full = steps.find(c => +c.getAttribute('data-step') === 100);
+        if (full) {
+          full.hidden = false;
+          full.querySelector('.fs-13.fw-medium')?.replaceChildren('已完成 4 / 4');
+          full.querySelector('.progress[role="progressbar"]')?.setAttribute('aria-valuenow', '100');
+          const bar = full.querySelector('.progress-bar'); if (bar) bar.style.width = '100%';
+        }
+        if (doneCard) doneCard.hidden = true;
+      } else {
+        if (doneCard) doneCard.hidden = false;
+      }
+    }
+  }
+  render();
+
+  // 「回首頁」：先關 modal，等關完再 +1（同頁看到變化；刷新會歸零）
+  let incPending = false;
+  goHomeBtn?.addEventListener('click', () => { incPending = true; }, {passive:true});
+
+  const doInc = () => {
+    if (!incPending) return;
+    incPending = false;
+    if (state.p < 4) state.p += 1;
+    render();
+  };
+
+  if (window.bootstrap?.Modal) {
+    saveM.addEventListener('hidden.bs.modal', doInc);
+  } else {
+    // 無 Bootstrap JS：監看關閉
+    new MutationObserver(() => {
+      const hidden = !saveM.classList.contains('show') && saveM.getAttribute('aria-hidden') === 'true';
+      if (hidden) doInc();
+    }).observe(saveM, {attributes:true, attributeFilter:['class','aria-hidden']});
+  }
+
+  // 100% 獎勵：點 .js-reward → 開 #diary-tasks；彈出後才換完成卡
+  wrap.addEventListener('click', (e) => {
+    const btn = e.target.closest('.js-reward'); if (!btn) return;
+    const dlg = $('#diary-tasks'); if (!dlg) return;
+
+    if (window.bootstrap?.Modal) {
+      const m = new bootstrap.Modal(dlg,{backdrop:'static'});
+      const onShown = () => { dlg.removeEventListener('shown.bs.modal', onShown); state.rewardSeen = true; render(); };
+      dlg.addEventListener('shown.bs.modal', onShown, {once:true});
+      m.show();
+    } else {
+      dlg.classList.add('show');
+      dlg.style.display = 'block';
+      dlg.removeAttribute('aria-hidden');
+      dlg.setAttribute('aria-modal','true');
+      dlg.setAttribute('role','dialog');
+      state.rewardSeen = true;
+      render();
+    }
+  }, {passive:true});
+})();
+</script>
+
+<script>
+(() => {
+  const wrap   = document.getElementById('progressWrap');
+  const sleepy = document.querySelector('.scene-sleepy');
+  const happy  = document.querySelector('.scene-happy');
+  const done   = document.getElementById('taskDoneCard');
+  if (!wrap || !sleepy || !happy) return;
+
+  const getStep = () => {
+    const card = wrap.querySelector('.task-card[data-step]:not([hidden])');
+    return card ? parseInt(card.getAttribute('data-step')||'0',10) : 0; // 0/25/50/75/100
+  };
+
+  const apply = () => {
+    const step = getStep();
+    const isDone = !!(done && !done.hidden);
+    const showHappy = isDone || step >= 25; // 除了 0 以外全部顯示開心版
+    happy.classList.toggle('d-none', !showHappy);
+    sleepy.classList.toggle('d-none', showHappy);
+  };
+
+  apply();
+  const mo = new MutationObserver(apply);
+  mo.observe(wrap, { attributes: true, attributeFilter: ['hidden','class','style'], subtree: true });
+  if (done) mo.observe(done, { attributes: true, attributeFilter: ['hidden'] });
+})();
+</script>
 </body>
 </html>
