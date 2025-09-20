@@ -352,12 +352,12 @@ $radius-xs: .25rem;
   // background-image: 
   //   url('/assets/images/overview/Ellipse9.png'), /* 左上角圖片 */
   //   url('/assets/images/overview/Ellipse8.png'); /* 右下角圖片 */
-  background-image: var(--save-bg-img);    /* ← 改用變數（兩張圖用逗號） */
+  background-image: var(--save-bg-img)!important;    /* ← 改用變數（兩張圖用逗號） */
 
   
-  background-repeat: no-repeat, no-repeat;         /* 分別設定不重複 */
-  background-position: top left, bottom right;     /* 分別設定位置 */
-  background-size: auto, auto;                     /* 分別設定大小，可改成 cover/contain */
+  background-repeat: no-repeat, no-repeat!important;         /* 分別設定不重複 */
+  background-position: top left, bottom right!important;     /* 分別設定位置 */
+  background-size: auto, auto!important;                     /* 分別設定大小，可改成 cover/contain */
 }
 
 /*tasks視窗背景*/
@@ -371,12 +371,12 @@ $radius-xs: .25rem;
 .custom-yellow-tasks {
   /* 路徑改成相對路徑，避免在 GitHub Pages 根目錄跑錯 */
   // background-image: url('/assets/images/overview/Ellipse8-big.png');
-  background-image: var(--tasks-bg-img);   /* ← 改用變數 */
-  background-repeat: no-repeat;
-  background-position: right bottom;      /* 單一背景就給單一位置 */
+  background-image: var(--tasks-bg-img)!important;   /* ← 改用變數 */
+  background-repeat: no-repeat!important;
+  background-position: right bottom!important;      /* 單一背景就給單一位置 */
   background-origin: border-box;          /* 以邊框盒為定位基準，忽略內距 p-5 */
   background-clip: border-box;            /* 背景畫到邊框盒，避免被裁掉 */
-  background-size: auto;                  /* 需要固定尺寸可改成 93px 87px 等 */
+  background-size: auto!important;                  /* 需要固定尺寸可改成 93px 87px 等 */
 }
 
 
