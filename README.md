@@ -1,48 +1,43 @@
-# 網頁切版直播班 Vite 範例
+# 🐱 Mofu-Diary - 寵物療癒養成日記 (Team Project)
 
-## Node.js 版本
-  - 專案的 Node.js 版本需為 v18 以上
-  - 查看自己版本指令：`node -v`
+Mofu-Diary 是一款專為寵物飼主與高壓族群設計的「情緒紀錄與養成」應用。由開發團隊共同協作，結合正念心理學、數據視覺化與遊戲化機制，將枯燥的日記紀錄轉化為與虛擬貓咪互動的療癒體驗。
 
+🔗 **[線上預覽成品](https://snoesugar.github.io/Mofu-Diary/)**
 
-## 指令列表
-- `npm install` - 初次下載該範例專案後，需要使用 npm install 來安裝套件
-- `npm run dev` - 執行開發模式
-  - 若沒有自動開啟瀏覽器，可嘗試手動在瀏覽器上輸入
-    `http://localhost:5173/<專案名稱>/pages/index.html`
-- `npm run build` - 執行編譯模式（不會開啟瀏覽器）
-- `npm run deploy` - 自動化部署
+---
 
-## 資料夾結構
-  - assets # 靜態資源放置處
-    - images # 圖片放置處
-    - scss # SCSS 的樣式放置處
+## 🎯 產品願景與設計初衷
 
-  - layout # ejs 模板放置處
-  - pages # 頁面放置處
+現代人面臨慢性壓力，雖然市場上有許多冥想或日記 App，但往往因門檻高、缺乏誘因導致難以持續。
+* **團隊目標**：打造「輕量化、高吸引力」的紀錄流程。
+* **核心機制**：透過「獲得罐罐」與「場景解鎖」的養成系統，將紀錄行為轉化為具備成就感的遊戲體驗。
+* **價值主張**：結合貓咪養成與成就系統，降低正念練習的進入門檻，將枯燥的紀錄轉化為具吸引力的放鬆旅程。
 
-- JavaScript 程式碼可寫在 main.js 檔案
+---
 
-### 注意事項
-- 已將 pages 資料夾內的 index.html 預設為首頁，建議不要任意修改 index.html 的檔案名稱
-- .gitignore 檔案是用來忽略掉不該上傳到 GitHub 的檔案（例如 node_modules），請不要移除 .gitignore
+## 🛠️ 技術重點與團隊實作
 
-## 開發模式的監聽
-vite 專案執行開發模式 `npm run dev` 後即會自動監聽，不需要使用 `Live Sass Compiler` 的 `Watch SCSS` 功能
+本專案展現了團隊在前端技術整合與 **Git Flow 協作** 上的高度默契：
 
+### 1. 互動與數據視覺化 (Interaction & Data)
+* **情緒趨勢分析**：運用 **Chart.js** 客製化情緒曲線圖，協助用戶洞察長期的心理狀態變化。
+* **精準日期紀錄**：整合 **air-datepicker** 實作直覺的行事曆選擇器，提升補登與查看歷史紀錄的便利性。
+* **養成互動邏輯**：實作罐罐積分系統與場景等級解鎖機制，提升使用者留存。
 
-## 部署 gh-pages 流程說明
-### Windows 版本
-1. 在 GitHub 建立一個新的 Repository
+### 2. 工程規範與系統化開發 (Engineering Excellence)
+* **視覺變數統整**：團隊共同定義 SCSS 變數（顏色、間距、字體），確保多位成員開發的 UI 畫面高度一致。
+* **組件化思維**：將導覽列、側邊欄與標籤（Tag）搜尋功能模組化，加速開發效率。
+* **版本控制管理**：採用嚴謹的 PR (Pull Request) 審核制度，由專人處理 Code Conflict 並進行版本回溯與品質監控。
 
-2. 部署前請務必先將原始碼上傳到 GitHub Repository 也就是初始化 GitHub，因此通常第一步驟會在專案終端機輸入以下指令
-```cmd
-git init # 若已經初始化過就可以不用輸入
-git add .
-git commit -m 'first commit'
-git branch -M main
-git remote add origin [GitHub Repositories Url]
-git push -u origin main // 僅限第一次輸入，往後只需要輸入 git push
-```
+### 3. 動態感官體驗
+* **響應式架構**：使用 Bootstrap 5 確保從手機到桌機都能擁有絕佳的瀏覽體驗。
 
-3. 初始化完畢後，執行 `npm run deploy` 指令進行自動化部署
+---
+
+## 🚀 技術棧 (Tech Stack)
+
+* **Core:** HTML5 / JavaScript (ES6+)
+* **Build Tool:** Vite
+* **Styling:** Bootstrap 5, SCSS (7-1 Pattern)
+* **Plugins:** Chart.js, air-datepicker
+* **Collaboration:** Git / GitHub Flow
