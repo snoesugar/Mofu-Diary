@@ -30,7 +30,6 @@ Mofu-Diary 是一款專為寵物飼主與高壓族群設計的「情緒紀錄與
 * **版本控制管理**：採用嚴謹的 PR (Pull Request) 審核制度，由專人處理 Code Conflict 並進行版本回溯與品質監控。
 
 ### 3. 動態感官體驗
-* **沉浸式動畫**：整合 **GSAP** 與 **AOS** 轉場效果，營造「輕盈、流暢」的療癒系品牌視覺感受。
 * **響應式架構**：使用 Bootstrap 5 確保從手機到桌機都能擁有絕佳的瀏覽體驗。
 
 ---
@@ -41,5 +40,4 @@ Mofu-Diary 是一款專為寵物飼主與高壓族群設計的「情緒紀錄與
 * **Build Tool:** Vite
 * **Styling:** Bootstrap 5, SCSS (7-1 Pattern)
 * **Plugins:** Chart.js, air-datepicker
-* **Animation:** GSAP, AOS
 * **Collaboration:** Git / GitHub Flow
